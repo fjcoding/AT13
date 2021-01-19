@@ -18,6 +18,10 @@ Add your info in the <your name> file using 1 commit for each row of information
 6th commit - preferred programming languages
 7th commit - residence city
 
+## Third assignment
+* Push <your name> branch to remote repository
+* Pull new changes from master branch to your local repository
+
 # Git commands cheatsheet
 * git clone - clone a remote repo into a local repo
 * git status - shows status of local repo
