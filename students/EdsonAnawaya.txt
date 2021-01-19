@@ -4,3 +4,4 @@ Age: 28
 career: Informatica
 university: UMSA
 preferred programming languages: NodeJs
+residence city: La Paz - Bolivia
