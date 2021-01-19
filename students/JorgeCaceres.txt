@@ -4,3 +4,4 @@ Jorge
 Electronic engineer
 San Simon University
 Java
+Cochabamba
