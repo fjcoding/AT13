@@ -17,3 +17,16 @@ Add your info in the <your name> file using 1 commit for each row of information
 5th commit - university
 6th commit - preferred programming languages
 7th commit - residence city
+
+# Git commands cheatsheet
+* git clone - clone a remote repo into a local repo
+* git status - shows status of local repo
+* git diff - shows changes not staged to commit
+* git checkout - switch between branches
+* git branch - creates/manages branches
+* git add <filename> - add files ready for commit
+* git commit - creates a commit with files staged for commit
+* git log - shows branch history
+* git push - push changes to remote repository
+* git pull - pull changes from remote repository
+* git merge - merge two branches
