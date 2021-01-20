@@ -1,4 +1,4 @@
-package org.fundacionjala.at13.studends;
+package org.fundacionjala.at13.students;
 
 public class JoelRojas{
 
