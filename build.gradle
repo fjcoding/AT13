@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.fundacionjala.at13.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
+}
