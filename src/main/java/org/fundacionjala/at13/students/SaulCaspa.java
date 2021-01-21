@@ -7,4 +7,7 @@ public class SaulCaspa{
     Universidad Mayor de San Simon
     Java, php, python
     Cochabamba*/
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }

@@ -11,6 +11,8 @@ public class CristianChoque{
     preferred programming languages: C++
     residence city: La Paz
     */
-
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }
 

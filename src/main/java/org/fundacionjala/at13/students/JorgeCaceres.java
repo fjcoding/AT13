@@ -8,5 +8,7 @@ Electronic engineer
 San Simon University
 Java
 Cochabamba*/
-
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }

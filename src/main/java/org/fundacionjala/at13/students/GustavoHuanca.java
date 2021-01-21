@@ -7,4 +7,7 @@ Physics
 Mayor de San Simon
 C# and Fortran
 Cochabamba*/ 
+   public String ShowNickName(){
+      return "I like to be called "+this.nickName;
+   }
 }
