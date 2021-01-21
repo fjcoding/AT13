@@ -12,4 +12,7 @@ public class JessickaMoyaAndrade{
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
     }
+    public String ShowName(){
+        return "Hi, my name is "+this.name;
+    }
 }
