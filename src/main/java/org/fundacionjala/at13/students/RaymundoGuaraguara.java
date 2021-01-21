@@ -11,6 +11,28 @@ class RaymundoGuaraguara {
     Python
     Cochabamba
     */
+    private String name;
+    private String nickName;
+    private int age;
+    private String career;
+    private String university;
+    private String programingLanguages;
+    private String residenceCity;
+
+    public RaymundoGuaraguara(){
+        this.name="Raymundo Guaraguara Sansusty";
+        this.nickName="Ray";
+        this.age=31;
+        this.carreer="Industrial and systems engineering";
+        this.university="Universidad Privada Boliviana";
+        this.programingLanguages="Python";
+        this.residenceCity="Cochabamba";
+    }
+
+    public String showProgramingLanguage() {
+        return "I like the programming languages " + this.programingLanguages;
+    }
+
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
