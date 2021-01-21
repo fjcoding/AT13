@@ -8,7 +8,6 @@ public class SaulCaspa{
     Universidad Mayor de San Simon
     Java, php, python
     Cochabamba*/
-<<<<<<< HEAD
 
     private String name;
     private String nickName;
@@ -20,17 +19,15 @@ public class SaulCaspa{
 
     public SaulCaspa(){
         this.name="Saul Caspa Miranda";
-        this.preferredName="Saul";
+        this.nickname="Saul";
         this.age=26;
         this.career="Systems Engineering";
         this.university="Universidad Mayor de San Simon";
-        this.programmingLanguagesList="Java, php, python";
+        this.programmingLanguages="Java, php, python";
     }
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
-=======
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
->>>>>>> da18f389e4571fb870448982df7e449cef23fe56
     }
 }
