@@ -1,6 +1,6 @@
 package org.fundacionjala.at13.students;
 
-class RaymundoGuaraguara {
+public class RaymundoGuaraguara {
 
    
     /*
