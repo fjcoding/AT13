@@ -1,14 +1,39 @@
 package org.fundacionjala.at13.students;
-public class JuanGonzales{
+public class EdsonAnawayaRios{
+    
+    /*Edson Añawaya Rios
+    I like to be called Edson
+    Age: 28
+    career: Informatica
+    university: UMSA
+    preferred programming languages: NodeJs
+    residence city: La Paz - Bolivia*/
 
-    private String name = "Juan Pablo Gonzales Alvarado";
-    private String nickName = "Juampi";
-    private int age = 29;
-    private String career = "Computer Engineer";
-    private String university = "Juan Misael Saracho";
-    private String programingLanguages = "Java and Dart";
-    private String residenceCity = "Tarija";
+    private String name;
+    private String nickName;
+    private int age;
+    private String career;
+    private String university;
+    private String programingLanguages;
+    private String residenceCity;
 
+    public EdsonAnawayaRios(){
+        this.name="Edson Añawaya Rios";
+        this.nickName="Edson";
+        this.age=28;
+        this.career="Informatica";
+        this.university="UMSA";
+        this.programingLanguages="NodeJs";
+        this.residenceCity="La Paz";
+    }
+
+    public String getResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
+    
     public String showStudentsInformation() {
         return "Hello "+"my name is " + name + "\n" +
                 "I like to be called '" + nickName + "\n" +
@@ -18,11 +43,6 @@ public class JuanGonzales{
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
-
-     public String getResidenceCity(){
-        return "Currently I live in "+residenceCity+".";
-    }
-
     public String ShowName(){
         return "Hi, my name is "+this.name;
     }

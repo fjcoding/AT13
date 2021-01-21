@@ -1,14 +1,27 @@
+
 package org.fundacionjala.at13.students;
-public class JuanGonzales{
 
-    private String name = "Juan Pablo Gonzales Alvarado";
-    private String nickName = "Juampi";
-    private int age = 29;
-    private String career = "Computer Engineer";
-    private String university = "Juan Misael Saracho";
-    private String programingLanguages = "Java and Dart";
-    private String residenceCity = "Tarija";
+public class JessickaMoyaAndrade{
+    
+    private String name="Jessicka Moya Andrade";
+    private String nickName="Jess";
+    private int age=23;
+    private String career="Systems Engineering";
+    private String university="UMSS";
+    private String programingLanguages="java, php";
+    private String residenceCity="Cochabamba, Cochabamba";
 
+    public String getCareer(){
+		return "I have studied" + this.career;
+	}
+
+    public String getResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
+    
     public String showStudentsInformation() {
         return "Hello "+"my name is " + name + "\n" +
                 "I like to be called '" + nickName + "\n" +
@@ -18,16 +31,8 @@ public class JuanGonzales{
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
-
-     public String getResidenceCity(){
-        return "Currently I live in "+residenceCity+".";
-    }
-
     public String ShowName(){
         return "Hi, my name is "+this.name;
-    }
-    public String getCareer(){
-		return "I have studied" + this.career;
     }
     public String showProgramingLanguage() {
         return "I like the programming languages " + this.programingLanguages;

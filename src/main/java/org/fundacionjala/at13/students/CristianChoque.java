@@ -1,7 +1,8 @@
+
 package org.fundacionjala.at13.students;
+public class CristianChoque{
 
-public class JoelRojas{
-
+    
     private String name;
     private String nickName;
     private int age;
@@ -10,17 +11,16 @@ public class JoelRojas{
     private String programmingLanguages;
     private String residenceCity;
 
-    public JoelRojas(){
-        this.name="Joel Rodrigo Rojas Roman";
-        this.nickName="Joel";
-        this.age=27;
-        this.career="Systems Engineering";
-        this.university="UMSS";
-        this.programmingLanguages="Java";
-        this.residenceCity="Quillacollo, Cochabamba";
+    public CristianChoque(){
+        this.name="Cristian Felix Choque Quispe";
+        this.nickName="Cristian";
+        this.age=30;
+        this.career="Electronic Engineering";
+        this.university="UMSA";
+        this.programmingLanguages="c++";
+        this.residenceCity="La Paz";
     }
 
-   
     public String ShowName(){
         return "Hi, my name is "+this.name;
     }
@@ -58,5 +58,5 @@ public class JoelRojas{
                 "My programming languages are " + this.programmingLanguages +"\n" +
                 "My residence city " + this.residenceCity;
     }
-
 }
+
