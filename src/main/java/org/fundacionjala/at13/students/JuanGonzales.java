@@ -1,18 +1,5 @@
 package org.fundacionjala.at13.students;
 public class JuanGonzales{
-/**
- * -Juan Pablo Gonzalgues Alvarado
--I like to be called juampi
--29 years old
--Ing. Informatico
--Juan Misael Saracho University
--preferred programming languages: Java y Dart
--Tarija
-
- */
-    public String getResidenceCity(){
-        return "Currently I live in "+residenceCity+".";
-    }
 
     private String name = "Juan Pablo Gonzales Alvarado";
     private String nickName = "Juampi";
@@ -30,6 +17,10 @@ public class JuanGonzales{
                 "I study at " + university+ " university \n" +
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
+    }
+
+     public String getResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
     }
 
 }
