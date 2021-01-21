@@ -29,5 +29,8 @@ Cochabamba*/
     }
     public String getCareer(){
 		return "I have studied" + this.career;
-	}
+    }
+    public String showProgramingLanguage() {
+        return "I like the programming languages " + this.programingLanguages;
+    }
 }
