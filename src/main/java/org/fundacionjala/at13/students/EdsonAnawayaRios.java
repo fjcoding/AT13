@@ -51,4 +51,7 @@ public class EdsonAnawayaRios{
     public String showProgramingLanguage() {
         return "I like the programming languages " + this.programingLanguages;
     }
+    public String ShowAge(){
+        return "Hi, my name is "+this.age;
+    } 
 }
