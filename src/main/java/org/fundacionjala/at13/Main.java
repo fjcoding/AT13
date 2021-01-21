@@ -1,5 +1,7 @@
 package org.fundacionjala.at13;
 
+import org.fundacionjala.at13.students.*;
+
 public class Main {
 
     public static void main(String[] args) {
