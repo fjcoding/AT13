@@ -40,4 +40,7 @@ public class PaolaAguilar{
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
+    public String getCareer(){
+		return "I have studied" + this.career;
+	}
 }

@@ -27,4 +27,7 @@ public class GustavoHuanca{
    public String ShowName(){
         return "Hi, my name is "+this.name;
     }
+    public String getCareer(){
+		return "I have studied" + this.career;
+	}
 }
