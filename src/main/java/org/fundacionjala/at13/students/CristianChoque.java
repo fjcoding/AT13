@@ -20,15 +20,7 @@ public class CristianChoque{
         this.programmingLanguages="c++";
         this.residenceCity="La Paz";
     }
-    /*
-    Full Name: Cristian Felix
-    I like to be called... Cristian
-    age: 30
-    career: Electronic Engineering
-    university: UMSA
-    preferred programming languages: C++
-    residence city: La Paz
-    */
+    
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
