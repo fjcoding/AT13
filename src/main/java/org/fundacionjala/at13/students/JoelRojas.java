@@ -27,4 +27,14 @@ public class JoelRojas{
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
+    
+    public String showStudentsInformation() {
+        return "Hello "+"my name is " + name + "\n" +
+                "I like to be called '" + nickName + "\n" +
+                "I am "+ age +" years old" + "\n" +
+                "I am " + career + "\n" +
+                "I study at " + university+ " university \n" +
+                "My programming languages are " + programingLanguages +"\n" +
+                "My residence city " + residenceCity;
+    }
 }
