@@ -12,7 +12,7 @@ public class PaolaAguilar{
     I live in Sucre 
     
     */
-    public String myResidenceCity(){
+    public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
 

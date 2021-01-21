@@ -8,7 +8,7 @@ Electronic engineer
 San Simon University
 Java
 Cochabamba*/
-    public String myResidenceCity(){
+    public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
 }

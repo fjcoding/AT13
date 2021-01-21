@@ -10,7 +10,7 @@ public class JuanGonzales{
 -Tarija
 
  */
-    public String myResidenceCity(){
+    public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
 }

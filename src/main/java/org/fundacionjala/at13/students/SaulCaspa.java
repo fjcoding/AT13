@@ -25,7 +25,7 @@ public class SaulCaspa{
         this.university="Universidad Mayor de San Simon";
         this.programmingLanguagesList="Java, php, python";
     }
-    public String myResidenceCity(){
+    public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
 }

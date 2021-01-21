@@ -7,7 +7,7 @@ public class EdsonAnawayaRios{
     university: UMSA
     preferred programming languages: NodeJs
     residence city: La Paz - Bolivia*/
-    public String myResidenceCity(){
+    public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
 }

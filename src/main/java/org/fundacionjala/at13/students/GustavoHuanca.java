@@ -7,7 +7,7 @@ public class GustavoHuanca{
    Mayor de San Simon
    C# and Fortran
    Cochabamba*/ 
-   public String myResidenceCity(){
+   public String getResidenceCity(){
       return "Currently I live in "+residenceCity+".";
    }
 }
