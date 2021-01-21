@@ -23,4 +23,7 @@ public class JuanGonzales{
         return "Currently I live in "+residenceCity+".";
     }
 
+    public String ShowName(){
+        return "Hi, my name is "+this.name;
+    }
 }

@@ -1,11 +1,34 @@
 package org.fundacionjala.at13.students;
+
 public class PaolaAguilar{
+    /** 
+     
+    Paola Ximena Aguilar Quiñones
+    I like to be called Pao
+    I´m 29 years old
+    I studied Systems engineer and Graphic Design
+    at USFXCH University and TECBA institute
+    My preferred programming languages are PHP and JavaScript
+    I live in Sucre 
+    
+    */
+
+    private String name = "Paola Ximena Aguilar Quiñones";
+    private String nickName = "Pao";
+    private int age = 29;
+    private String career = "Computer Engineer";
+    private String university = "Universidad de San Francisco Xavier de Chuquisaca";
+    private String programingLanguages = "PHP and JavaScrip";
+    private String residenceCity = "Sucre";
 
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
+    }
+    public String ShowName(){
+        return "Hi, my name is "+this.name;
     }
 
     public String showStudentsInformation() {
@@ -18,4 +41,3 @@ public class PaolaAguilar{
                 "My residence city " + residenceCity;
     }
 }
-
