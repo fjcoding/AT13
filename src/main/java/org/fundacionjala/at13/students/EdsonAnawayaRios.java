@@ -1,5 +1,5 @@
 package org.fundacionjala.at13.students;
-public class SaulCaspa{
+public class EdsonAnawayaRios{
     /*Edson Añawaya Rios
     I like to be called Edson
     Age: 28
