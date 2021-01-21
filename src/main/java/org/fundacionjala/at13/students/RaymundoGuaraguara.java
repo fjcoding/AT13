@@ -3,6 +3,37 @@ package org.fundacionjala.at13.students;
 class RaymundoGuaraguara {
 
    
+    /*
+    Raymundo Guaraguara Sansusty
+    I like to be called Ray
+    31
+    Industrial and systems engineering
+    Universidad Privada Boliviana
+    Python
+    Cochabamba
+    */
+    private String name;
+    private String nickName;
+    private int age;
+    private String career;
+    private String university;
+    private String programingLanguages;
+    private String residenceCity;
+
+    public RaymundoGuaraguara(){
+        this.name="Raymundo Guaraguara Sansusty";
+        this.nickName="Ray";
+        this.age=31;
+        this.career="Industrial and systems engineering";
+        this.university="Universidad Privada Boliviana";
+        this.programingLanguages="Python";
+        this.residenceCity="Cochabamba";
+    }
+
+    public String showProgramingLanguage() {
+        return "I like the programming languages " + this.programingLanguages;
+    }
+
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
