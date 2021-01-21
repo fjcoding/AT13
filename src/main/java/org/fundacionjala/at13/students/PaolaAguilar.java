@@ -1,4 +1,5 @@
 package org.fundacionjala.at13.students;
+
 public class PaolaAguilar{
     /** 
      
@@ -11,6 +12,15 @@ public class PaolaAguilar{
     I live in Sucre 
     
     */
+
+    private String name = "Paola Ximena Aguilar Quiñones";
+    private String nickName = "Pao";
+    private int age = 29;
+    private String career = "Computer Engineer";
+    private String university = "Universidad de San Francisco Xavier de Chuquisaca";
+    private String programingLanguages = "PHP and JavaScrip";
+    private String residenceCity = "Sucre";
+
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
@@ -28,4 +38,3 @@ public class PaolaAguilar{
                 "My residence city " + residenceCity;
     }
 }
-
