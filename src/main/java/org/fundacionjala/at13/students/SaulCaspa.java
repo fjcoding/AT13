@@ -19,14 +19,15 @@ public class SaulCaspa{
 
     public SaulCaspa(){
         this.name="Saul Caspa Miranda";
-        this.nickname="Saul";
+        this.preferredName="Saul";
         this.age=26;
         this.career="Systems Engineering";
         this.university="Universidad Mayor de San Simon";
-        this.programmingLanguages="Java, php, python";
+        this.programmingLanguagesList="Java, php, python";
     }
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
+    }
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
     }
