@@ -46,4 +46,7 @@ public class GustavoHuanca{
    public String showProgramingLanguage() {
       return "I like the programming languages " + this.programingLanguages;
   }
+  public String ShowUniversity(){
+   return "I studied at "+this.university;
+}
 }

@@ -16,5 +16,16 @@ public class Main {
         PaolaAguilar paola = new PaolaAguilar();
         RaymundoGuaraguara raymundo = new RaymundoGuaraguara();
         SaulCaspa saul = new SaulCaspa();
+        System.out.println(cristian.showStudentsInformation()+"\n" );
+        System.out.println(daniela.showStudentsInformation()+"\n" );
+        System.out.println(edson.showStudentsInformation()+"\n" );
+        System.out.println(gustavo.showStudentsInformation()+"\n" );
+        System.out.println(jessicka.showStudentsInformation()+"\n" );
+        System.out.println(joel.showStudentsInformation()+"\n" );
+        System.out.println(jorge.showStudentsInformation()+"\n" );
+        System.out.println(juan.showStudentsInformation()+"\n" );
+        System.out.println(paola.showStudentsInformation()+"\n" );
+        System.out.println(raymundo.showStudentsInformation()+"\n" );
+        System.out.println(saul.showStudentsInformation()+"\n" );
     }
 }

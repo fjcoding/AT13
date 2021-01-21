@@ -57,5 +57,8 @@ public class CristianChoque{
     public String ShowAge(){
         return "Hi, my name is "+this.age;
     } 
+    public String ShowUniversity(){
+        return "I studied at "+this.university;
+    }
 }
 

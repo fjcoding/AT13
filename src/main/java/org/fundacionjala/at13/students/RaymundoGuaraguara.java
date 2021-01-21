@@ -1,6 +1,6 @@
 package org.fundacionjala.at13.students;
 
-class RaymundoGuaraguara {
+ public class RaymundoGuaraguara {
 
     /*
     Raymundo Guaraguara Sansusty
@@ -23,7 +23,7 @@ class RaymundoGuaraguara {
         this.name="Raymundo Guaraguara Sansusty";
         this.nickName="Ray";
         this.age=31;
-        this.carreer="Industrial and systems engineering";
+        this.career="Industrial and systems engineering";
         this.university="Universidad Privada Boliviana";
         this.programingLanguages="Python";
         this.residenceCity="Cochabamba";
@@ -58,4 +58,7 @@ class RaymundoGuaraguara {
     public String ShowAge(){
         return "Hi, my name is "+this.age;
     } 
+    public String ShowUniversity(){
+        return "I studied at "+this.university;
+    }
 }
