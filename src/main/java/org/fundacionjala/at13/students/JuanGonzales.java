@@ -11,7 +11,7 @@ public class JuanGonzales{
 
  */
 
-private String name = "Juan Pablo Gonzales Alvarado";
+    private String name = "Juan Pablo Gonzales Alvarado";
     private String nickName = "Juampi";
     private int age = 29;
     private String career = "Computer Engineer";

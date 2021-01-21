@@ -12,6 +12,8 @@ public class PaolaAguilar{
     
     */
 
-
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }
 

@@ -11,4 +11,7 @@ class RaymundoGuaraguara {
     Python
     Cochabamba
     */
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }
