@@ -7,6 +7,25 @@ public class EdsonAnawayaRios{
     university: UMSA
     preferred programming languages: NodeJs
     residence city: La Paz - Bolivia*/
+
+    private String name;
+    private String nickName;
+    private int age;
+    private String career;
+    private String university;
+    private String programingLanguages;
+    private String residenceCity;
+
+    public EdsonAnawayaRios(){
+        this.name="Edson Añawaya Rios";
+        this.nickName="Edson";
+        this.age=28;
+        this.career="Informatica";
+        this.university="UMSA";
+        this.programingLanguages="NodeJs";
+        this.residenceCity="La Paz";
+    }
+
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
