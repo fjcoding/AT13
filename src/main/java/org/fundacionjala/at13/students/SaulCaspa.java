@@ -11,11 +11,11 @@ public class SaulCaspa{
 
     public SaulCaspa(){
         this.name="Saul Caspa Miranda";
-        this.preferredName="Saul";
+        this.nickName="Saul";
         this.age=26;
         this.career="Systems Engineering";
         this.university="Universidad Mayor de San Simon";
-        this.programmingLanguagesList="Java, php, python";
+        this.programmingLanguages="Java, php, python";
     }
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
@@ -30,7 +30,7 @@ public class SaulCaspa{
                 "I am "+ age +" years old" + "\n" +
                 "I am " + career + "\n" +
                 "I study at " + university+ " university \n" +
-                "My programming languages are " + programingLanguages +"\n" +
+                "My programming languages are " + programmingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
     public String ShowName(){

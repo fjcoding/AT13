@@ -2,12 +2,12 @@ package org.fundacionjala.at13.students;
 public class DanielaSantaCruz{
 
     private String name = "Daniela Santa Cruz Andrade"; 
-    private String nickname = "Dani";
+    private String nickName = "Dani";
     private int age = 22;
     private String career = "Systems engineering";
     private String university = "UMSS";
     private String programmingLanguages = "java";
-    private String recidenceCity = "Cochabamba";
+    private String residenceCity = "Cochabamba";
     
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
@@ -23,10 +23,14 @@ public class DanielaSantaCruz{
                 "I am "+ age +" years old" + "\n" +
                 "I am " + career + "\n" +
                 "I study at " + university+ " university \n" +
-                "My programming languages are " + programingLanguages +"\n" +
+                "My programming languages are " + programmingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
     public String ShowName(){
         return "Hi, my name is "+this.name;
     }
+
+    public String getCareer(){
+		return "I have studied" + this.career;
+	}
 }
