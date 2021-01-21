@@ -1,5 +1,5 @@
 package org.fundacionjala.at13.students;
-public Class GustavoHuanca{
+public class GustavoHuanca{
    /*Gustavo Zacarias Huanca Alconz
 Gus
 27

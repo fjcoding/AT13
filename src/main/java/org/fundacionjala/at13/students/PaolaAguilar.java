@@ -1,4 +1,5 @@
-public class Paola{
+package org.fundacionjala.at13.students;
+public class PaolaAguilar{
     /** 
      
     Paola Ximena Aguilar Quiñones
