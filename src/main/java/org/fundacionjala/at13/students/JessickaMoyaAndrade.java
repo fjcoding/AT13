@@ -28,7 +28,8 @@ public class JessickaMoyaAndrade{
                 "I am " + career + "\n" +
                 "I study at " + university+ " university \n" +
                 "My programming languages are " + programingLanguages +"\n" +
-                "My residence city " + residenceCity;
+                "My residence city " + residenceCity +"\n" +
+                "I have born in the year "+(2021-age)+".";
     }
     public String ShowName(){
         return "Hi, my name is "+this.name;
@@ -41,5 +42,8 @@ public class JessickaMoyaAndrade{
     } 
     public String ShowUniversity(){
         return "I studied at "+this.university;
+    }
+    public String showYearBirth(){
+        return "I have born in the year "+(2021-age)+".";
     }
 }

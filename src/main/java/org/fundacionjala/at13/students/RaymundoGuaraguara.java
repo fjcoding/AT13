@@ -47,7 +47,8 @@ package org.fundacionjala.at13.students;
                 "I am " + career + "\n" +
                 "I study at " + university+ " university \n" +
                 "My programming languages are " + programingLanguages +"\n" +
-                "My residence city " + residenceCity;
+                "My residence city " + residenceCity +"\n" +
+                "I have born in the year "+(2021-age)+".";
     }
     public String ShowName(){
         return "Hi, my name is "+this.name;
@@ -60,5 +61,8 @@ package org.fundacionjala.at13.students;
     } 
     public String ShowUniversity(){
         return "I studied at "+this.university;
+    }
+    public String showYearBirth(){
+        return "I have born in the year "+(2021-age)+".";
     }
 }
