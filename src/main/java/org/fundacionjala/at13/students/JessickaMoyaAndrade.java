@@ -11,6 +11,7 @@ public class JessickaMoyaAndrade{
     Residence city: Cochabamba*/
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
+    }
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
     }
