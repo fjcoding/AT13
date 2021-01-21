@@ -10,11 +10,9 @@ public class JuanGonzales{
 -Tarija
 
  */
-<<<<<<< HEAD
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
-=======
 
     private String name = "Juan Pablo Gonzales Alvarado";
     private String nickName = "Juampi";
@@ -34,5 +32,4 @@ public class JuanGonzales{
                 "My residence city " + residenceCity;
     }
 
->>>>>>> da18f389e4571fb870448982df7e449cef23fe56
 }
