@@ -32,4 +32,7 @@ public class JuanGonzales{
                 "My residence city " + residenceCity;
     }
 
+    public String ShowName(){
+        return "Hi, my name is "+this.name;
+    }
 }

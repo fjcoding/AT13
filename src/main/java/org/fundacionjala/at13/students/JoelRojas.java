@@ -37,4 +37,7 @@ public class JoelRojas{
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
+    public String ShowName(){
+        return "Hi, my name is "+this.name;
+    }
 }
