@@ -1,5 +1,12 @@
 package org.fundacionjala.at13.students;
 public class JorgeCaceres{
+    private String name = "Jorge Caceres Velasco";
+    private String nickName = "Jorge";
+    private int age = 29;
+    private String career = "Electronic Engineer";
+    private String university = "San Simon";
+    private String programingLanguages = "Java";
+    private String residenceCity = "Cochabamba";
 
 /*Jorge Rodrigo Caceres Velasco
 Jorge
