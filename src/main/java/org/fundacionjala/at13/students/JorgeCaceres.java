@@ -1,23 +1,13 @@
 package org.fundacionjala.at13.students;
 public class JorgeCaceres{
+    private String name = "Jorge Caceres Velasco";
+    private String nickName = "Jorge";
+    private int age = 29;
+    private String career = "Electronic Engineer";
+    private String university = "San Simon";
+    private String programingLanguages = "Java";
+    private String residenceCity = "Cochabamba";
 
-    private String name;
-    private String nickName;
-    private int age;
-    private String career;
-    private String university;
-    private String programmingLanguages;
-    private String residenceCity;
-
-    public JorgeCaceres(){
-        this.name="";
-        this.nickName="";
-        this.age=0;
-        this.career="";
-        this.university="";
-        this.programmingLanguages="";
-        this.residenceCity="";
-    }
     public String ShowName(){
         return "Hi, my name is "+this.name;
     }
@@ -34,6 +24,9 @@ public class JorgeCaceres{
 		return "I have studied" + this.career;
     }
 
+    public String ShowUniversity(){
+        return "I studied at "+this.university;
+    } 
 
     public String showProgramingLanguage() {
         return "I like the programming languages " + this.programmingLanguages;

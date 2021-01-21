@@ -37,6 +37,9 @@ public class JoelRojas{
 		return "I have studied" + this.career;
     }
 
+    public String ShowUniversity(){
+        return "I studied at "+this.university;
+    }
 
     public String showProgramingLanguage() {
         return "I like the programming languages " + this.programmingLanguages;
