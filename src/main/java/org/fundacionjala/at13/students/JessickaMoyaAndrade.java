@@ -2,13 +2,18 @@
 package org.fundacionjala.at13.students;
 
 public class JessickaMoyaAndrade{
-    /* Full name: Jessicka Moya Andrade
-    I like to be called: jess
-    Age: 23
-    Career: Systems Engineer
-    University: Universidad Mayor de San Simon
-    Preferred programming languages: java, php, jascript
-    Residence city: Cochabamba*/
+    private String name="Jessicka Moya Andrade";
+    private String nickName="Jess";
+    private int age=23;
+    private String career="Systems Engineering";
+    private String university="UMSS";
+    private String programingLanguages="java, php";
+    private String residenceCity="Cochabamba, Cochabamba";
+
+    public String getCareer(){
+		return "I have studied" + this.career;
+	}
+
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
