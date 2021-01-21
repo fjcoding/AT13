@@ -5,7 +5,7 @@ public class JorgeCaceres{
     private int age = 29;
     private String career = "Electronic Engineer";
     private String university = "San Simon";
-    private String programingLanguages = "Java";
+    private String programmingLanguages = "Java";
     private String residenceCity = "Cochabamba";
 
     public String ShowName(){
