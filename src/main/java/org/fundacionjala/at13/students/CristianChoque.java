@@ -8,7 +8,7 @@ public class CristianChoque{
     private int age;
     private String career;
     private String university;
-    private String programingLanguages;
+    private String programmingLanguages;
     private String residenceCity;
 
     public CristianChoque(){
@@ -17,7 +17,7 @@ public class CristianChoque{
         this.age=30;
         this.career="Electronic Engineering";
         this.university="UMSA";
-        this.programingLanguages="c++";
+        this.programmingLanguages="c++";
         this.residenceCity="La Paz";
     }
     /*
@@ -42,7 +42,7 @@ public class CristianChoque{
                 "I am "+ age +" years old" + "\n" +
                 "I am " + career + "\n" +
                 "I study at " + university+ " university \n" +
-                "My programming languages are " + programingLanguages +"\n" +
+                "My programming languages are " + programmingLanguages +"\n" +
                 "My residence city " + residenceCity;
     }
     public String ShowName(){
