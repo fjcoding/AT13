@@ -11,6 +11,8 @@ public class CristianChoque{
     preferred programming languages: C++
     residence city: La Paz
     */
-
+    public String myResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
 }
 

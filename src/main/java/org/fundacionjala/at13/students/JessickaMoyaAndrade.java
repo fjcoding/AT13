@@ -9,4 +9,7 @@ public class JessickaMoyaAndrade{
     University: Universidad Mayor de San Simon
     Preferred programming languages: java, php, jascript
     Residence city: Cochabamba*/
+    public String myResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
 }

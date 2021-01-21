@@ -11,4 +11,7 @@ class RaymundoGuaraguara {
     Python
     Cochabamba
     */
+    public String myResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
 }

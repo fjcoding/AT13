@@ -9,4 +9,7 @@ Systems Engineering
 UMSS
 Java
 Quillacollo,Cochabamba */
+    public String myResidenceCity(){
+        return "Currently I live in "+residenceCity+".";
+    }
 }
