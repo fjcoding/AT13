@@ -55,5 +55,8 @@ class RaymundoGuaraguara {
     }
     public String getCareer(){
 		return "I have studied" + this.career;
-	}
+    }
+    public String ShowAge(){
+        return "Hi, my name is "+this.age;
+    } 
 }

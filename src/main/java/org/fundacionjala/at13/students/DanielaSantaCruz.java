@@ -50,4 +50,7 @@ public class DanielaSantaCruz{
                 "My programming languages are " + this.programmingLanguages +"\n" +
                 "My residence city " + this.residenceCity;
     }
+    public String ShowAge(){
+        return "Hi, my name is "+this.age;
+    } 
 }

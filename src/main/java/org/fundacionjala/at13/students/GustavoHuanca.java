@@ -1,6 +1,26 @@
 package org.fundacionjala.at13.students;
 public class GustavoHuanca{
    
+   private String name;
+   private String nickName;
+   private int age;
+   private String career;
+   private String university;
+   private String programingLanguages;
+   private String residenceCity;
+
+   public GustavoHuanca(){
+       this.name="Gustavo Zacarias Huanca Alconz";
+       this.nickName="Gus";
+       this.age=27;
+       this.career="Physics";
+       this.university="UMSS";
+       this.programingLanguages="C# and Fortran";
+       this.residenceCity="Cercado, Cochabamba";
+   }
+  public String ShowAge(){
+      return "Hi, my name is "+this.age;
+  } 
    public String getResidenceCity(){
       return "Currently I live in "+residenceCity+".";
    }
