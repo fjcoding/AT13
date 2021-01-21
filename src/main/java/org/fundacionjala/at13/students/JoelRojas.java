@@ -29,6 +29,9 @@ public class JoelRojas{
         return "I like to be called "+this.nickName;
     }
 
+    public String ShowAge(){
+        return "Hi, my name is "+this.age;
+    } 
 
     public String getCareer(){
 		return "I have studied" + this.career;
@@ -52,7 +55,5 @@ public class JoelRojas{
                 "My programming languages are " + this.programmingLanguages +"\n" +
                 "My residence city " + this.residenceCity;
     }
-    public String ShowAge(){
-        return "Hi, my name is "+this.age;
-    } 
+
 }
