@@ -8,10 +8,8 @@ Electronic engineer
 San Simon University
 Java
 Cochabamba*/
-<<<<<<< HEAD
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
-=======
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
     }
@@ -24,6 +22,5 @@ Cochabamba*/
                 "I study at " + university+ " university \n" +
                 "My programming languages are " + programingLanguages +"\n" +
                 "My residence city " + residenceCity;
->>>>>>> da18f389e4571fb870448982df7e449cef23fe56
     }
 }
