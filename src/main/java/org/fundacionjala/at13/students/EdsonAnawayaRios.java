@@ -9,6 +9,7 @@ public class EdsonAnawayaRios{
     residence city: La Paz - Bolivia*/
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
+    }
     public String ShowNickName(){
         return "I like to be called "+this.nickName;
     }

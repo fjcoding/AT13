@@ -9,6 +9,7 @@ public class GustavoHuanca{
    Cochabamba*/ 
    public String getResidenceCity(){
       return "Currently I live in "+residenceCity+".";
+   }
 Gus
 27
 Physics
