@@ -5,18 +5,22 @@ public class JoelRojas{
     private String name;
     private String nickName;
     private int age;
-    private String carrer;
+    private String career;
     private String university;
-    private String languageList:
-    private String city;
+    private String programingLanguages;
+    private String residenceCity;
 
     public JoelRojas(){
         this.name="Joel Rodrigo Rojas Roman";
         this.nickName="Joel";
         this.age=27;
-        this.carrer="Systems Engineering";
+        this.career="Systems Engineering";
         this.university="UMSS";
-        this.languageList="Java";
-        this.city="Quillacollo, Cochabamba";
+        this.programingLanguages="Java";
+        this.residenceCity="Quillacollo, Cochabamba";
+    }
+
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
     }
 }

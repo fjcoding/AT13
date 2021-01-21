@@ -7,4 +7,7 @@ public class EdsonAnawayaRios{
     university: UMSA
     preferred programming languages: NodeJs
     residence city: La Paz - Bolivia*/
+    public String ShowNickName(){
+        return "I like to be called "+this.nickName;
+    }
 }
