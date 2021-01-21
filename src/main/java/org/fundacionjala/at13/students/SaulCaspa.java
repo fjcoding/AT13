@@ -24,6 +24,7 @@ public class SaulCaspa{
         this.career="Systems Engineering";
         this.university="Universidad Mayor de San Simon";
         this.programmingLanguages="Java, php, python";
+        this.residenceCity="Cochabamba";
     }
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
