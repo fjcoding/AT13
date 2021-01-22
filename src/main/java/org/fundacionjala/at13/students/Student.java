@@ -11,31 +11,35 @@ public class Student{
     private String residenceCity;
    
     public String ShowName(){
-        return "Hi, my name is "+this.name;
+        return "Hi, my name is "+this.name+".";
     }
 
     public String ShowNickName(){
-        return "I like to be called "+this.nickName;
+        return "I like to be called "+this.nickName+".";
     }
 
     public String ShowAge(){
-        return "My age is "+this.age;
+        return "My age is "+this.age+".";
     } 
 
     public String getCareer(){
-		return "I have studied " + this.career;
+		return "I have studied " + this.career+".";
     }
 
     public String ShowUniversity(){
-        return "In the university "+this.university;
+        return "In the university "+this.university+".";
     }
 
     public String showProgramingLanguage() {
-        return "I like the programming languages " + this.programmingLanguages;
+        return "I like the programming languages " + this.programmingLanguages+".";
     }
 
     public String showResidenceCity(){
         return "Currently I live in "+this.residenceCity+".";
+    }
+
+    public String showYearBirth(){
+        return "I have born in the year "+(2021-age)+".";
     }
 
     public String showStudentsInformation() {
@@ -47,6 +51,7 @@ public class Student{
                 ShowUniversity() + "\n" +
                 showProgramingLanguage() + "\n" +
                 showResidenceCity() + "\n" +
+                showYearBirth() + "\n" +
                 "---------------------------------------------";
     }
 
