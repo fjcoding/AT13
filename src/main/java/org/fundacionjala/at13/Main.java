@@ -16,16 +16,18 @@ public class Main {
         PaolaAguilar paola = new PaolaAguilar();
         RaymundoGuaraguara raymundo = new RaymundoGuaraguara();
         SaulCaspa saul = new SaulCaspa();
-        System.out.println(cristian.showStudentsInformation()+"\n" );
-        System.out.println(daniela.showStudentsInformation()+"\n" );
-        System.out.println(edson.showStudentsInformation()+"\n" );
-        System.out.println(gustavo.showStudentsInformation()+"\n" );
-        System.out.println(jessicka.showStudentsInformation()+"\n" );
-        System.out.println(joel.showStudentsInformation()+"\n" );
-        System.out.println(jorge.showStudentsInformation()+"\n" );
-        System.out.println(juan.showStudentsInformation()+"\n" );
-        System.out.println(paola.showStudentsInformation()+"\n" );
-        System.out.println(raymundo.showStudentsInformation()+"\n" );
-        System.out.println(saul.showStudentsInformation()+"\n" );
+       
+        System.out.println(cristian.showStudentsInformation());
+        System.out.println(daniela.showStudentsInformation());
+        System.out.println(edson.showStudentsInformation());
+        System.out.println(gustavo.showStudentsInformation());
+        System.out.println(jessicka.showStudentsInformation());
+        System.out.println(joel.showStudentsInformation());
+        System.out.println(jorge.showStudentsInformation());
+        System.out.println(juan.showStudentsInformation());
+        System.out.println(paola.showStudentsInformation());
+        System.out.println(raymundo.showStudentsInformation());
+        System.out.println(saul.showStudentsInformation());
+
     }
 }
