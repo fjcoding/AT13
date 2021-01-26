@@ -4,27 +4,31 @@ import java.util.Scanner;
 
 public class Auth {
 
+    public static final int MINIMUM_SIZE = 6;
+    public static final int MAXIMUM_SIZE = 10;
+    public static final int ASCII_CODE_ZERO = 48;
+    public static final int ASCII_CODE_NINE = 57;
+    public static final int ASCII_CODE_LETTER_A = 97;
+    public static final int ASCII_CODE_LETTER_Z = 122;
+    
     public static void main(String[] args) {
-
-        int n = 0;
-        Scanner s1 = new Scanner(System.in);
-        Scanner s2 = new Scanner(System.in);
+        int numberOfUser = 0;
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter no. of elements you want in array:");
-        n = s1.nextInt();
-        String usernames[] = new String[n];
+        numberOfUser = scanner.nextInt();
+        String usernames[] = new String[numberOfUser];
         System.out.println("Enter all the usernames:");
-        for (int i = 0; i < n; i++) {
-            usernames[i] = s2.nextLine();
+        for (int i = 0; i < numberOfUser; i++) {
+            usernames[i] = scanner.next();
         }
-
-        System.out.println(validation(usernames));
+        System.out.println(validationOfUser(usernames));
     }
 
-    // validation
+    // this is the main method for solving the problem
 
-    public static boolean validation(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if ((sizeUsername(array[i]) && itHasLowerCase(array[i]) && itHasNumber(array[i]) && itHasOnlyNumberAndLowerCaseLetter(array[i]))==false) {
+    public static boolean validationOfUser(String[] listOfUsers) {
+        for (String username : listOfUsers) {
+            if (!(itHasTheRigthLength(username) && itHasLowerCase(username) && itHasNumber(username) && itHasOnlyNumberAndLowerCaseLetter(username))) {
                 return false;
             }
         }
@@ -33,40 +37,40 @@ public class Auth {
 
     // it is between 6-10 characters long
 
-    public static boolean sizeUsername(String username) {
-        if (username.length() >= 6 && username.length() <= 10) {
+    public static boolean itHasTheRigthLength(String username) {
+        if (username.length() >= MINIMUM_SIZE && username.length() <= MAXIMUM_SIZE) {
             return true;
         }
         return false;
     }
 
-    // contains at least 1 lowercase letter;
+    // contains at least 1 lowercase letter
 
     public static boolean itHasLowerCase(String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) >= 97 && (int) username.charAt(i) <= 122) {
+            if ((int) username.charAt(i) >= ASCII_CODE_LETTER_A && (int) username.charAt(i) <= ASCII_CODE_LETTER_Z) {
                 return true;
             }
         }
         return false;
     }
 
-    // contains at least 1 number;
+    // contains at least 1 number
 
     public static boolean itHasNumber(String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) >= 48 && (int) username.charAt(i) <= 57) {
+            if ((int) username.charAt(i) >= ASCII_CODE_ZERO && (int) username.charAt(i) <= ASCII_CODE_NINE) {
                 return true;
             }
         }
         return false;
     }
 
-    // contains only numbers and lowercase letters.
+    // contains only numbers and lowercase letters
 
     public static boolean itHasOnlyNumberAndLowerCaseLetter(String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) < 48 || ((int) username.charAt(i) > 57 && ((int) username.charAt(i) < 97) || (int) username.charAt(i) > 122)) {
+            if ((int) username.charAt(i) < ASCII_CODE_ZERO || ((int) username.charAt(i) > ASCII_CODE_NINE && ((int) username.charAt(i) < ASCII_CODE_LETTER_A) || (int) username.charAt(i) > ASCII_CODE_LETTER_Z)) {
                 return false;
             }
         }
