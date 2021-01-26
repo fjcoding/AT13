@@ -11,16 +11,4 @@ public class Auth.java {
         }
         return res;
     }
-    public static boolean checkNumbersAndLowerCaseLetters(String name){
-        
-        for(int i=0;i<name.length();i++){
-            int asciiCode=(int)name.charAt(i);
-            System.out.println(asciiCode);
-            //conditional if ascii code doesnt belong to lowerCase letters or numbers
-            if(((asciiCode>=97&&asciiCode<=122)||(asciiCode>=48&&asciiCode<=57))==false){
-                return false;
-            }
-        }
-        return true;
-    }
 }
