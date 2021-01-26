@@ -11,4 +11,5 @@ public class DanielaSantaCruz extends Student{
         setProgrammingLanguages("Java");
         setResidenceCity("Cochabamba");
     }
+
 }

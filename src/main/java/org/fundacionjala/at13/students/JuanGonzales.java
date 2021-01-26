@@ -11,4 +11,5 @@ public class JuanGonzales extends Student{
         setProgrammingLanguages("Java and Dart");
         setResidenceCity("Tarija");
     }
+
 }

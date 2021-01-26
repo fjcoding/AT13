@@ -12,4 +12,5 @@ public class RaymundoGuaraguara extends Student{
         setProgrammingLanguages("Python");
         setResidenceCity("Cochabamba");
     }
+
 }

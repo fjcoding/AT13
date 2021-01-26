@@ -12,4 +12,5 @@ public class JoelRojas extends Student{
         setProgrammingLanguages("Java");
         setResidenceCity("Quillacollo, Cochabamba");
     }
+
 }

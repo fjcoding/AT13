@@ -12,5 +12,6 @@ public class CristianChoque extends Student{
         setProgrammingLanguages("c++");
         setResidenceCity("La Paz");
     }
+
 }
 
