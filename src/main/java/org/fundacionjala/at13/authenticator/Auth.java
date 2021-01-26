@@ -1,11 +1,9 @@
 package org.fundacionjala.at13.authenticator;
-public class Authentification{
-    public static void main(String[] args){
-        
-    }
+public class Auth{
+
 
     public boolean listVerification(String[] namesList){
-        boolean res;
+        boolean res=true;
         for (int i = 0; i < namesList.length; i++) {
             res=res&&nameVerification(namesList[i]);
         }
@@ -19,5 +17,13 @@ public class Authentification{
         }else{
             return false;
         } 
+    }
+
+    public static boolean contains1Digit(String userName){
+        if(userName.matches(".*[0-9].*")){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

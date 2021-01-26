@@ -5,7 +5,7 @@ import org.fundacionjala.at13.students.*;
 public class Main {
 
     public static void main(String[] args) {
-        CristianChoque cristian = new CristianChoque();
+ /*        CristianChoque cristian = new CristianChoque();
         DanielaSantaCruz daniela = new DanielaSantaCruz();
         EdsonAnawayaRios edson = new EdsonAnawayaRios();
         GustavoHuanca gustavo = new GustavoHuanca();
@@ -26,6 +26,7 @@ public class Main {
         System.out.println(juan.showStudentsInformation()+"\n" );
         System.out.println(paola.showStudentsInformation()+"\n" );
         System.out.println(raymundo.showStudentsInformation()+"\n" );
-        System.out.println(saul.showStudentsInformation()+"\n" );
+        System.out.println(saul.showStudentsInformation()+"\n" ); */
+        System.out.println("Hola");
     }
 }
