@@ -1,14 +1,11 @@
 package org.fundacionjala.at13;
 
-import java.util.Scanner;
-
-//import org.fundacionjala.at13.students.*;
-import org.fundacionjala.at13.authenticator.*;
+import org.fundacionjala.at13.students.*;
 
 public class Main {
 
     public static void main(String[] args) {
-/*         CristianChoque cristian = new CristianChoque();
+        CristianChoque cristian = new CristianChoque();
         DanielaSantaCruz daniela = new DanielaSantaCruz();
         EdsonAnawayaRios edson = new EdsonAnawayaRios();
         GustavoHuanca gustavo = new GustavoHuanca();
@@ -30,28 +27,6 @@ public class Main {
         System.out.println(juan.showStudentsInformation());
         System.out.println(paola.showStudentsInformation());
         System.out.println(raymundo.showStudentsInformation());
-        System.out.println(saul.showStudentsInformation()); */
-        Scanner scanner=new Scanner(System.in);
-        int arrayLenght=scanner.nextInt();
-        String[] usernamesList=new String[arrayLenght];
-        for (int i = 0; i < usernamesList.length; i++) {
-            usernamesList[i]=scanner.next();
-        }
-        scanner.close();
-/* 
-        String[] usernames1 = {"john123", "alex222", "sandra1"}; // returns true
-
-        String[] usernames2 = {"john123", "alex222", "sandraW"}; // returns false because sandraW has no number
-
-        String[] usernames3 = {"john_123", "alex222", "sandra1"}; // returns false because john_123 contains an invalid character
-
-        String[] usernames4 = {"******12", "alexander4", "RICARDO"};
-        
-        System.out.println("Array usermane1 :"+ Authenticator.listUsernameVerification(usernames1));
-        System.out.println("Array usermane2 :"+ Authenticator.listUsernameVerification(usernames2));
-        System.out.println("Array usermane3 :"+ Authenticator.listUsernameVerification(usernames3));
-        System.out.println("Array usermane4 :"+ Authenticator.listUsernameVerification(usernames4)); */
-
-        System.out.println("Array of usermanes complies : "+ Authenticator.usernamesListVerification(usernamesList));
+        System.out.println(saul.showStudentsInformation());
     }
 }
