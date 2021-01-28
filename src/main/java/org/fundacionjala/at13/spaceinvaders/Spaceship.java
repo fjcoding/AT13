@@ -6,6 +6,8 @@ public class Spaceship {
 
     private int posX;
     private int posY;
+    private final int LOWER_lIMIT=0;
+    private int UPPER_lIMIT=50;
     
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
@@ -91,11 +93,15 @@ public class Spaceship {
     }
 
     public void moveToRight(){
-        this.posY+=1;
+        if (this.posY<UPPER_lIMIT) {
+            this.posY+=1;
+        }
     }
 
     public void moveToLeft(){
-        this.posY-=1;
+        if (this.posY>LOWER_lIMIT) {
+            this.posY-=1;           
+        }
     }
 
     public void shoot(){
