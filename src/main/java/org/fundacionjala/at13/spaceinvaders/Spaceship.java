@@ -22,8 +22,10 @@ public class Spaceship {
             if (posIniExist) {
                 System.out.println("2.-Change actual position");
             }
+            if (!posIniExist) {
             System.out.println("3.-Move to Right");
             System.out.println("4.-Move to Left");
+            }
             System.out.println("5.-Exit");
             int option=scanner.nextInt();
             switch (option) {
