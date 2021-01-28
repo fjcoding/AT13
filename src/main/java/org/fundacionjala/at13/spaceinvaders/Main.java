@@ -8,5 +8,6 @@ public class Main {
         System.out.println(Alien1.moveRight()+"\n" );
         System.out.println(Alien1.moveDown()+"\n" );
         System.out.println(Alien1.shoot()+"\n");
+        System.out.println(Alien1.die()+"\n");
     }
 }
