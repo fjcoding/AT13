@@ -10,13 +10,15 @@ public class Authenticator{
 
     public static void main(String[] args){
         Scanner scanner=new Scanner(System.in);
+        System.out.print("Enter number of usernames: ");
         int arrayLenght=scanner.nextInt();
         String[] usernamesList=new String[arrayLenght];
         for (int i = 0; i < usernamesList.length; i++) {
+            System.out.print("Enter username "+(i+1)+ ": ");
             usernamesList[i]=scanner.next();
         }
         scanner.close();
-        System.out.println("Array of usermanes complies : "+ Authenticator.usernamesListVerification(usernamesList));
+        System.out.println("Array of usermanes complies condition: "+ Authenticator.usernamesListVerification(usernamesList));
     
     }
 
