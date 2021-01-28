@@ -1,27 +1,27 @@
 package org.fundacionjala.at13.spaceinvaders;
 public class Alien { 
     //The variables are named after the x and y axis of the cartesian plane
-    int xInit;
-    int yInit;
+    int xPos;
+    int yPos;
     public Alien(){
-        this.xInit = 0;
-        this.yInit = 0;
+        this.xPos = 0;
+        this.yPos = 0;
     }
 
-    public int getXInit() {
-        return xInit;
+    public int getXPos() {
+        return xPos;
     }
 
-    public void setXInit(int x) {
-        this.xInit = x;
+    public void setXPos(int x) {
+        this.xPos = x;
     }
 
-    public int getYInit() {
-        return yInit;
+    public int getYPos() {
+        return yPos;
     }
 
-    public void setYInit(int y) {
-        this.yInit = y;
+    public void setYPos(int y) {
+        this.yPos = y;
     }
 
     public String moveRight(){
@@ -39,7 +39,7 @@ public class Alien {
     public String shoot(){
         return "Alien shooted a bullet";
     }
-    
+
     public String die(){
         return "Alien is DEAD";
     }
