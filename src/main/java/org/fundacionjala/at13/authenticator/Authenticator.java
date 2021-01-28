@@ -1,5 +1,10 @@
 package org.fundacionjala.at13.authenticator;
 import java.util.Scanner;
+
+/**
+ *
+ * @author Joel Rojas Roman
+ */
 public class Authenticator{
 
     public static final String MINIMUM_LENGTH="6";

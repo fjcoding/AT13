@@ -1,4 +1,4 @@
-package org.fundacionjala.at13;
+package org.fundacionjala.at13.authenticator;
 
 import java.util.Scanner;
 
