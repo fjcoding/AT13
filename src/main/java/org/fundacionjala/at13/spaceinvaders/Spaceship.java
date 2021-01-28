@@ -14,7 +14,15 @@ public class Spaceship {
         System.out.print("Enter initial position y: ");
         int posYInitial=scanner.nextInt();;
         Spaceship spaceship=new Spaceship(posXInitial, posYInitial);
-        System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY());
+        System.out.println("Spaceship initial position: "+spaceship.getPosX()+","+spaceship.getPosY());
+        System.out.println("To change position");
+        System.out.print("Enter new position x: ");
+        posXInitial=scanner.nextInt();
+        System.out.print("Enter new position y: ");
+        posYInitial=scanner.nextInt();;
+        spaceship.setPosX(posXInitial);
+        spaceship.setPosY(posYInitial);
+        System.out.println("Spaceship new position: "+spaceship.getPosX()+","+spaceship.getPosY());
         scanner.close();
     }
 
@@ -29,6 +37,13 @@ public class Spaceship {
 
     public int getPosY() {
         return this.posY;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+    public void setPosY(int posY) {
+        this.posY = posY;
     }
 
 }
