@@ -9,26 +9,56 @@ public class Spaceship {
     
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        System.out.print("Enter initial position x: ");
-        int posXInitial=scanner.nextInt();
-        System.out.print("Enter initial position y: ");
-        int posYInitial=scanner.nextInt();;
-        Spaceship spaceship=new Spaceship(posXInitial, posYInitial);
-        System.out.println("Spaceship initial position: "+spaceship.getPosX()+","+spaceship.getPosY());
-        System.out.println("To change position");
-        System.out.print("Enter new position x: ");
-        posXInitial=scanner.nextInt();
-        System.out.print("Enter new position y: ");
-        posYInitial=scanner.nextInt();;
-        spaceship.setPosX(posXInitial);
-        spaceship.setPosY(posYInitial);
-        System.out.println("Spaceship new position: "+spaceship.getPosX()+","+spaceship.getPosY());
+        boolean itEnds=true;
+        boolean posIniExist=false;
+        Spaceship spaceship=new Spaceship();
+        int posXInitial;
+        int posYInitial;
+        while (itEnds) {
+            System.out.println("Press next numbres to");
+            if (!posIniExist) {
+                System.out.println("1.-Enter initial position");
+            }
+            if (posIniExist) {
+                System.out.println("2.-Change actual position");
+            }
+            System.out.println("3.-Exit");
+            int option=scanner.nextInt();
+            switch (option) {
+                case 1:
+                    System.out.print("Enter initial position x: ");
+                    posXInitial=scanner.nextInt();
+                    System.out.print("Enter initial position y: ");
+                    posYInitial=scanner.nextInt();;
+                    spaceship.setPosX(posXInitial);
+                    spaceship.setPosY(posYInitial);
+                    System.out.println("Spaceship initial position: "+spaceship.getPosX()+","+spaceship.getPosY());
+                    posIniExist=true;
+                    break;
+                case 2:
+                    System.out.println("To change position");
+                    System.out.print("Enter new position x: ");
+                    posXInitial=scanner.nextInt();
+                    System.out.print("Enter new position y: ");
+                    posYInitial=scanner.nextInt();;
+                    spaceship.setPosX(posXInitial);
+                    spaceship.setPosY(posYInitial);
+                    System.out.println("Spaceship new position: "+spaceship.getPosX()+","+spaceship.getPosY());
+                    break;
+                default:
+                    itEnds=false;
+                    break;
+            }
+        }
         scanner.close();
     }
 
     public Spaceship(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
+    }
+
+    public Spaceship() {
     }
     
     public int getPosX() {
