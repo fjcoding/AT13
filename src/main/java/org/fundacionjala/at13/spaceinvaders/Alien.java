@@ -14,5 +14,7 @@ public class Alien {
     public String shoot(){
         return "Alien shooted a bullet";
     }
-
+    public String die(){
+        return "Alien is DEAD";
+    }
 }
