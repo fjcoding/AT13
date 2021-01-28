@@ -23,8 +23,9 @@ public class Spaceship {
                 System.out.println("2.-Change actual position");
                 System.out.println("3.-Move to Right");
                 System.out.println("4.-Move to Left");
+                System.out.println("5.-Shoot");
             }
-            System.out.println("5.-Exit");
+            System.out.println("6.-Exit");
             int option=scanner.nextInt();
             switch (option) {
                 case 1:
@@ -54,6 +55,9 @@ public class Spaceship {
                 case 4:
                     spaceship.moveToLeft();
                     System.out.println("Spaceship new position: "+spaceship.getPosX()+","+spaceship.getPosY());
+                    break;
+                case 5:
+                    spaceship.shoot();
                     break;
                 default:
                     itEnds=false;
@@ -92,5 +96,9 @@ public class Spaceship {
 
     public void moveToLeft(){
         this.posY-=1;
+    }
+
+    public void shoot(){
+        System.out.println(">>>>>>> piw <<<<<<< shoot position: "+getPosX()+","+getPosY());
     }
 }
