@@ -18,16 +18,28 @@ public class Spaceship {
         return this.posX;
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
     public int getPosY() {
         return this.posY;
     }
 
+    public void setPosX(int posX) {
+        if(posX<LOWER_lIMIT){
+            this.posX = LOWER_lIMIT;
+        }else if(posX>UPPER_lIMIT-1){
+            this.posX = (UPPER_lIMIT-1);
+        }else{
+            this.posX = posX;
+        }
+    }
+    
     public void setPosY(int posY) {
-        this.posY = posY;
+        if(posY<LOWER_lIMIT){
+            this.posY = LOWER_lIMIT;
+        }else if(posY>UPPER_lIMIT){
+            this.posY = UPPER_lIMIT-1;
+        }else{
+            this.posY = posY;
+        }
     }
 
     public int getLOWER_lIMIT() {
