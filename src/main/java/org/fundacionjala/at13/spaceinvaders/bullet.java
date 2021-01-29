@@ -5,7 +5,7 @@ public class bullet{
     public int positionInitialY;
     public boolean bulletExist;
 
-    public bullet(int x,int y){
+    public bullet(int x, int y){
         positionInitialX = x;
         positionInitialY = y;
         bulletExist = true;
@@ -18,8 +18,8 @@ public class bullet{
             return "the " + type + " cannot fired";
         }
     }
-    public boolean isCollapsedBullet(int x1, int y1, int x2, int y2){
-        if(x1 == x2 && y1 == y2){
+    public boolean isCollapsedBullet(int positionX1, int positionY1, int positionX2, int positionY2){
+        if(positionX1 == positionX2 && positionY1 == positionY2){
             System.out.println("The bullet has collapsed");
             bulletExist = true;
             return true;
