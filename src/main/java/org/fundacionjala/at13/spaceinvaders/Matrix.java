@@ -11,12 +11,15 @@ public class Matrix {
         this.space = new int[MATRIX_HEIGHT][MATRIX_WIDTH];
         fillMatrix();
         showMatrix();
+        firstAlien.moveRight();
+        fillMatrix();
+        showMatrix();
     }
 
     public void fillMatrix() {
         for (int i = 0; i < MATRIX_HEIGHT; i++) {
             for (int j = 0; j < MATRIX_WIDTH; j++) {
-                if ((i == firstAlien.getXPos()) && (j == firstAlien.getYPos())) {
+                if ((i == firstAlien.getYPos()) && (j == firstAlien.getXPos())) {
                     space[i][j]=1;
                 } else {
                     space[i][j]=0;
@@ -32,5 +35,6 @@ public class Matrix {
             }
             System.out.println("");
         }
+        System.out.println("\n");
     }
 }
