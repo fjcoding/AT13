@@ -31,7 +31,7 @@ public class Spaceship {
             this.posX = posX;
         }
     }
-    
+
     public void setPosY(int posY) {
         if(posY<LOWER_lIMIT){
             this.posY = LOWER_lIMIT;
@@ -61,7 +61,7 @@ public class Spaceship {
             this.posY-=1;           
         }
     }
-    public void shoot(){
-        System.out.println(">>>>>>> piw <<<<<<< shoot position: "+getPosX()+","+getPosY());
+    public String shoot(){
+        return ">>>>>>> piw <<<<<<< shoot position: "+getPosX()+","+getPosY();
     }
 }
