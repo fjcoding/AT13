@@ -10,4 +10,9 @@ public class bulletTest{
         bullet bullet = new bullet(1,2);
         assertEquals("The Allien has fired from 1 2", bullet.shooter("Allien"));
     }
+    @Test
+    public void itShooterSpaceship() {
+        bullet bullet = new bullet(3,2);
+        assertEquals("The Spaceship has fired from 3 2", bullet.shooter("Spaceship"));
+    }
 }
