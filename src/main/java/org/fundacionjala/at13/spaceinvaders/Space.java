@@ -12,4 +12,15 @@ public class Space {
         }
     }
 
+    public static void showSpace(){
+        createdSpace();
+        for (int i = 0; i < space[0].length ; i++) {
+            for (int j = 0; j <space[0].length-1 ; j++) {
+                System.out.print(space[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+
 }
