@@ -35,9 +35,24 @@ public class Spaceship {
         return this.LOWER_lIMIT;
     }
 
-
     public int getUPPER_lIMIT() {
         return this.UPPER_lIMIT;
     }
+
+    public void moveToRight(){​​
+        if (this.posY<UPPER_lIMIT-1) {​​
+
+            this.posY+=1;
+
+        }​​
+    }​​
+
+    public void moveToLeft(){​​
+        if (this.posY>LOWER_lIMIT) {​​
+
+            this.posY-=1;           
+
+        }​​
+    }​​
     
 }
