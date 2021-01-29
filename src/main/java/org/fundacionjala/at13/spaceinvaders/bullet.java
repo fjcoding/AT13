@@ -10,12 +10,12 @@ public class bullet{
         positionInitialY = y;
         bulletExist = true;
     }
-    public void shooter(String type){
+    public String shooter(String type){
         if(bulletExist){
-            System.out.println("The " + type + " has fired from " + this.positionInitialX + " " + this.positionInitialY);
             bulletExist = false;
+            return "The " + type + " has fired from " + this.positionInitialX + " " + this.positionInitialY;
         }else{
-            System.out.println("the " + type + " cannot fired");
+            return "the " + type + " cannot fired";
         }
     }
     public boolean isCollapsedBullet(int x1, int y1, int x2, int y2){
