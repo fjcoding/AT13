@@ -13,4 +13,11 @@ public class SpaceshipTest{
         assertEquals(11, posY);
     }
 
+    @Test
+    public void itShouldMoveToLeft(){
+        Spaceship spaceship2 = new Spaceship(24,9);
+        spaceship2.moveToLeft();
+        int posY = spaceship2.getPosY();
+        assertEquals(8, posY);
+    }
 }
