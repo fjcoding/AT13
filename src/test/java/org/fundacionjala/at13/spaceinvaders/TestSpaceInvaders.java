@@ -13,22 +13,27 @@ public class TestSpaceInvaders{
         Alien alien1=new Alien();
         assertEquals(0,alien1.getYPos());
     }
+    @Test
     public void shouldReturnMovedToRight(){
         Alien alien1=new Alien();
         assertEquals("Alien moved to the rigth",alien1.moveRight());
     }
+    @Test
     public void shouldReturnMovedToTheLeft(){
         Alien alien1=new Alien();
         assertEquals("Alien moved to the left",alien1.moveLeft());
     }
+    @Test
     public void shouldReturnMovedDown(){
         Alien alien1=new Alien();
         assertEquals("Alien moved down",alien1.moveDown());
     }
+    @Test
     public void shouldReturnAlienShootABullet(){
         Alien alien1=new Alien();
         assertEquals("Alien shooted a bullet",alien1.shoot());
     }
+    @Test
     public void shouldReturnAlienIsDead(){
         Alien alien1=new Alien();
         assertEquals("Alien is DEAD",alien1.die());
