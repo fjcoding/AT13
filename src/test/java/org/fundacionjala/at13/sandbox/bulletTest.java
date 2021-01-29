@@ -20,4 +20,9 @@ public class bulletTest{
         bullet bullet = new bullet(3,2);
         assertEquals(true, bullet.isCollapsedBullet(1, 2, 1, 2));
     }
+    @Test
+    public void itAlliensBulletNotCollapsedWithSpaceshipsBullet() {
+        bullet bullet = new bullet(3,2);
+        assertEquals(false, bullet.isCollapsedBullet(1, 3, 1, 2));
+    }
 }
