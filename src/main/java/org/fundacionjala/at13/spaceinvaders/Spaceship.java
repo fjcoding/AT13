@@ -61,5 +61,7 @@ public class Spaceship {
             this.posY-=1;           
         }
     }
-
+    public void shoot(){
+        System.out.println(">>>>>>> piw <<<<<<< shoot position: "+getPosX()+","+getPosY());
+    }
 }
