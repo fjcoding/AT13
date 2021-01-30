@@ -25,7 +25,6 @@ public class Alien {
     }
 
     public String moveRight(){
-        this.xPos += 1;
         return "Alien moved to the rigth";
     }
 
