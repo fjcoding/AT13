@@ -27,11 +27,11 @@ checkstyle {
 }
 
 checkstyleMain {
-    source ='src/main/java'
+    source = 'src/main/java'
 }
 
 checkstyleTest {
-    source ='src/main/java'
+    source = 'src/main/java'
 }
 
 check.dependsOn build
