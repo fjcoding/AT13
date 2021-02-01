@@ -14,7 +14,7 @@ public class MenuTest {
     }
 
     @Test
-    public void itDisplaySpaceByOptionZero() {
+    public void itFinishPlay() {
         Menu menu = new Menu();
         boolean result = menu.menuOptions(0);
         assertFalse(result);
