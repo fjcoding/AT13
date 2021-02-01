@@ -9,11 +9,11 @@ public class Matrix {
 
     public Matrix(){
         this.space = new int[MATRIX_HEIGHT][MATRIX_WIDTH];
-        fillMatrix();
-        showMatrix();
-        firstAlien.moveRight();
-        fillMatrix();
-        showMatrix();
+        //fillMatrix();
+        //showMatrix();
+        //firstAlien.moveRight();
+        //fillMatrix();
+        //showMatrix();
     }
 
     public void fillMatrix() {

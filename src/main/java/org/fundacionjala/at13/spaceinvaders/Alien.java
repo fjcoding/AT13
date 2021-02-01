@@ -24,15 +24,15 @@ public class Alien {
         this.yPos = y;
     }
 
-    public Integer moveRight(){
+    public int moveRight(){
         return 1;
     }
 
-    public Integer moveLeft(){
+    public int moveLeft(){
         return 1;
     }
 
-    public Integer moveDown(){
+    public int moveDown(){
         return 1;
     }
 
