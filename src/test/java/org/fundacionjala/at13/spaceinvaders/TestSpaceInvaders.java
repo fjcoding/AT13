@@ -16,17 +16,17 @@ public class TestSpaceInvaders{
     @Test
     public void shouldReturnMovedToRight(){
         Alien alien1=new Alien();
-        assertEquals("Alien moved to the rigth",alien1.moveRight());
+        assertEquals(1,alien1.moveRight());
     }
     @Test
     public void shouldReturnMovedToTheLeft(){
         Alien alien1=new Alien();
-        assertEquals("Alien moved to the left",alien1.moveLeft());
+        assertEquals(1,alien1.moveLeft());
     }
     @Test
     public void shouldReturnMovedDown(){
         Alien alien1=new Alien();
-        assertEquals("Alien moved down",alien1.moveDown());
+        assertEquals(1,alien1.moveDown());
     }
     @Test
     public void shouldReturnAlienShootABullet(){
@@ -36,7 +36,7 @@ public class TestSpaceInvaders{
     @Test
     public void shouldReturnAlienIsDead(){
         Alien alien1=new Alien();
-        assertEquals("Alien is DEAD",alien1.die());
+        assertEquals(false,alien1.die());
     }
 
 }

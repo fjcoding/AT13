@@ -25,15 +25,15 @@ public class Alien {
     }
 
     public Integer moveRight(){
-        return "Alien moved to the rigth";
+        return 1;
     }
 
     public Integer moveLeft(){
-        return "Alien moved to the left";
+        return 1;
     }
 
     public Integer moveDown(){
-        return "Alien moved down";
+        return 1;
     }
 
     public String shoot(){
@@ -41,6 +41,6 @@ public class Alien {
     }
 
     public Boolean die(){
-        return "Alien is DEAD";
+        return false;
     }
 }
