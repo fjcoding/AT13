@@ -24,15 +24,15 @@ public class Alien {
         this.yPos = y;
     }
 
-    public String moveRight(){
+    public Integer moveRight(){
         return "Alien moved to the rigth";
     }
 
-    public String moveLeft(){
+    public Integer moveLeft(){
         return "Alien moved to the left";
     }
 
-    public String moveDown(){
+    public Integer moveDown(){
         return "Alien moved down";
     }
 
@@ -40,7 +40,7 @@ public class Alien {
         return "Alien shooted a bullet";
     }
 
-    public String die(){
+    public Boolean die(){
         return "Alien is DEAD";
     }
 }
