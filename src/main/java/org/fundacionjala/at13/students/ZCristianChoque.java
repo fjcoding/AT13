@@ -3,6 +3,7 @@ package org.fundacionjala.at13.students;
 
 public class ZCristianChoque {
 
+    // Description: Variable name of type String for the class
     private String name;
     private String nickName;
     private int age;
