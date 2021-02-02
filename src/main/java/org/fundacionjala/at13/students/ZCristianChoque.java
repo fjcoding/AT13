@@ -3,9 +3,13 @@ package org.fundacionjala.at13.students;
 
 public class ZCristianChoque {
 
-    // Description: Variable name of type String for the class
+    /**Description.
+     * Variable name of type String for the class
+     */
     private String name;
-    // Description: Variable name of type String for the class
+    /**Description.
+     * Variable nickName of type String for the class
+     */
     private String nickName;
     private int age;
     private String career;
