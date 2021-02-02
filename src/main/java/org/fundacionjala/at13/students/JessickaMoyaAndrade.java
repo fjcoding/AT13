@@ -14,7 +14,7 @@ public class JessickaMoyaAndrade {
 
     public String getCareer() {
         return "I have studied" + this.career;
-	}
+    }
 
     public String getResidenceCity() {
         return "Currently I live in " + residenceCity + ".";
