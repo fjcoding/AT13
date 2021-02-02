@@ -80,7 +80,7 @@ public class ZCristianChoque {
      * method for to get name
      * @return a string with the name of the student
      */
-    public String ShowName() {
+    public String showName() {
         return "Hi, my name is " + this.name;
     }
     /** DESCRIPTION.
@@ -88,10 +88,10 @@ public class ZCristianChoque {
      * @return a string with the career of the student
      */
     public String getCareer() {
-		return "I have studied" + this.career;
+        return "I have studied" + this.career;
     }
     /** DESCRIPTION.
-     * method for to get favorite programing language of the student 
+     * method for to get favorite programing language of the student
      * @return a string with the favorite programing language of the student
      */
     public String showProgramingLanguage() {
@@ -103,7 +103,7 @@ public class ZCristianChoque {
      */
     public String showAge() {
         return "Hi, my name is " + this.age;
-    } 
+    }
     /** DESCRIPTION.
      * method for to get university where studied
      * @return a string with the university of the student
