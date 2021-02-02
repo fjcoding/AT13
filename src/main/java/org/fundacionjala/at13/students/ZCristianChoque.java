@@ -19,6 +19,9 @@ public class ZCristianChoque {
      * Variable career of type String for the class
      */
     private String career;
+    /**Description.
+     * Variable university of type String for the class
+     */
     private String university;
     private String programingLanguages;
     private String residenceCity;
