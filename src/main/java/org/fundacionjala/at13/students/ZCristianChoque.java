@@ -37,7 +37,7 @@ public class ZCristianChoque {
      */
 
     public ZCristianChoque() {
-        this.name="Cristian Felix Choque Quispe";
+        this.name = "Cristian Felix Choque Quispe";
         this.nickName="Cristian";
         this.age=30;
         this.career="Electronic Engineering";
