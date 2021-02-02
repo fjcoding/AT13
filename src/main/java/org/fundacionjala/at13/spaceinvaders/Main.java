@@ -1,10 +1,10 @@
 package org.fundacionjala.at13.spaceinvaders;
 
-import org.fundacionjala.at13.spaceinvaders.*;
+public final class Main {
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Space Invaders!!! by AT13"+"\n");
-        Matrix spaceNew = new Matrix();
+    private Main() { }
+
+    public static void main(final String[] args) {
+        System.out.println("Space Invaders!!! by AT13" + "\n");
     }
 }
