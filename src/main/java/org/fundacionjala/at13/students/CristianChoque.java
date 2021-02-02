@@ -1,7 +1,7 @@
 
 package org.fundacionjala.at13.students;
 
-public class ZCristianChoque {
+public class CristianChoque {
 
     /**Description.
      * Variable name of type String for the class
@@ -43,7 +43,7 @@ public class ZCristianChoque {
     /** DESCRIPTION.
      * A default constructor for the class
      */
-    public ZCristianChoque() {
+    public CristianChoque() {
         this.name = "Cristian Felix Choque Quispe";
         this.nickName = "Cristian";
         this.age = ageStudent;
