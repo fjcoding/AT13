@@ -5,7 +5,7 @@ import org.fundacionjala.at13.students.*;
 public class Main {
 
     public static void main(String[] args) {
-        ZCristianChoque cristian = new ZCristianChoque();
+        CristianChoque cristian = new CristianChoque();
         DanielaSantaCruz daniela = new DanielaSantaCruz();
         EdsonAnawayaRios edson = new EdsonAnawayaRios();
         GustavoHuanca gustavo = new GustavoHuanca();
