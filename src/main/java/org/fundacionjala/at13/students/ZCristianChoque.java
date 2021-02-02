@@ -41,7 +41,7 @@ public class ZCristianChoque {
         this.nickName = "Cristian";
         this.age = 30;
         this.career = "Electronic Engineering";
-        this.university="UMSA";
+        this.university = "UMSA";
         this.programingLanguages="c++";
         this.residenceCity="La Paz";
     }
