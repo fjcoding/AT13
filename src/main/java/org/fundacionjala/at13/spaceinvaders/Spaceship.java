@@ -7,9 +7,9 @@ public class Spaceship {
     private final int lowerLimit = 0;
     private final int upperLimit = 50;
 
-    public Spaceship(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
+    public Spaceship(final int pX, final int pY) {
+        this.posX = pX;
+        this.posY = pY;
     }
     public int getPosX() {
         return this.posX;
@@ -17,22 +17,22 @@ public class Spaceship {
     public int getPosY() {
         return this.posY;
     }
-    public void setPosX(int posX) {
-        if (posX < lowerLimit) {
+    public void setPosX(final int pX) {
+        if (pX < lowerLimit) {
             this.posX = lowerLimit;
-        } else if (posX > upperLimit - 1) {
+        } else if (pX > upperLimit - 1) {
             this.posX = (upperLimit - 1);
         } else {
-            this.posX = posX;
+            this.posX = pX;
         }
     }
-    public void setPosY(int posY) {
-        if (posY < lowerLimit) {
+    public void setPosY(final int pY) {
+        if (pY < lowerLimit) {
             this.posY = lowerLimit;
-        } else if (posY > upperLimit) {
+        } else if (pY > upperLimit) {
             this.posY = upperLimit - 1;
         } else {
-            this.posY = posY;
+            this.posY = pY;
         }
     }
 
