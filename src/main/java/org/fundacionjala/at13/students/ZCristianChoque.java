@@ -101,14 +101,14 @@ public class ZCristianChoque {
      * method for to get age of student
      * @return a string with the age of the student
      */
-    public String ShowAge() {
+    public String showAge() {
         return "Hi, my name is " + this.age;
     } 
     /** DESCRIPTION.
      * method for to get university where studied
      * @return a string with the university of the student
      */
-    public String ShowUniversity() {
+    public String showUniversity() {
         return "I studied at " + this.university;
     }
     /** DESCRIPTION.
