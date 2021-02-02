@@ -50,7 +50,7 @@ public class SaulCaspa {
         this.career = "Systems Engineering";
         this.residenceCity = "Cochabamba";
         this.university = "Universidad Mayor de San Simon";
-        this.programmingLanguages = "Java, php, python";
+        this.programmingLanguages = "Java, php and python";
     }
     /**
      * @return the residence city.
@@ -84,7 +84,7 @@ public class SaulCaspa {
         return "Hi, my name is " + this.name;
     }
     /**
-     * @return favourite programming language.
+     * @return favorite programming language.
      */
     public final String showProgramingLanguage() {
         return "I like the programming languages " + this.programmingLanguages;
