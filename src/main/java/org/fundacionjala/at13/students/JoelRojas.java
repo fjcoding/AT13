@@ -2,26 +2,16 @@ package org.fundacionjala.at13.students;
 
 public class JoelRojas {
 
-    /** Description: Student's name.*/
     private String name;
-    /** Description: Student's nickname.*/
     private String nickname;
-    /** Description: Student's age.*/
     private int age;
-    /** Description: Student's career.*/
     private String career;
-    /** Description: Student's university.*/
     private String university;
-    /** Description: Student's programing languages.*/
     private String programingLanguages;
-    /** Description: Student's residence city.*/
     private String residenceCity;
-    /** Description: Student's current age.*/
     private static final int CURRENT_JOEL_AGE = 27;
-    /** Description: Student's current year.*/
     private static final int CURRENT_YEAR = 2021;
 
-    /** Description: Constructor of JoelRojas class.*/
     public JoelRojas() {
         this.name = "Joel Rodrigo Rojas Roman";
         this.nickname = "Joel";
