@@ -3,41 +3,14 @@ package org.fundacionjala.at13.students;
 
 public class CristianChoque {
 
-    /**Description.
-     * Variable name of type String for the class
-     */
     private String name;
-    /**Description.
-     * Variable nickName of type String for the class
-     */
     private String nickName;
-    /**Description.
-     * Variable age of type int for the class
-     */
     private int age;
-    /**Description.
-     * Variable career of type String for the class
-     */
     private String career;
-    /**Description.
-     * Variable university of type String for the class
-     */
     private String university;
-    /**Description.
-     * Variable programingLanguages of type String for the class
-     */
     private String programingLanguages;
-    /**Description.
-     * Variable residenceCity of type String for the class
-     */
     private String residenceCity;
-    /**Description.
-     * Variable discribe this year
-     */
     private final int thisYear = 2021;
-    /**Description.
-     * Variable discribe the age of the student
-     */
     private final int ageStudent = 30;
 
     /** DESCRIPTION.
