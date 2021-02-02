@@ -43,7 +43,7 @@ public class ZCristianChoque {
         this.career = "Electronic Engineering";
         this.university = "UMSA";
         this.programingLanguages = "c++";
-        this.residenceCity="La Paz";
+        this.residenceCity = "La Paz";
     }
     
     public String getResidenceCity(){
