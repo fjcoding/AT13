@@ -12,9 +12,12 @@ public class ZCristianChoque {
      */
     private String nickName;
     /**Description.
-     * Variable age of type String for the class
+     * Variable age of type int for the class
      */
     private int age;
+    /**Description.
+     * Variable career of type String for the class
+     */
     private String career;
     private String university;
     private String programingLanguages;
