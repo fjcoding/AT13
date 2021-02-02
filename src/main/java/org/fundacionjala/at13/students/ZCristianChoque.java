@@ -34,8 +34,11 @@ public class ZCristianChoque {
     /**Description.
      * Variable discribe this year
      */
-    private int THIS_YEAR = 2021;
-    private int AGE_STUDENT = 30;
+    private final int thisYear = 2021;
+    /**Description.
+     * Variable discribe the age of the student
+     */
+    private final int ageStudent = 30;
 
     /** DESCRIPTION.
      * A default constructor for the class
@@ -43,7 +46,7 @@ public class ZCristianChoque {
     public ZCristianChoque() {
         this.name = "Cristian Felix Choque Quispe";
         this.nickName = "Cristian";
-        this.age = AGE_STUDENT;
+        this.age = ageStudent;
         this.career = "Electronic Engineering";
         this.university = "UMSA";
         this.programingLanguages = "c++";
@@ -75,7 +78,7 @@ public class ZCristianChoque {
                  + "I study at " + university + " university \n"
                  + "My programming languages are " + programingLanguages + "\n"
                  + "My residence city " + residenceCity + "\n"
-                 + "I have born in the year " + (THIS_YEAR - age) + ".";
+                 + "I have born in the year " + (thisYear - age) + ".";
     }
     /** DESCRIPTION.
      * method for to get name
@@ -117,6 +120,6 @@ public class ZCristianChoque {
      * @return a string with the year that born
      */
     public String showYearBirth() {
-        return "I have born in the year " + (THIS_YEAR - age) + ".";
+        return "I have born in the year " + (thisYear - age) + ".";
     }
 }
