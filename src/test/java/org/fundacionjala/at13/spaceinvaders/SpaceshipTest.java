@@ -28,7 +28,7 @@ public class SpaceshipTest{
     public void ItShoot(){
         Spaceship spaceship3=new Spaceship(17, 2);
         String shoot=spaceship3.shoot();
-        String expectResult=">>>>>>> piw <<<<<<< shoot position: 17,2";
+        String expectResult=">>>>> piw <<<<< shoot position: 17,2";
         assertEquals(shoot, expectResult);
     }
 }
