@@ -49,35 +49,35 @@ public class ZCristianChoque {
      * @return a string with the date of the residence
      */
     public String getResidenceCity() {
-        return "Currently I live in "+residenceCity+".";
+        return "Currently I live in " + residenceCity + ".";
     }
     /** DESCRIPTION.
      * method for to get or to show nick name
      * @return a string with the nickName
      */
     public String ShowNickName() {
-        return "I like to be called "+this.nickName;
+        return "I like to be called " + this.nickName;
     }
     /** DESCRIPTION.
      * method for to get all information of the Student
      * @return a string with the all dates of the Student
      */
     public String showStudentsInformation() {
-        return "Hello "+"my name is " + name + "\n" +
+        return "Hello " + "my name is " + name + "\n" +
                 "I like to be called '" + nickName + "\n" +
-                "I am "+ age +" years old" + "\n" +
+                "I am " + age +" years old" + "\n" +
                 "I am " + career + "\n" +
-                "I study at " + university+ " university \n" +
-                "My programming languages are " + programingLanguages +"\n" +
-                "My residence city " + residenceCity +"\n" +
-                "I have born in the year "+(2021-age)+".";
+                "I study at " + university + " university \n" +
+                "My programming languages are " + programingLanguages + "\n" +
+                "My residence city " + residenceCity + "\n" +
+                "I have born in the year " + (2021-age)+".";
     }
     /** DESCRIPTION.
      * method for to get name
      * @return a string with the name of the student
      */
     public String ShowName() {
-        return "Hi, my name is "+this.name;
+        return "Hi, my name is " + this.name;
     }
     /** DESCRIPTION.
      * method for to get career
@@ -98,20 +98,20 @@ public class ZCristianChoque {
      * @return a string with the age of the student
      */
     public String ShowAge() {
-        return "Hi, my name is "+this.age;
+        return "Hi, my name is " + this.age;
     } 
     /** DESCRIPTION.
      * method for to get university where studied
      * @return a string with the university of the student
      */
     public String ShowUniversity() {
-        return "I studied at "+this.university;
+        return "I studied at " + this.university;
     }
     /** DESCRIPTION.
      * method for to get year birth of the student
      * @return a string with the year that born
      */
     public String showYearBirth() {
-        return "I have born in the year "+(2021-age)+".";
+        return "I have born in the year " + (2021 - age) + ".";
     }
 }
