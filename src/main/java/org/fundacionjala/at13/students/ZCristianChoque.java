@@ -31,6 +31,10 @@ public class ZCristianChoque {
      * Variable residenceCity of type String for the class
      */
     private String residenceCity;
+    /**Description.
+     * Variable discribe this year
+     */
+    private int THIS_YEAR = 2021;
 
     /** DESCRIPTION.
      * A default constructor for the class
@@ -112,6 +116,6 @@ public class ZCristianChoque {
      * @return a string with the year that born
      */
     public String showYearBirth() {
-        return "I have born in the year " + (2021 - age) + ".";
+        return "I have born in the year " + (THIS_YEAR - age) + ".";
     }
 }
