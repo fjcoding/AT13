@@ -1,6 +1,6 @@
 
 package org.fundacionjala.at13.students;
-public class CristianChoque{
+public class CristianChoque {
 
     private String name;
     private String nickName;
@@ -19,15 +19,7 @@ public class CristianChoque{
         this.programingLanguages="c++";
         this.residenceCity="La Paz";
     }
-    /*
-    Full Name: Cristian Felix
-    I like to be called... Cristian
-    age: 30
-    career: Electronic Engineering
-    university: UMSA
-    preferred programming languages: C++
-    residence city: La Paz
-    */
+    
     public String getResidenceCity(){
         return "Currently I live in "+residenceCity+".";
     }
@@ -66,4 +58,3 @@ public class CristianChoque{
         return "I have born in the year "+(2021-age)+".";
     }
 }
-
