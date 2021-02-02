@@ -2,11 +2,15 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public class Space {
 
-    private static final int SPACE_SIZE_HIGHT = 50;
-    private static final int SPACE_SIZE_WIDTH = 100;
+    private static final int SPACE_HEIGHT = 50;
+    private static final int SPACE_WIDTH = 100;
     private static final String FONT_SPACE = ".";
+    private static String[][] space = new String[SPACE_HEIGHT][SPACE_WIDTH];
 
-    private static String[][] space = new String[SPACE_SIZE_HIGHT][SPACE_SIZE_WIDTH];
+    protected Space() {
+        // prevents calls from subclass
+        throw new UnsupportedOperationException();
+    }
 
     public static void createdSpace() {
         for (int i = 0; i < space.length; i++) {
