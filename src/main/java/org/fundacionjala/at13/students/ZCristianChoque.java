@@ -35,7 +35,8 @@ public class ZCristianChoque {
     /** DESCRIPTION.
      * A default constructor for the class
      */
-    public ZCristianChoque(){
+
+    public ZCristianChoque() {
         this.name="Cristian Felix Choque Quispe";
         this.nickName="Cristian";
         this.age=30;
