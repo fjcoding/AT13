@@ -48,14 +48,14 @@ public class ZCristianChoque {
      * method for to get residence of city
      * @return a string with the date of the residence
      */
-    public String getResidenceCity(){
+    public String getResidenceCity() {
         return "Currently I live in "+residenceCity+".";
     }
     /** DESCRIPTION.
      * method for to get or to show nick name
      * @return a string with the nickName
      */
-    public String ShowNickName(){
+    public String ShowNickName() {
         return "I like to be called "+this.nickName;
     }
     /** DESCRIPTION.
@@ -76,14 +76,14 @@ public class ZCristianChoque {
      * method for to get name
      * @return a string with the name of the student
      */
-    public String ShowName(){
+    public String ShowName() {
         return "Hi, my name is "+this.name;
     }
     /** DESCRIPTION.
      * method for to get career
      * @return a string with the career of the student
      */
-    public String getCareer(){
+    public String getCareer() {
 		return "I have studied" + this.career;
     }
     /** DESCRIPTION.
@@ -97,21 +97,21 @@ public class ZCristianChoque {
      * method for to get age of student
      * @return a string with the age of the student
      */
-    public String ShowAge(){
+    public String ShowAge() {
         return "Hi, my name is "+this.age;
     } 
     /** DESCRIPTION.
      * method for to get university where studied
      * @return a string with the university of the student
      */
-    public String ShowUniversity(){
+    public String ShowUniversity() {
         return "I studied at "+this.university;
     }
     /** DESCRIPTION.
      * method for to get year birth of the student
      * @return a string with the year that born
      */
-    public String showYearBirth(){
+    public String showYearBirth() {
         return "I have born in the year "+(2021-age)+".";
     }
 }
