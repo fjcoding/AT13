@@ -6,7 +6,7 @@ public final class Main {
 
     private Main() { }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         CristianChoque cristian = new CristianChoque();
         DanielaSantaCruz daniela = new DanielaSantaCruz();
         EdsonAnawayaRios edson = new EdsonAnawayaRios();
@@ -18,16 +18,16 @@ public final class Main {
         PaolaAguilar paola = new PaolaAguilar();
         RaymundoGuaraguara raymundo = new RaymundoGuaraguara();
         SaulCaspa saul = new SaulCaspa();
-        System.out.println(cristian.showStudentsInformation()+"\n" );
-        System.out.println(daniela.showStudentsInformation()+"\n" );
-        System.out.println(edson.showStudentsInformation()+"\n" );
-        System.out.println(gustavo.showStudentsInformation()+"\n" );
-        System.out.println(jessicka.showStudentsInformation()+"\n" );
-        System.out.println(joel.showStudentsInformation()+"\n" );
-        System.out.println(jorge.showStudentsInformation()+"\n" );
-        System.out.println(juan.showStudentsInformation()+"\n" );
-        System.out.println(paola.showStudentsInformation()+"\n" );
-        System.out.println(raymundo.showStudentsInformation()+"\n" );
-        System.out.println(saul.showStudentsInformation()+"\n" );
+        System.out.println(cristian.showStudentsInformation() + "\n");
+        System.out.println(daniela.showStudentsInformation() + "\n");
+        System.out.println(edson.showStudentsInformation() + "\n");
+        System.out.println(gustavo.showStudentsInformation() + "\n");
+        System.out.println(jessicka.showStudentsInformation() + "\n");
+        System.out.println(joel.showStudentsInformation() + "\n");
+        System.out.println(jorge.showStudentsInformation() + "\n");
+        System.out.println(juan.showStudentsInformation() + "\n");
+        System.out.println(paola.showStudentsInformation() + "\n");
+        System.out.println(raymundo.showStudentsInformation() + "\n");
+        System.out.println(saul.showStudentsInformation() + "\n");
     }
 }
