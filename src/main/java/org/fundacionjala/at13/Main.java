@@ -7,7 +7,7 @@ public final class Main {
     private Main() { }
 
     public static void main(String[] args) {
-        CristianChoque cristian = new CristianChoque();
+        ZCristianChoque cristian = new ZCristianChoque();
         DanielaSantaCruz daniela = new DanielaSantaCruz();
         EdsonAnawayaRios edson = new EdsonAnawayaRios();
         GustavoHuanca gustavo = new GustavoHuanca();

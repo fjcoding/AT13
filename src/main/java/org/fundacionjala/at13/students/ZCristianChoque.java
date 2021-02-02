@@ -1,6 +1,7 @@
 
 package org.fundacionjala.at13.students;
-public class CristianChoque {
+
+public class ZCristianChoque {
 
     private String name;
     private String nickName;
@@ -10,7 +11,10 @@ public class CristianChoque {
     private String programingLanguages;
     private String residenceCity;
 
-    public CristianChoque(){
+    /** DESCRIPTION.
+     * A default constructor for the class
+     */
+    public ZCristianChoque(){
         this.name="Cristian Felix Choque Quispe";
         this.nickName="Cristian";
         this.age=30;
