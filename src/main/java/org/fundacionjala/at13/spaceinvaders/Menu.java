@@ -2,7 +2,10 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public class Menu {
 
-    public boolean menuOptions(int option) {
+    /** DESCRIPTION.
+     * method for option menu for the play
+     */
+    public boolean menuOptions(final int option) {
         switch (option) {
             case 1:
                 Space.showSpace();
