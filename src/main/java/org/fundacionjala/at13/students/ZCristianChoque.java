@@ -55,7 +55,7 @@ public class ZCristianChoque {
      * method for to get or to show nick name
      * @return a string with the nickName
      */
-    public String ShowNickName() {
+    public String showNickName() {
         return "I like to be called " + this.nickName;
     }
     /** DESCRIPTION.
