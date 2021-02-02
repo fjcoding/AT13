@@ -2,7 +2,9 @@ package org.fundacionjala.at13;
 
 import org.fundacionjala.at13.students.*;
 
-public class Main {
+public final class Main {
+
+    private Main() { }
 
     public static void main(String[] args) {
         CristianChoque cristian = new CristianChoque();
