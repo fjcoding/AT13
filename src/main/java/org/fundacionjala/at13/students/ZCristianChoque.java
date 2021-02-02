@@ -40,7 +40,7 @@ public class ZCristianChoque {
         this.name = "Cristian Felix Choque Quispe";
         this.nickName = "Cristian";
         this.age = 30;
-        this.career="Electronic Engineering";
+        this.career = "Electronic Engineering";
         this.university="UMSA";
         this.programingLanguages="c++";
         this.residenceCity="La Paz";
