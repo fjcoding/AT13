@@ -23,6 +23,9 @@ public class ZCristianChoque {
      * Variable university of type String for the class
      */
     private String university;
+    /**Description.
+     * Variable programingLanguages of type String for the class
+     */
     private String programingLanguages;
     private String residenceCity;
 
