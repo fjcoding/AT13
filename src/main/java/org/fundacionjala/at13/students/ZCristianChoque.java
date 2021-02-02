@@ -11,6 +11,9 @@ public class ZCristianChoque {
      * Variable nickName of type String for the class
      */
     private String nickName;
+    /**Description.
+     * Variable age of type String for the class
+     */
     private int age;
     private String career;
     private String university;
