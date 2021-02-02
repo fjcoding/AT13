@@ -35,6 +35,7 @@ public class ZCristianChoque {
      * Variable discribe this year
      */
     private int THIS_YEAR = 2021;
+    private int AGE_STUDENT = 30;
 
     /** DESCRIPTION.
      * A default constructor for the class
@@ -42,7 +43,7 @@ public class ZCristianChoque {
     public ZCristianChoque() {
         this.name = "Cristian Felix Choque Quispe";
         this.nickName = "Cristian";
-        this.age = 30;
+        this.age = AGE_STUDENT;
         this.career = "Electronic Engineering";
         this.university = "UMSA";
         this.programingLanguages = "c++";
@@ -67,14 +68,14 @@ public class ZCristianChoque {
      * @return a string with the all dates of the Student
      */
     public String showStudentsInformation() {
-        return "Hello " + "my name is " + name + "\n" + 
-                "I like to be called '" + nickName + "\n" + 
-                "I am " + age +" years old" + "\n" + 
-                "I am " + career + "\n" + 
-                "I study at " + university + " university \n" + 
-                "My programming languages are " + programingLanguages + "\n" + 
-                "My residence city " + residenceCity + "\n" + 
-                "I have born in the year " + (2021-age) + ".";
+        return "Hello " + "my name is " + name + "\n"
+                 + "I like to be called " + nickName + "\n"
+                 + "I am " + age + " years old" + "\n"
+                 + "I am " + career + "\n"
+                 + "I study at " + university + " university \n"
+                 + "My programming languages are " + programingLanguages + "\n"
+                 + "My residence city " + residenceCity + "\n"
+                 + "I have born in the year " + (THIS_YEAR - age) + ".";
     }
     /** DESCRIPTION.
      * method for to get name
