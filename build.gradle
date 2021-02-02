@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
 
 mainClassName = 'org.fundacionjala.at13.spaceinvaders.Main'
 
@@ -19,6 +20,16 @@ test {
     }
 }
 
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['org/fundacionjala/at13/students/**',
+                                        'org/fundacionjala/at13/sandbox/**',
+                                        'org/fundacionjala/at13/authenticator/**'])
+        }))
+    }
+}
+
 checkstyle {
     toolVersion '8.34'
     configFile file('config/checkstyle/checkstyle.xml')
@@ -34,5 +45,7 @@ checkstyleTest {
     source = 'src/main/java'
 }
 
-check.dependsOn build
+check.dependsOn jacocoTestReport
+
 test.finalizedBy("checkstyleMain")
+test.finalizedBy("jacocoTestReport")
