@@ -20,4 +20,11 @@ public class MenuTest {
         assertFalse(result);
     }
 
+    @Test
+    public void itPressOtherOption() {
+        Menu menu = new Menu();
+        boolean result = menu.menuOptions(5);
+        assertFalse(result);
+    }
+
 }
