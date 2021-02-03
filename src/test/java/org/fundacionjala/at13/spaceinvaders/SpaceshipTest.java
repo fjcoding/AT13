@@ -61,4 +61,10 @@ public class SpaceshipTest{
         int upperLimit = spaceship.getUpperLimint();
         assertEquals(50, upperLimit);
     }
+
+    @Test
+    public void itShouldGetPosX(){
+        Spaceship spaceship = new Spaceship(10, 10);
+        assertEquals(10, spaceship.getPosX());
+    }
 }
