@@ -47,4 +47,18 @@ public class SpaceshipTest{
         int posY = spaceship2.getPosY();
         assertEquals(0, posY);
     }
+
+    @Test
+    public void itShouldGetLowerLimint(){
+        Spaceship spaceship = new Spaceship(10, 10);
+        int lowerLimit = spaceship.getLowerLimint();
+        assertEquals(0, lowerLimit);
+    }
+
+    @Test
+    public void itShouldGetUpperLimint(){
+        Spaceship spaceship = new Spaceship(10, 10);
+        int upperLimit = spaceship.getUpperLimint();
+        assertEquals(50, upperLimit);
+    }
 }
