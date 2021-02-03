@@ -31,4 +31,20 @@ public class SpaceshipTest{
         String expectResult=">>>>> piw <<<<< shoot position: 17,2";
         assertEquals(shoot, expectResult);
     }
+
+    @Test
+    public void itShouldNotMoveToRight(){
+        Spaceship spaceship = new Spaceship(20,50);
+        spaceship.moveToRight();
+        int posY = spaceship.getPosY();
+        assertEquals(50, posY);
+    }
+
+    @Test
+    public void itShouldNotMoveToLeft(){
+        Spaceship spaceship2 = new Spaceship(24,0);
+        spaceship2.moveToLeft();
+        int posY = spaceship2.getPosY();
+        assertEquals(0, posY);
+    }
 }
