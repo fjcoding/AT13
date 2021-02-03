@@ -91,4 +91,25 @@ public class SpaceshipTest{
         spaceship.setPosX(newPosX);
         assertEquals(newPosX, spaceship.getPosX());
     }
+    @Test
+    public void itShouldgo1stsetPosY(){
+        Spaceship spaceshipY = new Spaceship(10,20);
+        int answerTrue=spaceshipY.getLowerLimint();
+        spaceshipY.setPosY(spaceshipY.getPosY()-1000);
+        assertEquals(answerTrue, spaceshipY.getPosY());
+    }
+    @Test
+    public void itShouldgo2ndsetPosY(){
+        Spaceship spaceshipY = new Spaceship(10,25);
+        int answerTrue=spaceshipY.getUpperLimint()-1;
+        spaceshipY.setPosY(spaceshipY.getPosY()+1000);
+        assertEquals(answerTrue, spaceshipY.getPosY());
+    }
+    @Test
+    public void itShouldgo3rdtsetPosY(){
+        Spaceship spaceshipY = new Spaceship(10,15);
+        int answerTrue=15;
+        spaceshipY.setPosY(spaceshipY.getPosY());
+        assertEquals(answerTrue, spaceshipY.getPosY());
+    }
 }
