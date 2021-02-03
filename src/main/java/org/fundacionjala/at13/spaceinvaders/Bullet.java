@@ -3,11 +3,13 @@ public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
+    private String type;
 
-    public Bullet(final int x, final int y) {
+    public Bullet(final String shooterType, final int x, final int y) {
         positionInitialX = x;
         positionInitialY = y;
-        bulletExist = true;
+        bulletExist = false;
+        this.type = shooterType;
     }
 
     /**
@@ -42,13 +44,14 @@ public class Bullet {
      *
      * @return a String that shoots a bullet.
      */
-    public String shooter(final String type) {
-        if (bulletExist) {
-            bulletExist = false;
-            return "The " + type + " has fired from " + this.positionInitialX
+    public String itShooting() {
+        if (!bulletExist) {
+            bulletExist = true;
+            return "The " + this.type + " has fired from "
+            + this.positionInitialX
             + " " + this.positionInitialY;
         } else {
-            return "the " + type + " cannot fired";
+            return "The " + this.type + " cannot fired.";
         }
     }
 
@@ -61,7 +64,7 @@ public class Bullet {
     final int positionX2, final int positionY2) {
         if (positionX1 == positionX2 && positionY1 == positionY2) {
             System.out.println("The bullet has collapsed");
-            bulletExist = true;
+            bulletExist = false;
             return true;
         }
         return false;
