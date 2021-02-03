@@ -36,7 +36,7 @@ public class Spaceship {
         } else if (pX > upperLimit - 1) {
             this.posX = (upperLimit - 1);
         } else {
-            this.posX = posX;
+            this.posX = pX;
         }
     }
 
