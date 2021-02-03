@@ -67,4 +67,28 @@ public class SpaceshipTest{
         Spaceship spaceship = new Spaceship(10, 10);
         assertEquals(10, spaceship.getPosX());
     }
+
+    @Test
+    public void itShouldntAcceptnNegativePosX(){
+        Spaceship spaceship = new Spaceship(2, 2);
+        int newPosX=-2;
+        spaceship.setPosX(newPosX);
+        assertEquals(0, spaceship.getPosX());
+    }
+
+    @Test
+    public void itShouldntAcceptPosXOutUpperLimit(){
+        Spaceship spaceship = new Spaceship(1, 1);
+        int newPosX=50;
+        spaceship.setPosX(newPosX);
+        assertEquals(49, spaceship.getPosX());
+    }
+
+    @Test
+    public void itShouldAcceptPosXBetweenLimits(){
+        Spaceship spaceship = new Spaceship(1, 1);
+        int newPosX=26;
+        spaceship.setPosX(newPosX);
+        assertEquals(newPosX, spaceship.getPosX());
+    }
 }
