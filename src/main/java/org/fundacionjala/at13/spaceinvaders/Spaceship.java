@@ -2,6 +2,9 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public class Spaceship {
 
+    public static final int DEFAULT_POSX = 0;
+    public static final int DEFAULT_POSY = 0;
+
     private int posX;
     private int posY;
     private final int lowerLimit = 0;
