@@ -3,15 +3,24 @@ package org.fundacionjala.at13.spaceinvaders;
 public class Space {
 
     public static final String EMPTY = ".";
+    public static final String SPACESHIP = "^";
     public static final int DEFAULT_HEIGHT = 50;
     public static final int DEFAULT_WIDTH = 100;
 
+    private Spaceship spaceship;
     private int height;
     private int width;
 
     public Space(final int heightToSet, final int widthToSet) {
         this.height = heightToSet;
         this.width = widthToSet;
+    }
+
+    /**
+     * Sets a new spaceship for this space instance
+     */
+    public void setSpaceship(final Spaceship newSpaceship) {
+        this.spaceship = newSpaceship;
     }
 
     /**
@@ -23,6 +32,16 @@ public class Space {
             for (int j = 0; j < space[i].length; j++) {
                 space[i][j] = EMPTY;
             }
+        }
+        if (this.spaceship != null) {
+            /**
+             * Mapping formula for matrix[i][j]
+             *  i = matrix.length - posY - 1
+             *  j = posX
+             */
+            int iMapped = space.length - this.spaceship.getPosY() - 1;
+            int jMapped = this.spaceship.getPosX();
+            space[iMapped][jMapped] = SPACESHIP;
         }
         return space;
     }
