@@ -7,7 +7,7 @@ public class Spaceship {
     private final int lowerLimit = 0;
     private final int upperLimit = 50;
 
-    public Spaceship(final int pX, final int pY) {
+    public Spaceship(final int pY, final int pX) {
         this.posX = pX;
         this.posY = pY;
     }
@@ -70,20 +70,20 @@ public class Spaceship {
     }
 
     /**
-     * Description: Add one position to posY if new psition is between limits.
+     * Description: Add one position to posX if new psition is between limits.
      */
     public void moveToRight() {
-        if (this.posY < upperLimit) {
-            this.posY += 1;
+        if (this.posX < upperLimit) {
+            this.posX += 1;
         }
     }
 
     /**
-     * Description: Less one position to posY if new psition is between limits..
+     * Description: Less one position to posX if new psition is between limits..
      */
     public void moveToLeft() {
-        if (this.posY > lowerLimit) {
-            this.posY -= 1;
+        if (this.posX > lowerLimit) {
+            this.posX -= 1;
         }
     }
 
@@ -92,6 +92,6 @@ public class Spaceship {
      * @return an String with position x and y where it shooted.
      */
     public String shoot() {
-        return ">>>>> piw <<<<< shoot position: " + getPosX() + "," + getPosY();
+        return ">>>>> piw <<<<< shoot position: " + getPosY() + "," + getPosX();
     }
 }

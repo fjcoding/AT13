@@ -12,16 +12,16 @@ public class SpaceshipTest{
     public void itShouldMoveToRight(){
         Spaceship spaceship = new Spaceship(10,10);
         spaceship.moveToRight();
-        int posY = spaceship.getPosY();
-        assertEquals(11, posY);
+        int posX = spaceship.getPosX();
+        assertEquals(11, posX);
     }
 
     @Test
     public void itShouldMoveToLeft(){
         Spaceship spaceship2 = new Spaceship(24,9);
         spaceship2.moveToLeft();
-        int posY = spaceship2.getPosY();
-        assertEquals(8, posY);
+        int posX = spaceship2.getPosX();
+        assertEquals(8, posX);
     }
 
     @Test
@@ -36,16 +36,16 @@ public class SpaceshipTest{
     public void itShouldNotMoveToRight(){
         Spaceship spaceship = new Spaceship(20,50);
         spaceship.moveToRight();
-        int posY = spaceship.getPosY();
-        assertEquals(50, posY);
+        int posX = spaceship.getPosX();
+        assertEquals(50, posX);
     }
 
     @Test
     public void itShouldNotMoveToLeft(){
         Spaceship spaceship2 = new Spaceship(24,0);
         spaceship2.moveToLeft();
-        int posY = spaceship2.getPosY();
-        assertEquals(0, posY);
+        int posX = spaceship2.getPosX();
+        assertEquals(0, posX);
     }
 
     @Test
@@ -107,7 +107,7 @@ public class SpaceshipTest{
     }
     @Test
     public void itShouldgo3rdtsetPosY(){
-        Spaceship spaceshipY = new Spaceship(10,15);
+        Spaceship spaceshipY = new Spaceship(15,10);
         int answerTrue=15;
         spaceshipY.setPosY(spaceshipY.getPosY());
         assertEquals(answerTrue, spaceshipY.getPosY());
