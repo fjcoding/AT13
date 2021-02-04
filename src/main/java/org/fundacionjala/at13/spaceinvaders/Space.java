@@ -34,14 +34,10 @@ public class Space {
             }
         }
         if (this.spaceship != null) {
-            /**
-             * Mapping formula for matrix[i][j]
-             *  i = matrix.length - posY - 1
-             *  j = posX
-             */
-            int iMapped = space.length - this.spaceship.getPosY() - 1;
-            int jMapped = this.spaceship.getPosX();
-            space[iMapped][jMapped] = SPACESHIP;
+            int posX = this.spaceship.getPosX();
+            int posY = this.spaceship.getPosY();
+            PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
+            space[position.getIndexi()][position.getIndexj()] = SPACESHIP;
         }
         return space;
     }
