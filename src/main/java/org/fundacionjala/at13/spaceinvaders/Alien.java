@@ -2,9 +2,11 @@ package org.fundacionjala.at13.spaceinvaders;
 public class Alien {
     private int xPos;
     private int yPos;
-    public Alien() {
-        this.xPos = 0;
-        this.yPos = 0;
+    private boolean isAlive;
+    public Alien(int x, int y) {
+        this.xPos = x;
+        this.yPos = y;
+        isAlive = true;
     }
 
     /**
@@ -71,8 +73,9 @@ public class Alien {
      *
      * @return string that represents a shoot.
      */
-    public String shoot() {
-        return "Alien shooted a bullet";
+    public Bullet shoot() {
+        Bullet bulletShot = new Bullet ("Alien", xPos, yPos);
+        return bulletShot;
     }
 
     /**
