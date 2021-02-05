@@ -59,4 +59,28 @@ public class SpaceElementTest {
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 
+    @Test
+    public void itShouldMoveToLeft() {
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=9;
+        int positionInitialY=6;
+        int newPositionX=positionInitialX-1;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        spaceElement.moveToLeft();
+        assertEquals(newPositionX, spaceElement.getPosX());
+    }
+
+    @Test
+    public void itShouldMoveToLeftUntilLowerLimmit() {
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=lowerXLimit;
+        int positionInitialY=6;
+        int newPositionX=lowerXLimit;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        spaceElement.moveToLeft();
+        assertEquals(newPositionX, spaceElement.getPosX());
+    }
+
 }

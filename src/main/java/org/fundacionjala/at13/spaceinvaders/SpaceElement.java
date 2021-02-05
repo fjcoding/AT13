@@ -85,4 +85,12 @@ public class SpaceElement {
         }
     }
 
+    /**
+     * Description: Less one position to posX if new psition is between limits..
+     */
+    public void moveToLeft() {
+        if (this.posX > lowerLimit) {
+            this.posX -= 1;
+        }
+    }
 }
