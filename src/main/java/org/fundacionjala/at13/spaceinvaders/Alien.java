@@ -1,12 +1,21 @@
 package org.fundacionjala.at13.spaceinvaders;
 public class Alien {
+    public static final int DEFAULT_POSX = 25;
+    public static final int DEFAULT_POSY = 48;
     private int xPos;
     private int yPos;
+    private final int lowerLimit = 0;
+    private final int upperLimit = 50;
     private boolean isAlive;
-    public Alien(final int x, final int y) {
-        this.xPos = x;
-        this.yPos = y;
+    public Alien(final int pX, final int pY) {
+        this.xPos = pX;
+        this.yPos = pY;
         isAlive = true;
+    }
+
+    public Alien() {
+        this.xPos = 0;
+        this.yPos = 0;
     }
 
     /**
