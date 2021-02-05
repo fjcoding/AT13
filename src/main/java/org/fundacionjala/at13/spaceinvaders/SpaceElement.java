@@ -76,4 +76,13 @@ public class SpaceElement {
         this.upperLimit = uLimit;
     }
 
+    /**
+     * Description: Add one position to posX if new psition is between limits.
+     */
+    public void moveToRight() {
+        if (this.posX < upperLimit - 1) {
+            this.posX += 1;
+        }
+    }
+
 }
