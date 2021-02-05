@@ -80,8 +80,9 @@ public class Alien {
      *
      * @return string that represents a shoot.
      */
-    public String shoot() {
-        return "Alien shooted a bullet";
+    public Bullet shoot() {
+        Bullet bulletShot = new Bullet ("Alien", xPos, yPos);
+        return bulletShot;
     }
 
     /**
