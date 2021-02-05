@@ -7,9 +7,12 @@ public class AlienGroup {
     private static final int INIT_Y_POS = 0;
     private static final int SPACE_SIZE_HEIGHT = 10;
     private static final int SPACE_SIZE_WIDTH = 15;
-    private int GROUP_LEFT_LIMIT = 5;
-    private int GROUP_RIGHT_LIMIT = 9;
-    private int GROUP_DOWN_LIMIT = 2;
+    private static final int INITIAL_GROUP_LEFT_LIMIT = 5;
+    private static final int INITIAL_GROUP_RIGHT_LIMIT = 9;
+    private static final int INITIAL_GROUP_DOWN_LIMIT = 2;
+    private int groupLeftLimit;
+    private int groupRightLimit;
+    private int groupDownLimit;
     private boolean directionIsTowardsRight = true;
     private ArrayList<Alien> alienGroup;
     /**
@@ -23,9 +26,9 @@ public class AlienGroup {
      * Method to add aliens.
      */
     public void addAliens() {
-        for (int row = 0; row <= this.GROUP_DOWN_LIMIT; row++) {
-            for (int col = this.GROUP_LEFT_LIMIT; col <= this.GROUP_RIGHT_LIMIT; col++) {
-                Alien alien=new Alien(col,row);
+        for (int row = 0; row <= this.INITIAL_GROUP_DOWN_LIMIT; row++) {
+            for (int col = this.INITIAL_GROUP_LEFT_LIMIT; col <= this.INITIAL_GROUP_RIGHT_LIMIT; col++) {
+                Alien alien = new Alien(col, row);
                 alienGroup.add(alien);
             }
         }
@@ -34,31 +37,28 @@ public class AlienGroup {
      * Method to move all aliens
      */
     public void moveAliens() {
-        if (gotToTheSpaceship() == false) {
+        if (!gotToTheSpaceship()) {
             if(directionIsTowardsRight == false){
-                if (this.GROUP_LEFT_LIMIT == 0) {
+                if(this.groupLeftLimit == 0) {
                     aliensMoveDown();
                     directionIsTowardsRight = true;
-                    this.GROUP_DOWN_LIMIT += 1;
+                    this.groupDownLimit += 1;
                 } else {
                     aliensMoveLeft();
-                    this.GROUP_RIGHT_LIMIT -= 1;
-                    this.GROUP_LEFT_LIMIT -= 1;
+                    this.groupRightLimit -= 1;
+                    this.groupLeftLimit -= 1;
                 }
-            }
-            else{
-                if (this.GROUP_RIGHT_LIMIT == SPACE_SIZE_WIDTH-1) {
+            } else {
+                if(this.groupRightLimit == SPACE_SIZE_WIDTH-1) {
                     aliensMoveDown();
-                    this.GROUP_DOWN_LIMIT += 1;
-                    directionIsTowardsRight=false;
+                    this.groupDownLimit += 1;
+                    directionIsTowardsRight = false;
                 } else {
                     aliensMoveRight();
-                    this.GROUP_RIGHT_LIMIT += 1;
-                    this.GROUP_LEFT_LIMIT += 1;
+                    this.groupRightLimit += 1;
+                    this.groupLeftLimit += 1;
                 }
-
             }
-
         }
     }
     /**
@@ -95,9 +95,9 @@ public class AlienGroup {
      * @return a boolean when the group reached the spaceship.
      */
     public boolean gotToTheSpaceship() {
-        if(this.GROUP_DOWN_LIMIT >= SPACE_SIZE_HEIGHT-2) {
+        if (this.groupDownLimit >= SPACE_SIZE_HEIGHT - 2) {
             return true;
-        } else { 
+        } else {
             return false; 
         }
     }
@@ -118,8 +118,8 @@ public class AlienGroup {
      * @return a bullet from the alien chosen to shoot.
      */
     public Bullet alienGroupShoot() {
-        int maxAliens = alienGroup.size()-1;  
-        int alienTurnToShoot = (int)(Math.random() * maxAliens);
+        int maxAliens = alienGroup.size() - 1;
+        int alienTurnToShoot = (int) (Math.random() * maxAliens);
         Bullet bulletShot = alienGroup.get(alienTurnToShoot).shoot();
         return bulletShot;
     }

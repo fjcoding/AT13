@@ -3,7 +3,7 @@ public class Alien {
     private int xPos;
     private int yPos;
     private boolean isAlive;
-    public Alien(int x, int y) {
+    public Alien(final int x, final int y) {
         this.xPos = x;
         this.yPos = y;
         isAlive = true;
