@@ -4,7 +4,8 @@ public final class Main {
 
     public static final int WAIT_PERIOD = 2000; // milliseconds
 
-    private Main() { }
+    private Main() {
+    }
 
     public static void main(final String[] args) throws InterruptedException {
         System.out.println("Space Invaders!!! by AT13" + "\n");
@@ -21,16 +22,20 @@ public final class Main {
         spaceship.moveToRight();
         Thread.sleep(WAIT_PERIOD);
         print(space.show());
+
+        Interface grafic = new Interface();
     }
 
     private static void print(final String[][] matrix) {
-        System.out.println("=====================================================================================================");
-        for (int i =  0; i < matrix.length; i++) {
+        System.out.println(
+                "=====================================================================================================");
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j]);
             }
             System.out.println();
         }
-        System.out.println("=====================================================================================================");
+        System.out.println(
+                "=====================================================================================================");
     }
 }
