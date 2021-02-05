@@ -2,6 +2,9 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public class Spaceship {
 
+    public static final int DEFAULT_POSX = 0;
+    public static final int DEFAULT_POSY = 0;
+
     private int posX;
     private int posY;
     private final int lowerLimit = 0;
@@ -36,7 +39,7 @@ public class Spaceship {
         } else if (pX > upperLimit - 1) {
             this.posX = (upperLimit - 1);
         } else {
-            this.posX = posX;
+            this.posX = pX;
         }
     }
 
@@ -70,20 +73,20 @@ public class Spaceship {
     }
 
     /**
-     * Description: Add one position to posY if new psition is between limits.
+     * Description: Add one position to posX if new psition is between limits.
      */
     public void moveToRight() {
-        if (this.posY < upperLimit) {
-            this.posY += 1;
+        if (this.posX < upperLimit) {
+            this.posX += 1;
         }
     }
 
     /**
-     * Description: Less one position to posY if new psition is between limits..
+     * Description: Less one position to posX if new psition is between limits..
      */
     public void moveToLeft() {
-        if (this.posY > lowerLimit) {
-            this.posY -= 1;
+        if (this.posX > lowerLimit) {
+            this.posX -= 1;
         }
     }
 
