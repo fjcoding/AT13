@@ -4,10 +4,14 @@ public class Space {
 
     public static final String EMPTY = ".";
     public static final String SPACESHIP = "^";
+    public static final String ALIEN = "*";
+    public static final String BULLET = "|";
     public static final int DEFAULT_HEIGHT = 50;
     public static final int DEFAULT_WIDTH = 100;
 
     private Spaceship spaceship;
+    private Alien[] aliens;
+    private Bullet bullet;
     private int height;
     private int width;
 
@@ -21,6 +25,20 @@ public class Space {
      */
     public void setSpaceship(final Spaceship newSpaceship) {
         this.spaceship = newSpaceship;
+    }
+
+    /**
+     * Sets a new spaceship for this space instance
+     */
+    public void setAlien(final Alien[] newAlien) {
+        this.aliens = newAlien;
+    }
+
+    /**
+     * Sets a new spaceship for this space instance
+     */
+    public void setBullet(final Bullet newBullet) {
+        this.bullet = newBullet;
     }
 
     /**
@@ -38,6 +56,20 @@ public class Space {
             int posY = this.spaceship.getPosY();
             PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
             space[position.getIndexi()][position.getIndexj()] = SPACESHIP;
+        }
+        if (this.aliens != null) {
+            for (Alien alien  : aliens) {
+                int posX = alien.getXPos();
+                int posY = alien.getYPos();
+                PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
+                space[position.getIndexi()][position.getIndexj()] = ALIEN;
+            }
+        }
+        if (this.bullet != null) {
+            int posX = this.bullet.getPositionX();
+            int posY = this.bullet.getPositionY();
+            PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
+            space[position.getIndexi()][position.getIndexj()] = BULLET;
         }
         return space;
     }
