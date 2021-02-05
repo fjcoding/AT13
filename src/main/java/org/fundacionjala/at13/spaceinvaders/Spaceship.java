@@ -7,7 +7,7 @@ public class Spaceship {
     private final int lowerLimit = 0;
     private final int upperLimit = 50;
 
-    public Spaceship(final int pY, final int pX) {
+    public Spaceship(final int pX, final int pY) {
         this.posX = pX;
         this.posY = pY;
     }
@@ -92,6 +92,6 @@ public class Spaceship {
      * @return an String with position x and y where it shooted.
      */
     public String shoot() {
-        return ">>>>> piw <<<<< shoot position: " + getPosY() + "," + getPosX();
+        return ">>>>> piw <<<<< shoot position: " + getPosX() + "," + getPosY();
     }
 }
