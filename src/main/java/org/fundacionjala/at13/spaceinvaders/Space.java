@@ -2,31 +2,43 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public class Space {
 
-    private static final int SPACE_HEIGHT = 50;
-    private static final int SPACE_WIDTH = 100;
-    private static final String FONT_SPACE = ".";
-    private static String[][] space = new String[SPACE_HEIGHT][SPACE_WIDTH];
+    public static final String EMPTY = ".";
+    public static final String SPACESHIP = "^";
+    public static final int DEFAULT_HEIGHT = 50;
+    public static final int DEFAULT_WIDTH = 100;
 
-    protected Space() {
-        // prevents calls from subclass
-        throw new UnsupportedOperationException();
+    private Spaceship spaceship;
+    private int height;
+    private int width;
+
+    public Space(final int heightToSet, final int widthToSet) {
+        this.height = heightToSet;
+        this.width = widthToSet;
     }
 
-    public static void createdSpace() {
+    /**
+     * Sets a new spaceship for this space instance
+     */
+    public void setSpaceship(final Spaceship newSpaceship) {
+        this.spaceship = newSpaceship;
+    }
+
+    /**
+     * Method that returns a String representation of the space.
+     */
+    public String[][] show() {
+        String[][] space = new String[height][width];
         for (int i = 0; i < space.length; i++) {
             for (int j = 0; j < space[i].length; j++) {
-                space[i][j] = FONT_SPACE;
+                space[i][j] = EMPTY;
             }
         }
-    }
-
-    public static void showSpace() {
-        for (int i = 0; i < space.length; i++) {
-            for (int j = 0; j < space[i].length; j++) {
-                System.out.print(space[i][j]);
-            }
-            System.out.println();
+        if (this.spaceship != null) {
+            int posX = this.spaceship.getPosX();
+            int posY = this.spaceship.getPosY();
+            PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
+            space[position.getIndexi()][position.getIndexj()] = SPACESHIP;
         }
+        return space;
     }
-
 }

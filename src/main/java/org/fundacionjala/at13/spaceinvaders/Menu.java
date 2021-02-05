@@ -8,7 +8,7 @@ public class Menu {
     public boolean menuOptions(final int option) {
         switch (option) {
             case 1:
-                Space.showSpace();
+                new Space(Space.DEFAULT_HEIGHT, Space.DEFAULT_WIDTH).show();
                 return true;
             case 0:
                 System.out.println("Exit");
