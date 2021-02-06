@@ -59,4 +59,11 @@ public class AlienGroupTest {
         //rightlimit should be 5 after a move;
         assertEquals(5 ,alienGroup.getGroupRightLimit());
     }
+    public void shouldCheckIfGroupReachTheSpaceship() {
+        //Consider a Space size of 10 height and 15 width.
+        AlienGroup alienGroup = new AlienGroup(9, 5);
+        int currentDownLimit = alienGroup.getgroupDownLimit();
+        alienGroup.moveAliens();
+        assertEquals(currentDownLimit, alienGroup.getgroupDownLimit());
+    
 }
