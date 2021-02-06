@@ -23,17 +23,17 @@ public final class Main {
         space.setAlien(aliens);
 
         print(space.show());
-        spaceship.moveToRight();
+        spaceship.moveRight();
         bullet.itShooting();
-        aliens[0].moveToRight();
-        aliens[1].moveToRight();
-        aliens[2].moveToRight();
+        aliens[0].moveRight();
+        aliens[1].moveRight();
+        aliens[2].moveRight();
         Thread.sleep(WAIT_PERIOD);
         print(space.show());
-        spaceship.moveToRight();
-        aliens[0].moveToRight();
-        aliens[1].moveToRight();
-        aliens[2].moveToRight();
+        spaceship.moveRight();
+        aliens[0].moveRight();
+        aliens[1].moveRight();
+        aliens[2].moveRight();
         //aliens[0].moveDown();
         Thread.sleep(WAIT_PERIOD);
         print(space.show());

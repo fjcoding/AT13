@@ -36,50 +36,50 @@ public class SpaceElementTest {
     }
 
     @Test
-    public void itShouldMoveToRight() {
+    public void itShouldMoveRight() {
         int lowerXLimit=0;
         int upperXLimit=10;
         int positionInitialX=5;
         int positionInitialY=6;
         int newPositionX=positionInitialX+1;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
-        spaceElement.moveToRight();
+        spaceElement.moveRight();
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 
     @Test
-    public void itShouldMoveToRightUntilUpperLimmit() {
+    public void itShouldMoveRightUntilUpperLimmit() {
         int lowerXLimit=0;
         int upperXLimit=10;
         int positionInitialX=upperXLimit-1;
         int positionInitialY=6;
         int newPositionX=positionInitialX;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
-        spaceElement.moveToRight();
+        spaceElement.moveRight();
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 
     @Test
-    public void itShouldMoveToLeft() {
+    public void itShouldMoveLeft() {
         int lowerXLimit=0;
         int upperXLimit=10;
         int positionInitialX=9;
         int positionInitialY=6;
         int newPositionX=positionInitialX-1;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
-        spaceElement.moveToLeft();
+        spaceElement.moveLeft();
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 
     @Test
-    public void itShouldMoveToLeftUntilLowerLimmit() {
+    public void itShouldMoveLeftUntilLowerLimmit() {
         int lowerXLimit=0;
         int upperXLimit=10;
         int positionInitialX=lowerXLimit;
         int positionInitialY=6;
         int newPositionX=lowerXLimit;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
-        spaceElement.moveToLeft();
+        spaceElement.moveLeft();
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 }

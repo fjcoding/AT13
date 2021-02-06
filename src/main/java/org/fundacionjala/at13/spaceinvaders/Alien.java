@@ -15,4 +15,11 @@ public class Alien extends SpaceElement {
         return new Bullet(Space.ALIEN, getPosX(), getPosY());
     }
 
+    /**
+     * Description: Less one position to posY in order to move down.
+     */
+    public void moveDown() {
+        setPosY(getPosY() - 1);
+    }
+
 }

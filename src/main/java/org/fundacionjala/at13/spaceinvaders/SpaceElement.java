@@ -79,7 +79,7 @@ public class SpaceElement {
     /**
      * Description: Add one position to posX if new psition is between limits.
      */
-    public void moveToRight() {
+    public void moveRight() {
         if (this.posX < upperLimit - 1) {
             this.posX += 1;
         }
@@ -88,7 +88,7 @@ public class SpaceElement {
     /**
      * Description: Less one position to posX if new psition is between limits..
      */
-    public void moveToLeft() {
+    public void moveLeft() {
         if (this.posX > lowerLimit) {
             this.posX -= 1;
         }
