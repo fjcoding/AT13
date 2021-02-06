@@ -5,6 +5,13 @@ public class AlienGroup {
     private static int numberOfAlienRows;
     private static int numberOfAlienColumns;
     private ArrayList<Alien> alienGroup;
+    private boolean directionIsTowardsRight = true;
+    private static final int SPACE_SIZE_HEIGHT = 10;
+    private static final int SPACE_SIZE_WIDTH = 15;
+    private static final int SPACESHIP_ROW_LIMIT = 3;
+    private int groupLeftLimit;
+    private int groupRightLimit;
+    private int groupDownLimit;
     /**
      * Class AlienGroup.
      */
@@ -53,6 +60,51 @@ public class AlienGroup {
     public void aliensMoveDown() {
         for (Alien alien : alienGroup) {
             alien.moveDown();
+        }
+    }
+    /**
+     * @return a boolean when the group reached the spaceship.
+     */
+    public boolean gotToTheSpaceship() {
+        return this.groupDownLimit > SPACE_SIZE_HEIGHT - SPACESHIP_ROW_LIMIT;
+    }
+    /**
+     * Method to calculate the new right limit of the group
+     * when an alien column dies.
+     */
+    public void calculateGroupRightLimit() {
+    }
+    /**
+     * Set the new right limit of the group.
+     */
+    public void setGroupRightLimit() {
+    }
+    /**
+     * Method to move all aliens
+     */
+    public void moveAliens() {
+        if (!gotToTheSpaceship()) {
+            if (!directionIsTowardsRight) {
+                if (this.groupLeftLimit == 0) {
+                    aliensMoveDown();
+                    directionIsTowardsRight = true;
+                    this.groupDownLimit += 1;
+                } else {
+                    aliensMoveLeft();
+                    this.groupRightLimit -= 1;
+                    this.groupLeftLimit -= 1;
+                }
+            } else {
+                if (this.groupRightLimit == SPACE_SIZE_WIDTH - 1) {
+                    aliensMoveDown();
+                    this.groupDownLimit += 1;
+                    directionIsTowardsRight = false;
+                } else {
+                    aliensMoveRight();
+                    this.groupRightLimit += 1;
+                    this.groupLeftLimit += 1;
+                }
+            }
         }
     }
 }
