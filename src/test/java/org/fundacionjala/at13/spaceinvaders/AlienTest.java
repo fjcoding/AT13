@@ -9,11 +9,11 @@ public class AlienTest {
         int upperXLimit=10;
         int positionInitialX=5;
         int positionInitialY=6;
-        String shape="V";
+        String shape=Space.ALIEN;
         Alien alien=new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bulletShootByAlien=alien.shoot();
-        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY+1);
-        assertEquals(bullet, bulletShootByAlien);
+        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
+        assertTrue(bullet.equals(bulletShootByAlien));
     }
 
     @Test

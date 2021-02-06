@@ -70,4 +70,23 @@ public class Bullet {
         return false;
     }
 
+    /**
+     * @return a int that shows who shoot the bullet.
+     */
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Description: Compare this bullet with other.
+     *
+     * @return true if they are equal and false if they're not.
+     */
+    public boolean equals(final Bullet otherBullet) {
+        return this.positionInitialX == otherBullet.getPositionX()
+         && this.positionInitialY == otherBullet.getPositionY()
+         && this.type == otherBullet.getType();
+
+    }
+
 }

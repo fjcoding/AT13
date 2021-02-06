@@ -14,11 +14,11 @@ public class SpaceshipTest{
         int upperXLimit=10;
         int positionInitialX=5;
         int positionInitialY=6;
-        String shape="A";
+        String shape=Space.SPACESHIP;
         Spaceship spaceship=new Spaceship(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bulletShootBySpaceship=spaceship.shoot();
-        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY+1);
-        assertEquals(bullet, bulletShootBySpaceship);
+        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
+        assertTrue(bullet.equals(bulletShootBySpaceship));
     }
 
 }
