@@ -93,7 +93,7 @@ public class Bullet {
      *
      */
     public void goForward() {
-        if (this.type==Space.ALIEN) {
+        if (this.type == Space.ALIEN) {
             goDown();
         } else {
             goUp();
