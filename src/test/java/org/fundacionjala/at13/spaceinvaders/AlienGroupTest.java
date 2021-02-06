@@ -65,5 +65,6 @@ public class AlienGroupTest {
         int currentDownLimit = alienGroup.getgroupDownLimit();
         alienGroup.moveAliens();
         assertEquals(currentDownLimit, alienGroup.getgroupDownLimit());
-    
+    }
 }
+

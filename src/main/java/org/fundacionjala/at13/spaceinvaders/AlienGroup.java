@@ -124,8 +124,7 @@ public class AlienGroup {
                     this.groupLeftLimit += 1;
                 }
             }
-        } else {
-            System.out.println("Got to the ship");
         }
     }
 }
+
