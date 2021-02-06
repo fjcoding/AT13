@@ -31,4 +31,28 @@ public class AlienGroup {
     public ArrayList getAliens() {
         return alienGroup;
     }
+    /**
+     * Method to move aliens to the right.
+     */
+    public void aliensMoveRight() {
+        for (Alien alien : alienGroup) {
+            alien.moveRight();
+        }
+    }
+    /**
+     * Method to move aliens to the left.
+     */
+    public void aliensMoveLeft() {
+        for (Alien alien : alienGroup) {
+            alien.moveLeft();
+        }
+    }
+    /**
+     * Method to move aliens towards down.
+     */
+    public void aliensMoveDown() {
+        for (Alien alien : alienGroup) {
+            alien.moveDown();
+        }
+    }
 }
