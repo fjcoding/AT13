@@ -31,10 +31,32 @@ public class AlienGroupTest {
         assertEquals(true, alienGroup.gotToTheSpaceship());
     }
     @Test
-    public void shouldCheckLimitAndMoveDown() {
+    public void shouldCheckLeftLimitAndMoveDown() {
         AlienGroup alienGroup = new AlienGroup(3, 5);
         alienGroup.setdirectionIsTowardsRight();
         alienGroup.moveAliens();
         assertEquals(3 ,alienGroup.getgroupDownLimit());
+    }
+    @Test
+    public void shouldCheckLeftLimitAndMoveLeft() {
+        AlienGroup alienGroup = new AlienGroup(3, 5);
+        alienGroup.moveAliens();
+        alienGroup.setdirectionIsTowardsRight();
+        alienGroup.moveAliens();
+        assertEquals(0 ,alienGroup.getGroupLeftLimit());
+    }
+    @Test
+    public void shouldCheckRightLimitAndMoveDown() {
+        AlienGroup alienGroup = new AlienGroup(3, 15);
+        alienGroup.moveAliens();
+        assertEquals(3 ,alienGroup.getgroupDownLimit());
+    }
+    @Test
+    public void shouldCheckRightLimitAndMoveRight() {
+        AlienGroup alienGroup = new AlienGroup(3, 5);
+        //Initial rightlimit = 4;
+        alienGroup.moveAliens();
+        //rightlimit should be 5 after a move;
+        assertEquals(5 ,alienGroup.getGroupRightLimit());
     }
 }
