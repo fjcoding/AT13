@@ -83,4 +83,16 @@ public class SpaceElementTest {
         assertEquals(newPositionX, spaceElement.getPosX());
     }
 
+    @Test
+    public void itShouldShootABullet() {
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=4;
+        int positionInitialY=8;
+        String shape="A";
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        Bullet bulletShootBySpaceShip=spaceElement.shoot();
+        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY+1);
+        assertEquals(bullet, bulletShootBySpaceShip);
+    }
 }
