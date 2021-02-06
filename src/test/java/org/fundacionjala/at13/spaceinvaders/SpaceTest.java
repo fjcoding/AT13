@@ -31,7 +31,7 @@ public class SpaceTest {
         int spaceshipInitPosY = 0;
 
         Space space = new Space(height, width);
-        Spaceship spaceship = new Spaceship(spaceshipInitPosX, spaceshipInitPosY);
+        Spaceship spaceship = new Spaceship(spaceshipInitPosX, spaceshipInitPosY,0,Space.DEFAULT_WIDTH);
         space.setSpaceship(spaceship);
 
         String[][] spacePrint = space.show();

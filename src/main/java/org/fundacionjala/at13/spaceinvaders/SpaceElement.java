@@ -6,7 +6,6 @@ public class SpaceElement {
     private int upperLimit;
     private int posX;
     private int posY;
-    public static final String SPACESHIP = "A";
 
     public SpaceElement(final int pX, final int pY, final int llimit, final int ulimit) {
         this.lowerLimit = llimit;
@@ -95,10 +94,5 @@ public class SpaceElement {
         }
     }
 
-    /**
-     * @return a Bullet with position x and (y+1) where it shooted.
-     */
-    public Bullet shoot() {
-        return new Bullet(SPACESHIP, this.posX, this.posY + 1);
-    }
+
 }
