@@ -6,12 +6,16 @@ public class SpaceElement {
     private int upperLimit;
     private int posX;
     private int posY;
+    private boolean alive;
+    private static final int DEFAULT_LOWERLIMIT = 0;
+    private static final int DEFAULT_UPPERLIMIT = 1;
 
     public SpaceElement(final int pX, final int pY, final int llimit, final int ulimit) {
         this.lowerLimit = llimit;
         this.upperLimit = ulimit;
         setPosX(pX);
         this.posY = pY;
+        this.alive = true;
     }
 
     /**
@@ -59,7 +63,7 @@ public class SpaceElement {
      * Description: Change lower limit for a new one.
      */
     public void setLowerLimit(final int lLimit) {
-        this.lowerLimit = lLimit;
+            this.lowerLimit = lLimit;
     }
 
     /**
@@ -73,7 +77,7 @@ public class SpaceElement {
      * Description: Change upper limit for a new one.
      */
     public void setUpperLimit(final int uLimit) {
-        this.upperLimit = uLimit;
+            this.upperLimit = uLimit;
     }
 
     /**
@@ -86,7 +90,7 @@ public class SpaceElement {
     }
 
     /**
-     * Description: Less one position to posX if new psition is between limits..
+     * Description: Less one position to posX if new psition is between limits.
      */
     public void moveLeft() {
         if (this.posX > lowerLimit) {
@@ -94,5 +98,18 @@ public class SpaceElement {
         }
     }
 
+    /**
+     * Change status of spaceElement to dead.
+     */
+    public void die() {
+        this.alive = false;
+    }
+
+    /**
+     * @return true if spaceElement is alive and false if It's dead.
+     */
+    public boolean getAlive() {
+        return this.alive;
+    }
 
 }

@@ -18,25 +18,53 @@ public final class Main {
                 new Alien(Alien.DEFAULT_POSX - 1, Alien.DEFAULT_POSY, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH),
                 new Alien(Alien.DEFAULT_POSX - 2, Alien.DEFAULT_POSY, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH)
         };
-        Bullet bullet = new Bullet("SpaceShip", spaceship.getPosX(), spaceship.getPosY() + 1);
-        space.setBullet(bullet);
+        //Bullet bullet = new Bullet("SpaceShip", spaceship.getPosX(), spaceship.getPosY() + 1);
+        //space.setBullet(bullet);
         space.setAlien(aliens);
+        Bullet bullet = spaceship.shoot();
+        space.setBullet(bullet);
 
         print(space.show());
-        spaceship.moveRight();
-        bullet.itShooting();
-        aliens[0].moveRight();
-        aliens[1].moveRight();
-        aliens[2].moveRight();
-        Thread.sleep(WAIT_PERIOD);
-        print(space.show());
+        /* System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY()
+        +" bullet position: "+bullet.getPositionX()+","+bullet.getPositionY());
         spaceship.moveRight();
         aliens[0].moveRight();
         aliens[1].moveRight();
         aliens[2].moveRight();
-        //aliens[0].moveDown();
+        bullet.goForward();
         Thread.sleep(WAIT_PERIOD);
         print(space.show());
+        System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY()
+        +" bullet position: "+bullet.getPositionX()+","+bullet.getPositionY());
+        spaceship.moveRight();
+        aliens[0].moveRight();
+        aliens[1].moveRight();
+        aliens[2].moveRight();
+        bullet.goForward();
+        Thread.sleep(WAIT_PERIOD);
+        print(space.show());
+        System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY()
+        +" bullet position: "+bullet.getPositionX()+","+bullet.getPositionY());
+        spaceship.moveRight();
+        aliens[0].moveRight();
+        aliens[1].moveRight();
+        aliens[2].moveRight();
+        bullet.goForward();
+        Thread.sleep(WAIT_PERIOD);
+        print(space.show());
+        System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY()
+        +" bullet position: "+bullet.getPositionX()+","+bullet.getPositionY()); */
+        while (true) {
+            spaceship.moveRight();
+            aliens[0].moveRight();
+            aliens[1].moveRight();
+            aliens[2].moveRight();
+            bullet.goForward();
+            Thread.sleep(WAIT_PERIOD);
+            print(space.show());
+            System.out.println("spaceship position: "+spaceship.getPosX()+","+spaceship.getPosY()
+            +" bullet position: "+bullet.getPositionX()+","+bullet.getPositionY());
+        }
     }
 
     private static void print(final String[][] matrix) {

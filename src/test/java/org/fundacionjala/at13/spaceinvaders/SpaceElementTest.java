@@ -82,4 +82,17 @@ public class SpaceElementTest {
         spaceElement.moveLeft();
         assertEquals(newPositionX, spaceElement.getPosX());
     }
+
+    @Test
+    public void itShouldDie() {
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=2;
+        int positionInitialY=2;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        boolean previusStatus=spaceElement.getAlive(); 
+        spaceElement.die();
+        boolean actualStatus=spaceElement.getAlive(); 
+        assertFalse(actualStatus==previusStatus);
+    }
 }

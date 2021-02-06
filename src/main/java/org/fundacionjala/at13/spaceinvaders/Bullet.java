@@ -10,6 +10,7 @@ public class Bullet {
         positionInitialY = y;
         bulletExist = false;
         this.type = shooterType;
+        goForward();
     }
 
     /**
@@ -79,7 +80,6 @@ public class Bullet {
 
     /**
      * Description: Compare this bullet with other.
-     *
      * @return true if they are equal and false if they're not.
      */
     public boolean equals(final Bullet otherBullet) {
@@ -89,4 +89,28 @@ public class Bullet {
 
     }
 
+    /**
+     *
+     */
+    public void goForward() {
+        if (this.type==Space.ALIEN) {
+            goDown();
+        } else {
+            goUp();
+        }
+    }
+
+    /**
+     *
+     */
+    public void goUp() {
+        this.positionInitialY += 1;
+    }
+
+    /**
+     *
+     */
+    public void goDown() {
+        this.positionInitialY -= 1;
+    }
 }
