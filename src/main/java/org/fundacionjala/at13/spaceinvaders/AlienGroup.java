@@ -72,15 +72,31 @@ public class AlienGroup {
         return this.groupDownLimit > SPACE_SIZE_HEIGHT - SPACESHIP_ROW_LIMIT;
     }
     /**
-     * Method to calculate the new right limit of the group
-     * when an alien column dies.
+     * method to change the directionIsTowardsRight variable.
      */
-    public void calculateGroupRightLimit() {
+    public void setdirectionIsTowardsRight() {
+        this.directionIsTowardsRight = !directionIsTowardsRight;
+    }
+    /**
+     * method to get groupDownLimit.
+     * @return an int with the groupDownLimit.
+     */
+    public int getgroupDownLimit() {
+        return this.groupDownLimit;
     }
     /**
      * Set the new right limit of the group.
+     * @return an int with the groupRightLimit.
      */
-    public void setGroupRightLimit() {
+    public int getGroupRightLimit() {
+        return this.groupRightLimit;
+    }
+    /**
+     * Set the new left limit of the group.
+     * @return an int with the groupLeftLimit.
+     */
+    public int getGroupLeftLimit() {
+        return this.groupLeftLimit;
     }
     /**
      * Method to move all aliens
@@ -90,7 +106,7 @@ public class AlienGroup {
             if (!directionIsTowardsRight) {
                 if (this.groupLeftLimit == 0) {
                     aliensMoveDown();
-                    directionIsTowardsRight = true;
+                    setdirectionIsTowardsRight();
                     this.groupDownLimit += 1;
                 } else {
                     aliensMoveLeft();
@@ -101,7 +117,7 @@ public class AlienGroup {
                 if (this.groupRightLimit == SPACE_SIZE_WIDTH - 1) {
                     aliensMoveDown();
                     this.groupDownLimit += 1;
-                    directionIsTowardsRight = false;
+                    setdirectionIsTowardsRight();
                 } else {
                     aliensMoveRight();
                     this.groupRightLimit += 1;

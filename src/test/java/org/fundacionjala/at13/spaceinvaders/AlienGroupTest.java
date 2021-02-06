@@ -30,9 +30,11 @@ public class AlienGroupTest {
         AlienGroup alienGroup = new AlienGroup(9, 6);
         assertEquals(true, alienGroup.gotToTheSpaceship());
     }
-    // @Test
-    // public void shouldCheckLimitAndMoveDown() {
-    //     AlienGroup alienGroup = new AlienGroup(numberOfRowsForAliens, numberOfColumnsForAliens);
-    //     alienGroup.moveAliens();
-    // }
+    @Test
+    public void shouldCheckLimitAndMoveDown() {
+        AlienGroup alienGroup = new AlienGroup(3, 5);
+        alienGroup.setdirectionIsTowardsRight();
+        alienGroup.moveAliens();
+        assertEquals(3 ,alienGroup.getgroupDownLimit());
+    }
 }
