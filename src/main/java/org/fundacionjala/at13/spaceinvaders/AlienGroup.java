@@ -18,6 +18,9 @@ public class AlienGroup {
     public AlienGroup(final int rows, final int columns) {
         numberOfAlienRows = rows;
         numberOfAlienColumns = columns;
+        groupDownLimit = rows - 1;
+        groupLeftLimit = 0;
+        groupRightLimit = columns - 1;
         alienGroup = new ArrayList<Alien>();
         addAliens();
     }
@@ -105,6 +108,8 @@ public class AlienGroup {
                     this.groupLeftLimit += 1;
                 }
             }
+        } else {
+            System.out.println("Got to the ship");
         }
     }
 }
