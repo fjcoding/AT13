@@ -1,5 +1,4 @@
-package org.fundationjala.at13.spaceinvaders;
-import org.fundacionjala.at13.spaceinvaders.Menu;
+package org.fundacionjala.at13.spaceinvaders;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
