@@ -10,6 +10,7 @@ public class Bullet {
         positionInitialY = y;
         bulletExist = false;
         this.type = shooterType;
+        forward();
     }
 
     /**
@@ -37,6 +38,28 @@ public class Bullet {
      */
     public boolean getBulletExist() {
         return this.bulletExist;
+    }
+
+    /**
+     * Description: The function returns the type of the shooter.
+     *
+     * @return a String with the type of the shooter.
+     */
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Description: The function returns the type of the shooter.
+     *
+     * @return a String with the type of the shooter.
+     */
+    public void forward() {
+        if (this.getType() == Space.ALIEN) {
+            goDown();
+        } else {
+            goUp();
+        }
     }
 
     /**
@@ -68,6 +91,20 @@ public class Bullet {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Description: Less one position to move down the bullet.
+     */
+    public void goDown() {
+        this.positionInitialY -= 1;
+    }
+
+    /**
+     * Description: Add one position to move up the bullet.
+     */
+    public void goUp() {
+        this.positionInitialY += 1;
     }
 
 }
