@@ -1,5 +1,7 @@
 package org.fundacionjala.at13.spaceinvaders;
 
+import java.util.ArrayList;
+
 public class Space {
 
     public static final String EMPTY = ".";
@@ -10,7 +12,7 @@ public class Space {
     public static final int DEFAULT_WIDTH = 100;
 
     private Spaceship spaceship;
-    private Alien[] aliens;
+    private ArrayList<Alien> aliens;
     private Bullet bullet;
     private int height;
     private int width;
@@ -30,7 +32,7 @@ public class Space {
     /**
      * Sets a new spaceship for this space instance
      */
-    public void setAlien(final Alien[] newAlien) {
+    public void setAlien(final ArrayList<Alien> newAlien) {
         this.aliens = newAlien;
     }
 
@@ -61,8 +63,9 @@ public class Space {
             for (Alien alien  : aliens) {
                 int posX = alien.getXPos();
                 int posY = alien.getYPos();
-                PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-                space[position.getIndexi()][position.getIndexj()] = ALIEN;
+//                PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
+//                space[position.getIndexi()][position.getIndexj()] = ALIEN;
+                space[posY][posX] = ALIEN;
             }
         }
         if (this.bullet != null) {
