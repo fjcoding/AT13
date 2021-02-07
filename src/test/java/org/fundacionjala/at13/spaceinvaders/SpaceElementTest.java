@@ -95,4 +95,26 @@ public class SpaceElementTest {
         boolean actualStatus=spaceElement.getAlive(); 
         assertFalse(actualStatus==previusStatus);
     }
+
+    @Test
+    public void itShouldGetLowerLimit() {
+        int lowerXLimit = 0;
+        int upperXLimit = 15;
+        int positionInitialX = 3;
+        int positionInitialY = 1;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        assertEquals(lowerXLimit, spaceElement.getLowerLimit());
+    }
+
+    @Test
+    public void itShouldSetLowerLimit() {
+        int lowerXLimit = 0;
+        int upperXLimit = 15;
+        int positionInitialX = 3;
+        int positionInitialY = 1;
+        int newLowerLimit = 2;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        spaceElement.setLowerLimit(newLowerLimit);
+        assertEquals(newLowerLimit, spaceElement.getLowerLimit());
+    }
 }
