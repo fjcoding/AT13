@@ -18,20 +18,11 @@ public final class Main {
         Space space = new Space(Space.DEFAULT_HEIGHT, Space.DEFAULT_WIDTH);
         Spaceship spaceship = new Spaceship(Spaceship.DEFAULT_POSX, Spaceship.DEFAULT_POSY);
         space.setSpaceship(spaceship);
+
         AlienGroup alienGroup = new AlienGroup(ROWS, COLUMNS);
         Bullet bullet = new Bullet("SpaceShip", spaceship.getPosX(), spaceship.getPosY() + 1);
         space.setBullet(bullet);
         space.setAlien(alienGroup.getAliens());
-
-//        print(space.show());
-//        spaceship.moveToRight();
-//        bullet.itShooting();
-//        alienGroup.aliensMoveRight();
-//        Thread.sleep(WAIT_PERIOD);
-//        print(space.show());
-//        spaceship.moveToRight();
-//        Thread.sleep(WAIT_PERIOD);
-//        print(space.show());
 
         while (true) {
             print(space.show());
@@ -40,6 +31,7 @@ public final class Main {
             alienGroup.moveAliens();
             Thread.sleep(WAIT_PERIOD);
         }
+
     }
 
     private static void print(final String[][] matrix) {
