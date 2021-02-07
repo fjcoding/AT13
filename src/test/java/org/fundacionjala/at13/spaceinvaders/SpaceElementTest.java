@@ -117,4 +117,25 @@ public class SpaceElementTest {
         spaceElement.setLowerLimit(newLowerLimit);
         assertEquals(newLowerLimit, spaceElement.getLowerLimit());
     }
+    
+    public void itShouldReturnUpperLimit() {
+        int lowerXLimit = 0;
+        int upperXLimit = 50;
+        int positionInitialX = 0;
+        int positionInitialY = 2;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        assertEquals(lowerXLimit, spaceElement.getUpperLimit());
+    }
+
+    @Test
+    public void itShouldSetUpperLimit() {
+        int lowerXLimit = 0;
+        int upperXLimit = 25;
+        int positionInitialX = 3;
+        int positionInitialY = 20;
+        int resultUpperLimit = 25;
+        SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        spaceElement.setUpperLimit(upperXLimit);
+        assertEquals(resultUpperLimit, spaceElement.getUpperLimit());
+    }
 }
