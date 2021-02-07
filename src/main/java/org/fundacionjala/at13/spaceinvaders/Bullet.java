@@ -107,4 +107,12 @@ public class Bullet {
         this.positionInitialY += 1;
     }
 
+    /**
+     * @return true if they are equal, false if they're not.
+     */
+    public boolean equals(final Bullet otherBullet) {
+        return this.positionInitialX == otherBullet.getPositionX()
+         && this.positionInitialY == otherBullet.getPositionY()
+         && this.type == otherBullet.getType();
+    }
 }

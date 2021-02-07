@@ -20,7 +20,7 @@ public class AlienGroup {
     public void addAliens() {
         for (int row = 0; row < numberOfAlienRows; row++) {
             for (int col = 0; col < numberOfAlienColumns; col++) {
-                Alien alien = new Alien(col, row);
+                Alien alien = new Alien(col, row, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH);
                 alienGroup.add(alien);
             }
         }
