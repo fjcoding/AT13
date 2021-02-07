@@ -24,7 +24,7 @@ public final class Main {
         //space.setBullet(bullet);
         space.setAlien(alienGroup.getAliens());
 
-       while (true) {
+        while (true) {
             print(space.show());
             spaceship.moveToRight();
             //bullet.itShooting();
