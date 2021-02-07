@@ -18,13 +18,13 @@ public final class Main {
                 new Alien(Alien.DEFAULT_POSX - 1, Alien.DEFAULT_POSY),
                 new Alien(Alien.DEFAULT_POSX - 2, Alien.DEFAULT_POSY)
         };
-        Bullet bullet = new Bullet("SpaceShip", spaceship.getPosX(), spaceship.getPosY() + 1);
-        space.setBullet(bullet);
+        Bullet bulletSpaceship = new Bullet(spaceship);
+        space.setBullet(bulletSpaceship);
         space.setAlien(aliens);
 
         print(space.show());
         spaceship.moveToRight();
-        bullet.itShooting();
+        bulletSpaceship.isShootingToAlien(spaceship);
         aliens[0].moveRight();
         aliens[1].moveRight();
         aliens[2].moveRight();
@@ -35,6 +35,7 @@ public final class Main {
         aliens[1].moveRight();
         aliens[2].moveRight();
         aliens[0].moveDown();
+        bulletSpaceship.isShootingToAlien(spaceship);
         Thread.sleep(WAIT_PERIOD);
         print(space.show());
     }
