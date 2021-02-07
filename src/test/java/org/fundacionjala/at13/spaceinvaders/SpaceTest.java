@@ -80,11 +80,9 @@ public class SpaceTest {
     public void itShouldShowSpaceWithBullet() {
         int height = 10;
         int width = 9;
-        int bulletInitPosX = 4;
-        int bulletInitPosY = 1;
-
         Space space = new Space(height, width);
-        Bullet bullet = new Bullet("Spaceship",bulletInitPosX, bulletInitPosY);
+        Spaceship spaceship = new Spaceship(Spaceship.DEFAULT_POSX, Spaceship.DEFAULT_POSY);
+        Bullet bullet = new Bullet(spaceship);
         space.setBullet(bullet);
 
         String[][] spacePrint = space.show();
@@ -97,7 +95,7 @@ public class SpaceTest {
                 /* y = 4 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 3 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 2 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
-                /* y = 1 */{EMPTY, EMPTY, EMPTY, EMPTY, BULLET, EMPTY, EMPTY, EMPTY, EMPTY},
+                /* y = 1 */{BULLET, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 0 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /*          x = 0  x = 1  x = 2  x = 3  x = 4  x = 5  x = 6  x = 7  x = 8 */
         };

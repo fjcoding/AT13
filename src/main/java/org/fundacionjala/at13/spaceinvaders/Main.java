@@ -20,14 +20,14 @@ public final class Main {
         space.setSpaceship(spaceship);
 
         AlienGroup alienGroup = new AlienGroup(ROWS, COLUMNS);
-        //Bullet bullet = new Bullet("SpaceShip", spaceship.getPosX(), spaceship.getPosY() + 1);
-        //space.setBullet(bullet);
+        Bullet bullet = new Bullet(spaceship);
+        space.setBullet(bullet);
         space.setAlien(alienGroup.getAliens());
 
         while (true) {
             print(space.show());
             spaceship.moveToRight();
-            //bullet.itShooting();
+            bullet.movingBulletUp();
             alienGroup.moveAliens();
             Thread.sleep(WAIT_PERIOD);
         }
