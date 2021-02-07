@@ -51,28 +51,23 @@ public class Alien {
     /**
      * Description: Function moves alien right.
      *
-     * @return int that represents movement.
      */
-    public int moveRight() {
-        return 1;
+    public void moveRight() {
+        this.xPos += 1;
     }
 
     /**
      * Description: Function moves alien left.
-     *
-     * @return int that represents movement.
      */
-    public int moveLeft() {
-        return 1;
+    public void moveLeft() {
+        this.xPos -= 1;
     }
 
     /**
      * Description: Function moves alien down.
-     *
-     * @return int that represents movement.
      */
-    public int moveDown() {
-        return 1;
+    public void moveDown() {
+        this.yPos += 1;
     }
 
     /**
