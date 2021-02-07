@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class AlienGroup {
     private static int numberOfAlienRows;
     private static int numberOfAlienColumns;
-    private ArrayList<Alien> alienGroup;
+    private static ArrayList<Alien> alienGroup;
     private boolean directionIsTowardsRight = true;
     private static final int SPACE_SIZE_HEIGHT = 10;
     private static final int SPACE_SIZE_WIDTH = 15;
@@ -38,7 +38,7 @@ public class AlienGroup {
     /**
      * @return arrayList of all aliens contained.
      */
-    public ArrayList getAliens() {
+    public ArrayList<Alien> getAliens() {
         return alienGroup;
     }
     /**

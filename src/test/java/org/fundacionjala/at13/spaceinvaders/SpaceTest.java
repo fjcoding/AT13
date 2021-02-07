@@ -55,25 +55,14 @@ public class SpaceTest {
     public void itShouldShowSpaceWithAliens() {
         int height = 10;
         int width = 9;
-        int alien1InitPosX = 1;
-        int alien1InitPosY = 8;
-        int alien2InitPosX = 2;
-        int alien2InitPosY = 8;
-        int alien3InitPosX = 3;
-        int alien3InitPosY = 8;
-
         Space space = new Space(height, width);
-        Alien[] aliens = {
-                new Alien(alien1InitPosX,alien1InitPosY),
-                new Alien(alien2InitPosX,alien2InitPosY),
-                new Alien(alien3InitPosX,alien3InitPosY),
-        };
-        space.setAlien(aliens);
+        AlienGroup alienGroup = new AlienGroup(2,2);
+        space.setAlien(alienGroup.getAliens());
 
         String[][] spacePrint = space.show();
         String[][] expected = {
-                /* y = 9 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
-                /* y = 8 */{EMPTY, ALIEN, ALIEN, ALIEN, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
+                /* y = 9 */{ALIEN, ALIEN, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
+                /* y = 8 */{ALIEN, ALIEN, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 7 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 6 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                 /* y = 5 */{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
