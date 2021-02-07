@@ -6,8 +6,9 @@ public class Space {
     public static final String SPACESHIP = "^";
     public static final String ALIEN = "*";
     public static final String BULLET = "|";
-    public static final int DEFAULT_HEIGHT = 50;
+    public static final int DEFAULT_HEIGHT = 30;
     public static final int DEFAULT_WIDTH = 100;
+    public static final int INITIAL_RANGE = 0;
 
     private Spaceship spaceship;
     private Alien[] aliens;
@@ -59,8 +60,8 @@ public class Space {
         }
         if (this.aliens != null) {
             for (Alien alien  : aliens) {
-                int posX = alien.getXPos();
-                int posY = alien.getYPos();
+                int posX = alien.getPosX();
+                int posY = alien.getPosY();
                 PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
                 space[position.getIndexi()][position.getIndexj()] = ALIEN;
             }

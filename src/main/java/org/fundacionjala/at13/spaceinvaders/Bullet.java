@@ -10,7 +10,7 @@ public class Bullet {
         positionInitialY = y;
         bulletExist = false;
         this.type = shooterType;
-        forward();
+        goForward();
     }
 
     /**
@@ -54,7 +54,7 @@ public class Bullet {
      *
      * @return a String with the type of the shooter.
      */
-    public void forward() {
+    public void goForward() {
         if (this.getType() == Space.ALIEN) {
             goDown();
         } else {

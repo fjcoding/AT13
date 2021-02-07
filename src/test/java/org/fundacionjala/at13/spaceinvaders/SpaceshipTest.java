@@ -9,107 +9,16 @@ import org.junit.Test;
 public class SpaceshipTest{
 
     @Test
-    public void itShouldMoveToRight(){
-        Spaceship spaceship = new Spaceship(10,10);
-        spaceship.moveToRight();
-        int posX = spaceship.getPosX();
-        assertEquals(11, posX);
+    public void itShouldShootABullet(){
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=5;
+        int positionInitialY=6;
+        String shape=Space.SPACESHIP;
+        Spaceship spaceship=new Spaceship(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        Bullet bulletShootBySpaceship=spaceship.shoot();
+        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
+        assertTrue(bullet.equals(bulletShootBySpaceship));
     }
 
-    @Test
-    public void itShouldMoveToLeft(){
-        Spaceship spaceship2 = new Spaceship(24,9);
-        spaceship2.moveToLeft();
-        int posX = spaceship2.getPosX();
-        assertEquals(23, posX);
-    }
-
-    @Test
-    public void ItShoot(){
-        Spaceship spaceship3=new Spaceship(17, 2);
-        String shoot=spaceship3.shoot();
-        String expectResult=">>>>> piw <<<<< shoot position: 17,2";
-        assertEquals(shoot, expectResult);
-    }
-
-    @Test
-    public void itShouldNotMoveToRight(){
-        Spaceship spaceship = new Spaceship(50,20);
-        spaceship.moveToRight();
-        int posX = spaceship.getPosX();
-        assertEquals(50, posX);
-    }
-
-    @Test
-    public void itShouldNotMoveToLeft(){
-        Spaceship spaceship2 = new Spaceship(0,24);
-        spaceship2.moveToLeft();
-        int posX = spaceship2.getPosX();
-        assertEquals(0, posX);
-    }
-
-    @Test
-    public void itShouldGetLowerLimint(){
-        Spaceship spaceship = new Spaceship(10, 10);
-        int lowerLimit = spaceship.getLowerLimint();
-        assertEquals(0, lowerLimit);
-    }
-
-    @Test
-    public void itShouldGetUpperLimint(){
-        Spaceship spaceship = new Spaceship(10, 10);
-        int upperLimit = spaceship.getUpperLimint();
-        assertEquals(50, upperLimit);
-    }
-
-    @Test
-    public void itShouldGetPosX(){
-        Spaceship spaceship = new Spaceship(10, 10);
-        assertEquals(10, spaceship.getPosX());
-    }
-
-    @Test
-    public void itShouldntAcceptnNegativePosX(){
-        Spaceship spaceship = new Spaceship(2, 2);
-        int newPosX=-2;
-        spaceship.setPosX(newPosX);
-        assertEquals(0, spaceship.getPosX());
-    }
-
-    @Test
-    public void itShouldntAcceptPosXOutUpperLimit(){
-        Spaceship spaceship = new Spaceship(1, 1);
-        int newPosX=50;
-        spaceship.setPosX(newPosX);
-        assertEquals(49, spaceship.getPosX());
-    }
-
-    @Test
-    public void itShouldAcceptPosXBetweenLimits(){
-        Spaceship spaceship = new Spaceship(1, 1);
-        int newPosX=26;
-        spaceship.setPosX(newPosX);
-        assertEquals(newPosX, spaceship.getPosX());
-    }
-    @Test
-    public void itShouldgo1stsetPosY(){
-        Spaceship spaceshipY = new Spaceship(10,20);
-        int answerTrue=spaceshipY.getLowerLimint();
-        spaceshipY.setPosY(spaceshipY.getPosY()-1000);
-        assertEquals(answerTrue, spaceshipY.getPosY());
-    }
-    @Test
-    public void itShouldgo2ndsetPosY(){
-        Spaceship spaceshipY = new Spaceship(10,25);
-        int answerTrue=spaceshipY.getUpperLimint()-1;
-        spaceshipY.setPosY(spaceshipY.getPosY()+1000);
-        assertEquals(answerTrue, spaceshipY.getPosY());
-    }
-    @Test
-    public void itShouldgo3rdtsetPosY(){
-        Spaceship spaceshipY = new Spaceship(10,15);
-        int answerTrue=15;
-        spaceshipY.setPosY(spaceshipY.getPosY());
-        assertEquals(answerTrue, spaceshipY.getPosY());
-    }
 }

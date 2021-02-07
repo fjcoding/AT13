@@ -1,95 +1,25 @@
 package org.fundacionjala.at13.spaceinvaders;
-public class Alien {
+public class Alien extends SpaceElement {
+
     public static final int DEFAULT_POSX = 25;
-    public static final int DEFAULT_POSY = 48;
-    private int xPos;
-    private int yPos;
-    private final int lowerLimit = 0;
-    private final int upperLimit = 50;
-    public Alien(final int pX, final int pY) {
-        this.xPos = pX;
-        this.yPos = pY;
-    }
+    public static final int DEFAULT_POSY = 28;
 
-    public Alien() {
-        this.xPos = 0;
-        this.yPos = 0;
+    public Alien(final int pX, final int pY, final int llimit, final int ulimit) {
+        super(pX, pY, llimit, ulimit);
     }
 
     /**
-     * Description: Function that gets xPos.
-     *
-     * @return xPos an int that shows x position.
+     * @return a Bullet with position x and y where it shooted by Alien.
      */
-    public int getXPos() {
-        return xPos;
+    public Bullet shoot() {
+        return new Bullet(Space.ALIEN, getPosX(), getPosY());
     }
 
     /**
-     * Description: Function that sets xPos.
+     * Description: Less one position to posY in order to move down.
      */
-    public void setXPos(final int x) {
-        this.xPos = x;
+    public void moveDown() {
+        setPosY(getPosY() - 1);
     }
 
-    /**
-     * Description: Function that gets yPos.
-     *
-     * @return yPos an int that shows y position.
-     */
-    public int getYPos() {
-        return yPos;
-    }
-
-    /**
-     * Description: Function that sets yPos.
-     */
-    public void setYPos(final int y) {
-        this.yPos = y;
-    }
-
-    /**
-     * Description: Function moves alien right.
-     *
-     * @return int that represents movement.
-     */
-    public int moveRight() {
-        return 1;
-    }
-
-    /**
-     * Description: Function moves alien left.
-     *
-     * @return int that represents movement.
-     */
-    public int moveLeft() {
-        return 1;
-    }
-
-    /**
-     * Description: Function moves alien down.
-     *
-     * @return int that represents movement.
-     */
-    public int moveDown() {
-        return 1;
-    }
-
-    /**
-     * Description: Function shoots a bullet.
-     *
-     * @return string that represents a shoot.
-     */
-    public String shoot() {
-        return "Alien shooted a bullet";
-    }
-
-    /**
-     * Description: Function makes alien die.
-     *
-     * @return boolean that represents alien's dead.
-     */
-    public Boolean die() {
-        return false;
-    }
 }

@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestSpaceInvaders{
-    @Test
+/*     @Test
     public void shouldReturnXPosOfAlien(){
         Alien alien1=new Alien();
         assertEquals(0,alien1.getXPos());
@@ -37,6 +37,6 @@ public class TestSpaceInvaders{
     public void shouldReturnAlienIsDead(){
         Alien alien1=new Alien();
         assertEquals(false,alien1.die());
-    }
+    } */
 
 }
