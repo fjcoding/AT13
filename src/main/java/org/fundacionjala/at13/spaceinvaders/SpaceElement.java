@@ -63,7 +63,7 @@ public class SpaceElement {
      * Description: Change lower limit for a new one.
      */
     public void setLowerLimit(final int lLimit) {
-            this.lowerLimit = lLimit;
+        this.lowerLimit = lLimit;
     }
 
     /**
@@ -77,7 +77,7 @@ public class SpaceElement {
      * Description: Change upper limit for a new one.
      */
     public void setUpperLimit(final int uLimit) {
-            this.upperLimit = uLimit;
+        this.upperLimit = uLimit;
     }
 
     /**

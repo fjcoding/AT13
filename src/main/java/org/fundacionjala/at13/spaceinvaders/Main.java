@@ -3,8 +3,12 @@ package org.fundacionjala.at13.spaceinvaders;
 public final class Main {
 
     public static final int WAIT_PERIOD = 2000; // milliseconds
+    public static final int ROWS = 3;
+    public static final int COLUMNS = 5;
 
-    private Main() { }
+    private Main() {
+    }
+
     public static final int VALORY = 10;
     public static final int ALIEN_COLUMN = 10;
     public static final int ALIEN_ROW = 5;
@@ -45,7 +49,7 @@ public final class Main {
 
     private static void print(final String[][] matrix) {
         System.out.println("=====================================================================================================");
-        for (int i =  0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j]);
             }
