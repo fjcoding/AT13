@@ -6,8 +6,13 @@ public class bulletTest{
 
     @Test
     public void itGetBulletPositiionInX() {
-        Bullet Bullet = new Bullet("^",5,6);
-        assertEquals(5,Bullet.getPositionX());
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX=5;
+        int positionInitialY=6;
+        Spaceship spaceship=new Spaceship(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        Bullet Bullet = new Bullet(spaceship);
+        assertEquals(7,Bullet.getPositionX());
     }
 
     @Test

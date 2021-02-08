@@ -12,7 +12,7 @@ public class AlienTest {
         String shape=Space.ALIEN;
         Alien alien=new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bulletShootByAlien=alien.shoot();
-        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
+        Bullet bullet=new Bullet(alien);
         assertTrue(bullet.equals(bulletShootByAlien));
     }
 

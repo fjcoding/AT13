@@ -12,7 +12,7 @@ public class Alien extends SpaceElement {
      * @return a Bullet with position x and y where it shooted by Alien.
      */
     public Bullet shoot() {
-        return new Bullet(Space.ALIEN, getPosX(), getPosY());
+        return new Bullet(this);
     }
 
     /**

@@ -17,7 +17,7 @@ public class SpaceshipTest{
         String shape=Space.SPACESHIP;
         Spaceship spaceship=new Spaceship(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bulletShootBySpaceship=spaceship.shoot();
-        Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
+        Bullet bullet=new Bullet(spaceship);
         assertTrue(bullet.equals(bulletShootBySpaceship));
     }
 

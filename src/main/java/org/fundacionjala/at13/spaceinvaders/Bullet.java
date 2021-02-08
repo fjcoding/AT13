@@ -3,14 +3,19 @@ public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
-    private String type;
+    private final int lowerLimit = 0;
+    private final int upperLimit = 50;
 
-    public Bullet(final String shooterType, final int x, final int y) {
-        positionInitialX = x;
-        positionInitialY = y;
+    public Bullet(final Spaceship spaceship) {
+        positionInitialX = spaceship.getPosX();
+        positionInitialY = spaceship.getPosY() + 1;
         bulletExist = false;
-        this.type = shooterType;
-        goForward();
+    }
+
+    public Bullet(final Alien alien) {
+        positionInitialX = alien.getPosX();
+        positionInitialY = alien.getPosY() - 1;
+        bulletExist = false;
     }
 
     /**
@@ -41,52 +46,37 @@ public class Bullet {
     }
 
     /**
-     * Description: The function returns the type of the shooter.
+     * Description: The function displays a bullet shoot.
+     * from the Spaceship.
      *
-     * @return a String with the type of the shooter.
      */
-    public String getType() {
-        return this.type;
-    }
-
-    /**
-     * Description: The function returns the type of the shooter.
-     *
-     * @return a String with the type of the shooter.
-     */
-    public void goForward() {
-        if (this.getType() == Space.ALIEN) {
-            goDown();
-        } else {
-            goUp();
+    public void isShootingToAlien(final Spaceship spaceship) {
+        if (!bulletExist) {
+            movingBulletUp();
         }
+
     }
 
     /**
      * Description: The function displays a bullet shoot.
+     * from the Alien.
      *
-     * @return a String that shoots a bullet.
      */
-    public String itShooting() {
+    public void isShootingToSpaceship(final Alien alien) {
         if (!bulletExist) {
-            bulletExist = true;
-            return "The " + this.type + " has fired from "
-            + this.positionInitialX
-            + " " + this.positionInitialY;
-        } else {
-            return "The " + this.type + " cannot fired.";
+            movingBulletDown();
         }
     }
 
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet collapses.
+     * @return a boolean that verifies if the bullet  from Spaceship
+     * collapses with alien.
      */
-    public boolean isCollapsedBullet(final int positionX1, final int positionY1,
-    final int positionX2, final int positionY2) {
-        if (positionX1 == positionX2 && positionY1 == positionY2) {
-            System.out.println("The bullet has collapsed");
+    public boolean isCollapsedBulletWithAlien(final Alien alien) {
+        if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
+            System.out.println("The bullet has kill Alien");
             bulletExist = false;
             return true;
         }
@@ -94,25 +84,42 @@ public class Bullet {
     }
 
     /**
-     * Description: Less one position to move down the bullet.
+     * Description: The function verifies if the bullet collapses.
+     *
+     * @return a boolean that verifies if the bullet  from Alien
+     * collapses with Spaceship.
      */
-    public void goDown() {
-        this.positionInitialY -= 1;
+    public boolean isCollapsedBulletWithSpacceship(final Spaceship spaceship) {
+        if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
+            System.out.println("The bullet has impact Spaceship");
+            bulletExist = false;
+            return true;
+        }
+        return false;
     }
 
     /**
-     * Description: Add one position to move up the bullet.
+     * Description: The function move the bullet shoot Up.
+     *
      */
-    public void goUp() {
-        this.positionInitialY += 1;
+    public void movingBulletUp() {
+        if (positionInitialY < upperLimit) {
+            positionInitialY += 1;
+        } else {
+            bulletExist = false;
+        }
     }
 
     /**
-     * @return true if they are equal, false if they're not.
+     * Description: The function move the bullet shoot Down.
+     *
      */
-    public boolean equals(final Bullet otherBullet) {
-        return this.positionInitialX == otherBullet.getPositionX()
-         && this.positionInitialY == otherBullet.getPositionY()
-         && this.type == otherBullet.getType();
+    public void movingBulletDown() {
+        if (positionInitialY > lowerLimit) {
+            positionInitialY -= 1;
+        } else {
+            bulletExist = false;
+        }
     }
+
 }
