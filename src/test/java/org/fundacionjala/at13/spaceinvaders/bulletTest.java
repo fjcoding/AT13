@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class bulletTest{
-
+/* 
     @Test
     public void itShouldGetBulletPositionInXForSpaceship() {
         Spaceship spaceship = new Spaceship(0,9);
@@ -46,6 +46,7 @@ public class bulletTest{
         bullet.isShootingToAlien(spaceship);
         assertEquals(false,bullet.getBulletExist());
     }
+
     @Test
     public void itShouldGetErrorBulletIsOutOfRangeSpaceshipUp() {
         Spaceship spaceship = new Spaceship(4,50);
@@ -53,6 +54,7 @@ public class bulletTest{
         bullet.isShootingToAlien(spaceship);
         assertEquals(false,bullet.getBulletExist());
     }
+
     @Test
     public void itShouldMoveBulletOfAlienOnePositionDown() {
         Alien alien = new Alien(5,3);
@@ -60,6 +62,7 @@ public class bulletTest{
         bullet.isShootingToSpaceship(alien);
         assertEquals(1,bullet.getPositionY());
     }
+
     @Test
     public void itShouldChangeStateOfBulletSinceReachLimitAlienDown() {
         Alien Alien = new Alien(5,1);
@@ -67,6 +70,7 @@ public class bulletTest{
         bullet.isShootingToSpaceship(Alien);
         assertEquals(false,bullet.getBulletExist());
     }
+
     @Test
     public void itShouldGetErrorBulletIsOutOfRangeAlienDown() {
         Alien Alien = new Alien(5,0);
@@ -74,6 +78,7 @@ public class bulletTest{
         bullet.isShootingToSpaceship(Alien);
         assertEquals(false,bullet.getBulletExist());
     }
+
     @Test
     public void itShouldSayIfBulletFromSpaceshipCollapseWithSomeAlien() {
         Alien alien = new Alien(5, 5);
@@ -85,6 +90,7 @@ public class bulletTest{
         bulletSpaceship.isShootingToAlien(spaceship);
         assertTrue(bulletSpaceship.isCollapsedBulletWithAlien(alien));
     }
+
     @Test
     public void itShouldSayIfBulletFromSpaceshipNotCollapseWithSomeAlien() {
         Alien alien = new Alien(6, 5);
@@ -96,6 +102,7 @@ public class bulletTest{
         bulletSpaceship.isShootingToAlien(spaceship);
         assertFalse(bulletSpaceship.isCollapsedBulletWithAlien(alien));
     }
+
     @Test
     public void itShouldSayIfBulletFromAlienCollapseWithSpaceship() {
         Alien alien = new Alien(5, 5);
@@ -107,6 +114,7 @@ public class bulletTest{
         bulletAlient.isShootingToSpaceship(alien);
         assertTrue(bulletAlient.isCollapsedBulletWithSpacceship(spaceship));
     }
+
     @Test
     public void itShouldSayIfBulletFromAlienNotCollapseWithSpaceship() {
         Alien alien = new Alien(5, 5);
@@ -118,4 +126,5 @@ public class bulletTest{
         bulletAlient.isShootingToSpaceship(alien);
         assertFalse(bulletAlient.isCollapsedBulletWithSpacceship(spaceship));
     }
+     */
 }

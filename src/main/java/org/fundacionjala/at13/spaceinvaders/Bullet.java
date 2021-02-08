@@ -5,17 +5,14 @@ public class Bullet {
     private boolean bulletExist;
     private final int lowerLimit = 0;
     private final int upperLimit = 50;
+    private String type;
 
-    public Bullet(final Spaceship spaceship) {
-        positionInitialX = spaceship.getPosX();
-        positionInitialY = spaceship.getPosY() + 1;
+    public Bullet(final String shooterType, final int x, final int y) {
+        positionInitialX = x;
+        positionInitialY = y;
         bulletExist = false;
-    }
-
-    public Bullet(final Alien alien) {
-        positionInitialX = alien.getXPos();
-        positionInitialY = alien.getYPos() - 1;
-        bulletExist = false;
+        this.type = shooterType;
+        goForward();
     }
 
     /**
@@ -43,6 +40,28 @@ public class Bullet {
      */
     public boolean getBulletExist() {
         return this.bulletExist;
+    }
+
+    /**
+     * Description: The function returns the type of the shooter.
+     *
+     * @return a String with the type of the shooter.
+     */
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Description: The function returns the type of the shooter.
+     *
+     * @return a String with the type of the shooter.
+     */
+    public void goForward() {
+        if (this.getType() == Space.ALIEN) {
+            goDown();
+        } else {
+            goUp();
+        }
     }
 
     /**
@@ -75,7 +94,7 @@ public class Bullet {
      * collapses with alien.
      */
     public boolean isCollapsedBulletWithAlien(final Alien alien) {
-        if (this.getPositionX() == alien.getXPos() && this.positionInitialY == alien.getYPos()) {
+        if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
             System.out.println("The bullet has kill Alien");
             bulletExist = false;
             return true;
@@ -96,6 +115,29 @@ public class Bullet {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Description: Less one position to move down the bullet.
+     */
+    public void goDown() {
+        this.positionInitialY -= 1;
+    }
+
+    /**
+     * Description: Add one position to move up the bullet.
+     */
+    public void goUp() {
+        this.positionInitialY += 1;
+    }
+
+    /**
+     * @return true if they are equal, false if they're not.
+     */
+    public boolean equals(final Bullet otherBullet) {
+        return this.positionInitialX == otherBullet.getPositionX()
+         && this.positionInitialY == otherBullet.getPositionY()
+         && this.type == otherBullet.getType();
     }
 
     /**
