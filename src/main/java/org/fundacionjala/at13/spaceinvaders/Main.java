@@ -2,7 +2,7 @@ package org.fundacionjala.at13.spaceinvaders;
 
 public final class Main {
 
-    public static final int WAIT_PERIOD = 2000; // milliseconds
+    public static final int WAIT_PERIOD = 500; // milliseconds
     public static final int ROWS = 3;
     public static final int COLUMNS = 5;
 
