@@ -4,7 +4,7 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 50;
+    private final int upperLimit = 29;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
@@ -46,11 +46,20 @@ public class Bullet {
     }
 
     /**
+     * Description: The function displays bullet's position initial x.
+     *
+     * @return a int that shows bullet's position initial x.
+     */
+    public void changeBulletExists(final Boolean newState) {
+        this.bulletExist = newState;
+    }
+
+    /**
      * Description: The function displays a bullet shoot.
      * from the Spaceship.
      *
      */
-    public void isShootingToAlien(final Spaceship spaceship) {
+    public void isShootingToAlien() {
         if (!bulletExist) {
             movingBulletUp();
         }
@@ -62,7 +71,7 @@ public class Bullet {
      * from the Alien.
      *
      */
-    public void isShootingToSpaceship(final Alien alien) {
+    public void isShootingToSpaceship() {
         if (!bulletExist) {
             movingBulletDown();
         }
@@ -89,7 +98,7 @@ public class Bullet {
      * @return a boolean that verifies if the bullet  from Alien
      * collapses with Spaceship.
      */
-    public boolean isCollapsedBulletWithSpacceship(final Spaceship spaceship) {
+    public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
             bulletExist = false;
@@ -106,7 +115,9 @@ public class Bullet {
         if (positionInitialY < upperLimit) {
             positionInitialY += 1;
         } else {
-            bulletExist = false;
+            bulletExist = true;
+            positionInitialX = 0;
+            positionInitialY = 0;
         }
     }
 
@@ -118,7 +129,9 @@ public class Bullet {
         if (positionInitialY > lowerLimit) {
             positionInitialY -= 1;
         } else {
-            bulletExist = false;
+            bulletExist = true;
+            positionInitialX = 0;
+            positionInitialY = 0;
         }
     }
 

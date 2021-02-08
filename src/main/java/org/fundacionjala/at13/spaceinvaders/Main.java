@@ -35,7 +35,7 @@ public final class Main {
                     aliens[i].moveRight();
             }
             spaceship.moveRight();
-            bullet.isShootingToAlien(spaceship);
+            bullet.isShootingToAlien();
             Thread.sleep(WAIT_PERIOD);
             print(space.show());
         System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()

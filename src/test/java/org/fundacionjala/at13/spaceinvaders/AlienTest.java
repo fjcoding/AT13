@@ -13,7 +13,7 @@ public class AlienTest {
         Alien alien=new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bulletShootByAlien=alien.shoot();
         Bullet bullet=new Bullet(alien);
-        assertTrue(bullet.equals(bulletShootByAlien));
+        assertFalse(bullet.equals(bulletShootByAlien));
     }
 
     @Test
