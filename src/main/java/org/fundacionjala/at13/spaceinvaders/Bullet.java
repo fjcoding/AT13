@@ -4,7 +4,7 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 50;
+    private final int upperLimit = 30;
     private String type;
 
     public Bullet(final String shooterType, final int x, final int y) {
@@ -121,14 +121,18 @@ public class Bullet {
      * Description: Less one position to move down the bullet.
      */
     public void goDown() {
-        this.positionInitialY -= 1;
+        if (this.positionInitialY > this.lowerLimit) {
+            this.positionInitialY -= 1;
+        }
     }
 
     /**
      * Description: Add one position to move up the bullet.
      */
     public void goUp() {
-        this.positionInitialY += 1;
+        if (this.positionInitialY < this.upperLimit - 1) {
+            this.positionInitialY += 1;
+        }
     }
 
     /**
