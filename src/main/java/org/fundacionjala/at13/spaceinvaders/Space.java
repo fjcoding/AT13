@@ -1,6 +1,5 @@
 package org.fundacionjala.at13.spaceinvaders;
 
-import java.util.ArrayList;
 
 public class Space {
 
