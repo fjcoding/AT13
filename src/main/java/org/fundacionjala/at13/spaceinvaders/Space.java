@@ -64,8 +64,6 @@ public class Space {
             for (Alien alien  : aliens) {
                 int posX = alien.getPosX();
                 int posY = alien.getPosY();
-                // PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-                // space[position.getIndexi()][position.getIndexj()] = ALIEN;
                 space[posY][posX] = ALIEN;
             }
         }

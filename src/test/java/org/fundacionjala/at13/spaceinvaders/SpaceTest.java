@@ -61,10 +61,10 @@ public class SpaceTest {
         int alienposy = 0;
         Space space = new Space(height, width);
         ArrayList<Alien> aliens = new ArrayList<Alien>();
-            aliens.add(new Alien(0,0,Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
-            aliens.add(new Alien(1,0,Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
-            aliens.add(new Alien(0,1,Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
-            aliens.add(new Alien(1,1,Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
+            aliens.add(new Alien(0, 0, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
+            aliens.add(new Alien(1, 0, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
+            aliens.add(new Alien(0, 1, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
+            aliens.add(new Alien(1, 1, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH));
 
         space.setAlien(aliens);
 
