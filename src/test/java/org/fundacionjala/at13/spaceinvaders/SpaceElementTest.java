@@ -45,6 +45,7 @@ public class SpaceElementTest {
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         spaceElement.moveRight();
         assertEquals(newPositionX, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
@@ -57,6 +58,7 @@ public class SpaceElementTest {
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         spaceElement.moveRight();
         assertEquals(newPositionX, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
@@ -69,6 +71,7 @@ public class SpaceElementTest {
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         spaceElement.moveLeft();
         assertEquals(newPositionX, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
@@ -81,6 +84,7 @@ public class SpaceElementTest {
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         spaceElement.moveLeft();
         assertEquals(newPositionX, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
