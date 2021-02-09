@@ -62,7 +62,7 @@ public class Interface extends JFrame {
      * Method for the key.
      */
     public void eventKey() {
-        KeyListener mov = new KeyListener() {
+        KeyListener keyEvent = new KeyListener() {
 
             @Override
             public void keyTyped(final KeyEvent e) { }
@@ -85,6 +85,6 @@ public class Interface extends JFrame {
             public void keyReleased(final KeyEvent e) { }
 
         };
-        panel.addKeyListener(mov);
+        panel.addKeyListener(keyEvent);
     }
 }
