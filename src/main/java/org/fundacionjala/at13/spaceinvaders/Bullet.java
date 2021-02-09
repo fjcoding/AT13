@@ -7,12 +7,24 @@ public class Bullet {
     private final int upperLimit = 30;
     private String type;
 
-    public Bullet(final String shooterType, final int x, final int y) {
+    /*public Bullet(final String shooterType, final int x, final int y) {
         positionInitialX = x;
         positionInitialY = y;
         bulletExist = false;
         this.type = shooterType;
         goForward();
+    }*/
+
+    public Bullet(final Spaceship spaceship) {
+        positionInitialX = spaceship.getPosX();
+        positionInitialY = spaceship.getPosY() + 1;
+        bulletExist = false;
+    }
+
+    public Bullet(final Alien alien) {
+        positionInitialX = alien.getPosX();
+        positionInitialY = alien.getPosY() - 1;
+        bulletExist = false;
     }
 
     /**

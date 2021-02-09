@@ -13,6 +13,6 @@ public class Spaceship extends SpaceElement {
      * @return a Bullet with position x and y where it shooted by Spaceship.
      */
     public Bullet shoot() {
-        return new Bullet(Space.SPACESHIP, getPosX(), getPosY());
+        return new Bullet(this);
     }
 }
