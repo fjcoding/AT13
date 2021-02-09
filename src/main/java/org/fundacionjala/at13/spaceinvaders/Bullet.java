@@ -98,7 +98,7 @@ public class Bullet {
      * @return a boolean that verifies if the bullet  from Alien
      * collapses with Spaceship.
      */
-    public boolean isCollapsedBulletWithSpacceship(final Spaceship spaceship) {
+    public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
             bulletExist = false;
