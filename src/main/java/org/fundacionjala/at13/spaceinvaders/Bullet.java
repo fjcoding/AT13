@@ -15,6 +15,18 @@ public class Bullet {
         goForward();
     }
 
+    public Bullet(final Spaceship spaceship) {
+        positionInitialX = spaceship.getPosX();
+        positionInitialY = spaceship.getPosY() + 1;
+        bulletExist = false;
+    }
+
+    public Bullet(final Alien alien) {
+        positionInitialX = alien.getPosX();
+        positionInitialY = alien.getPosY() - 1;
+        bulletExist = false;
+    }
+
     /**
      * Description: The function displays bullet's position initial x.
      *
