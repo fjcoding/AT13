@@ -33,7 +33,7 @@ public class AlienGroupTest {
          * SPACE_SIZE_HEIGHT = 30 
          * SPACESHIP_ROW_LIMIT = 3
          */
-        AlienGroup alienGroup = new AlienGroup(27, 6);
+        AlienGroup alienGroup = new AlienGroup(30, 6);
         assertEquals(true, alienGroup.gotToTheSpaceship());
     }
     @Test

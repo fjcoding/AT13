@@ -21,7 +21,7 @@ public class AlienTest {
         int upperXLimit = 10;
         int positionInitialX = 9;
         int positionInitialY = 6;
-        int newPositionX = positionInitialY - 1;
+        int newPositionX = positionInitialY + 1;
         Alien alien=new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         alien.moveDown();
         assertEquals(newPositionX, alien.getPosY());
