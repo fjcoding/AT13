@@ -4,15 +4,27 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 30;
-    private String type;
+    private final int upperLimit = 29;
+    //private String type;
 
-    public Bullet(final String shooterType, final int x, final int y) {
+    /*public Bullet(final String shooterType, final int x, final int y) {
         positionInitialX = x;
         positionInitialY = y;
         bulletExist = false;
         this.type = shooterType;
         goForward();
+    }*/
+
+    public Bullet(final Spaceship spaceship) {
+        positionInitialX = spaceship.getPosX();
+        positionInitialY = spaceship.getPosY() + 1;
+        bulletExist = false;
+    }
+
+    public Bullet(final Alien alien) {
+        positionInitialX = alien.getPosX();
+        positionInitialY = alien.getPosY() - 1;
+        bulletExist = false;
     }
 
     /**
@@ -43,33 +55,11 @@ public class Bullet {
     }
 
     /**
-     * Description: The function returns the type of the shooter.
-     *
-     * @return a String with the type of the shooter.
-     */
-    public String getType() {
-        return this.type;
-    }
-
-    /**
-     * Description: The function returns the type of the shooter.
-     *
-     * @return a String with the type of the shooter.
-     */
-    public void goForward() {
-        if (this.getType() == Space.ALIEN) {
-            goDown();
-        } else {
-            goUp();
-        }
-    }
-
-    /**
      * Description: The function displays a bullet shoot.
      * from the Spaceship.
      *
      */
-    public void isShootingToAlien(final Spaceship spaceship) {
+    public void isShootingToAlien() {
         if (!bulletExist) {
             movingBulletUp();
         }
@@ -81,7 +71,7 @@ public class Bullet {
      * from the Alien.
      *
      */
-    public void isShootingToSpaceship(final Alien alien) {
+    public void isShootingToSpaceship() {
         if (!bulletExist) {
             movingBulletDown();
         }
@@ -108,7 +98,7 @@ public class Bullet {
      * @return a boolean that verifies if the bullet  from Alien
      * collapses with Spaceship.
      */
-    public boolean isCollapsedBulletWithSpacceship(final Spaceship spaceship) {
+    public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
             bulletExist = false;
@@ -118,46 +108,17 @@ public class Bullet {
     }
 
     /**
-     * Description: Less one position to move down the bullet.
-     */
-    public void goDown() {
-        if (this.positionInitialY > this.lowerLimit) {
-            this.positionInitialY -= 1;
-        }
-    }
-
-    /**
-     * Description: Add one position to move up the bullet.
-     */
-    public void goUp() {
-        if (this.positionInitialY < this.upperLimit - 1) {
-            this.positionInitialY += 1;
-        }
-    }
-
-    /**
-     * @return true if they are equal, false if they're not.
-     */
-    public boolean equals(final Bullet otherBullet) {
-        return this.positionInitialX == otherBullet.getPositionX()
-         && this.positionInitialY == otherBullet.getPositionY()
-         && this.type == otherBullet.getType();
-    }
-
-    /**
      * Description: The function move the bullet shoot Up.
      *
      */
     public void movingBulletUp() {
         if (positionInitialY < upperLimit) {
             positionInitialY += 1;
-        } else if (positionInitialY == upperLimit) {
-            bulletExist = false;
-            System.out.print("Spaceship has failed.");
         } else {
-            System.out.print("Error: Bullet is out of range.");
+            bulletExist = true;
+            positionInitialX = 0;
+            positionInitialY = 0;
         }
-
     }
 
     /**
@@ -167,11 +128,10 @@ public class Bullet {
     public void movingBulletDown() {
         if (positionInitialY > lowerLimit) {
             positionInitialY -= 1;
-        } else if (positionInitialY < lowerLimit) {
-            bulletExist = false;
-            System.out.print("Alien has failed.");
         } else {
-            System.out.print("Error: Bullet is out of range.");
+            bulletExist = true;
+            positionInitialX = 0;
+            positionInitialY = 0;
         }
     }
 

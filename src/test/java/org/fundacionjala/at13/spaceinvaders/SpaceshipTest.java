@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class SpaceshipTest{
 
-    @Test
+    /*@Test
     public void itShouldShootABullet(){
         int lowerXLimit=0;
         int upperXLimit=10;
@@ -19,6 +19,6 @@ public class SpaceshipTest{
         Bullet bulletShootBySpaceship=spaceship.shoot();
         Bullet bullet=new Bullet(shape,positionInitialX,positionInitialY);
         assertTrue(bullet.equals(bulletShootBySpaceship));
-    }
+    }*/
 
 }
