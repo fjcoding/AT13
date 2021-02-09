@@ -13,6 +13,7 @@ public class SpaceElementTest {
         int positionInitialY=6;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         assertEquals(lowerXLimit, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
@@ -23,6 +24,7 @@ public class SpaceElementTest {
         int positionInitialY=6;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         assertEquals(upperXLimit-1, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
@@ -33,6 +35,7 @@ public class SpaceElementTest {
         int positionInitialY=6;
         SpaceElement spaceElement=new SpaceElement(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         assertEquals(positionInitialX, spaceElement.getPosX());
+        assertEquals(positionInitialY, spaceElement.getPosY());
     }
 
     @Test
