@@ -59,7 +59,7 @@ public class Bullet {
      * from the Spaceship.
      *
      */
-    public void isShootingToAlien(final Spaceship spaceship) {
+    public void isShootingToAlien() {
         if (!bulletExist) {
             movingBulletUp();
         }
@@ -71,7 +71,7 @@ public class Bullet {
      * from the Alien.
      *
      */
-    public void isShootingToSpaceship(final Alien alien) {
+    public void isShootingToSpaceship() {
         if (!bulletExist) {
             movingBulletDown();
         }
