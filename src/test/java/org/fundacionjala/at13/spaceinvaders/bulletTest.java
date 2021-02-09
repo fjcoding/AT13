@@ -50,7 +50,7 @@ public class bulletTest{
     @Test
     public void itShouldChangeStateOfBulletSinceReachLimitAlienDown() {
         int positionInitAlienX = 5;
-        int positionInitAlienY = 3;
+        int positionInitAlienY = 1;
         Alien Alien = new Alien(positionInitAlienX, positionInitAlienY, lowerXLimit, upperXLimit);
         Bullet bullet = new Bullet(Alien);
         bullet.isShootingToSpaceship();
@@ -71,7 +71,7 @@ public class bulletTest{
         int positionInitAlienX = 6;
         int positionInitAlienY = 4;
         int positionInitSpaceshipX = 6;
-        int positionInitSpaceshipY = 4;
+        int positionInitSpaceshipY = 3;
         Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
         Spaceship spaceship=new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
         Bullet bulletSpaceship = new Bullet(spaceship);
