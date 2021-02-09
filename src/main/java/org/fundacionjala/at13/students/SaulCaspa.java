@@ -1,5 +1,5 @@
 package org.fundacionjala.at13.students;
-public class SaulCaspa{
+public class SaulCaspa {
 
     /*Saul Caspa Miranda
     I like to be called just Saul
@@ -9,53 +9,102 @@ public class SaulCaspa{
     Java, php, python
     Cochabamba*/
 
+    /**
+     * The "name" of this student.
+     */
     private String name;
+    /**
+     * The "nickname "of this student.
+     */
     private String nickName;
-    private int age;
+    /**
+     * The "age" of this student.
+     */
+    private final int age = 26;
+    /**
+     * The "career" of this student.
+     */
     private String career;
+    /**
+     * The "university" of this student.
+     */
     private String university;
+    /**
+     * The favourite programming languages of this student.
+     */
     private String programmingLanguages;
-    private String residenceCity;
-
-    public SaulCaspa(){
-        this.name="Saul Caspa Miranda";
-        this.nickName="Saul";
-        this.age=26;
-        this.career="Systems Engineering";
-        this.university="Universidad Mayor de San Simon";
-        this.programmingLanguages="Java, php, python";
-        this.residenceCity="Cochabamba";
+    /**
+     * The "residenceCity" of this student.
+     */
+    private String residenceCity = "Cochabamba";
+    /**
+     * The "currentYear".
+     */
+    private final int currentYear = 2021;
+    /**
+     * Class SaulCaspa contains the information for this student.
+     */
+    public SaulCaspa() {
+        this.name = "Saul Caspa Miranda";
+        this.nickName = "Saul";
+        this.career = "Systems Engineering";
+        this.residenceCity = "Cochabamba";
+        this.university = "Universidad Mayor de San Simon";
+        this.programmingLanguages = "Java, php, python";
     }
-    public String getResidenceCity(){
-        return "Currently I live in "+residenceCity+".";
+    /**
+     * @return the residence city.
+     */
+    public final String getResidenceCity() {
+        return "Currently I live in " + this.residenceCity + ".";
     }
-    public String ShowNickName(){
-        return "I like to be called "+this.nickName;
+    /**
+     * @return the nickname.
+     */
+    public final String showNickName() {
+        return "I like to be called " + this.nickName;
     }
-    
-    public String showStudentsInformation() {
-        return "Hello "+"my name is " + name + "\n" +
-                "I like to be called '" + nickName + "\n" +
-                "I am "+ age +" years old" + "\n" +
-                "I am " + career + "\n" +
-                "I study at " + university+ " university \n" +
-                "My programming languages are " + programmingLanguages +"\n" +
-                "My residence city " + residenceCity +"\n" +
-                "I have born in the year "+(2021-age)+".";
+    /**
+     * @return all student information.
+     */
+    public final String showStudentsInformation() {
+        return "Hello " + "my name is " + name + "\n"
+        + "I like to be called " + nickName + "\n"
+        + "I am " + age + " years old" + "\n"
+        + "I am " + career + "\n"
+        + "I study at " + university + " university \n"
+        + "My programming languages are " + programmingLanguages + "\n"
+        + "My residence city " + residenceCity + "\n"
+        + "I have born in the year " + (currentYear - this.age) + ".";
     }
-    public String ShowName(){
-        return "Hi, my name is "+this.name;
+    /**
+     * @return name.
+     */
+    public final String showName() {
+        return "Hi, my name is " + this.name;
     }
-    public String showProgramingLanguage() {
+    /**
+     * @return favourite programming language.
+     */
+    public final String showProgramingLanguage() {
         return "I like the programming languages " + this.programmingLanguages;
     }
-    public String ShowAge(){
-        return "Hi, my name is "+this.age;
-    } 
-    public String ShowUniversity(){
-        return "I studied at "+this.university;
+    /**
+     * @return age.
+     */
+    public final String showAge() {
+        return "Hi, my name is " + this.age;
     }
-    public String showYearBirth(){
-        return "I have born in the year "+(2021-age)+".";
+    /**
+     * @return student university.
+     */
+    public final String showUniversity() {
+        return "I studied at " + this.university;
+    }
+    /**
+     * @return student year of birth.
+     */
+    public final String showYearBirth() {
+        return "I have born in the year " + (currentYear - this.age) + ".";
     }
 }

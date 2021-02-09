@@ -1,8 +1,8 @@
-package org.fundacionjala.at13;
+package org.fundacionjala.at13.authenticator;
 
 import java.util.Scanner;
 
-public class Auth {
+public final class Auth {
 
     public static final int MINIMUM_SIZE = 6;
     public static final int MAXIMUM_SIZE = 10;
@@ -10,13 +10,15 @@ public class Auth {
     public static final int ASCII_CODE_NINE = 57;
     public static final int ASCII_CODE_LETTER_A = 97;
     public static final int ASCII_CODE_LETTER_Z = 122;
-    
-    public static void main(String[] args) {
+
+    private Auth() { }
+
+    public static void main(final String[] args) {
         int numberOfUser = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter no. of elements you want in array:");
         numberOfUser = scanner.nextInt();
-        String usernames[] = new String[numberOfUser];
+        String[] usernames = new String[numberOfUser];
         System.out.println("Enter all the usernames:");
         for (int i = 0; i < numberOfUser; i++) {
             usernames[i] = scanner.next();
@@ -26,9 +28,12 @@ public class Auth {
 
     // this is the main method for solving the problem
 
-    public static boolean validationOfUser(String[] listOfUsers) {
+    public static boolean validationOfUser(final String[] listOfUsers) {
         for (String username : listOfUsers) {
-            if (!(itHasTheRigthLength(username) && itHasLowerCase(username) && itHasNumber(username) && itHasOnlyNumberAndLowerCaseLetter(username))) {
+            if (!(itHasTheRigthLength(username)
+             && itHasLowerCase(username)
+             && itHasNumber(username)
+             && itHasOneNumberLowerCaseLetter(username))) {
                 return false;
             }
         }
@@ -37,8 +42,9 @@ public class Auth {
 
     // it is between 6-10 characters long
 
-    public static boolean itHasTheRigthLength(String username) {
-        if (username.length() >= MINIMUM_SIZE && username.length() <= MAXIMUM_SIZE) {
+    public static boolean itHasTheRigthLength(final String username) {
+        if (username.length() >= MINIMUM_SIZE
+         && username.length() <= MAXIMUM_SIZE) {
             return true;
         }
         return false;
@@ -46,9 +52,10 @@ public class Auth {
 
     // contains at least 1 lowercase letter
 
-    public static boolean itHasLowerCase(String username) {
+    public static boolean itHasLowerCase(final String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) >= ASCII_CODE_LETTER_A && (int) username.charAt(i) <= ASCII_CODE_LETTER_Z) {
+            if ((int) username.charAt(i) >= ASCII_CODE_LETTER_A
+             && (int) username.charAt(i) <= ASCII_CODE_LETTER_Z) {
                 return true;
             }
         }
@@ -57,9 +64,10 @@ public class Auth {
 
     // contains at least 1 number
 
-    public static boolean itHasNumber(String username) {
+    public static boolean itHasNumber(final String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) >= ASCII_CODE_ZERO && (int) username.charAt(i) <= ASCII_CODE_NINE) {
+            if ((int) username.charAt(i) >= ASCII_CODE_ZERO
+             && (int) username.charAt(i) <= ASCII_CODE_NINE) {
                 return true;
             }
         }
@@ -68,9 +76,12 @@ public class Auth {
 
     // contains only numbers and lowercase letters
 
-    public static boolean itHasOnlyNumberAndLowerCaseLetter(String username) {
+    public static boolean itHasOneNumberLowerCaseLetter(final String username) {
         for (int i = 0; i < username.length(); i++) {
-            if ((int) username.charAt(i) < ASCII_CODE_ZERO || ((int) username.charAt(i) > ASCII_CODE_NINE && ((int) username.charAt(i) < ASCII_CODE_LETTER_A) || (int) username.charAt(i) > ASCII_CODE_LETTER_Z)) {
+            if ((int) username.charAt(i) < ASCII_CODE_ZERO
+             || ((int) username.charAt(i) > ASCII_CODE_NINE
+              && ((int) username.charAt(i) < ASCII_CODE_LETTER_A)
+               || (int) username.charAt(i) > ASCII_CODE_LETTER_Z)) {
                 return false;
             }
         }
