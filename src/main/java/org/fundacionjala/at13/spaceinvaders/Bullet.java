@@ -4,7 +4,8 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 29;
+    private final int upperLimit = 30;
+    private String type;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
@@ -107,12 +108,12 @@ public class Bullet {
         return false;
     }
 
-    /**
+    /** 
      * Description: The function move the bullet shoot Up.
      *
      */
     public void movingBulletUp() {
-        if (positionInitialY < upperLimit) {
+        if (positionInitialY < upperLimit-1) {
             positionInitialY += 1;
         } else {
             bulletExist = true;
