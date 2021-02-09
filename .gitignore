@@ -1,13 +1,11 @@
 .gradle/
 build/
 .classpath
-<<<<<<< HEAD
 .project
 .settings/
 bin/
-=======
 .idea/
-.settings/
+.idea/
 .vscode/
-bin/
->>>>>>> e2ffbc082382677eb303610b273df7c824553b3d
+*.class
+
