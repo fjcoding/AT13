@@ -30,7 +30,7 @@ public final class Main {
         space.setAlien(aliens);
         Bullet bullet = spaceship.shoot();
         space.setBullet(bullet);
-
+        Interface grafic = new Interface();
         print(space.show());
         System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
             + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
