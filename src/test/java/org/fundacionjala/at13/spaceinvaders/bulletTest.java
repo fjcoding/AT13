@@ -35,7 +35,9 @@ public class bulletTest{
 
     @Test
     public void itShouldSayIfSpaceshipHasNotShootAnotherBullet() {
-        Spaceship spaceship = new Spaceship(4,0,lowerXLimit,upperXLimit);
+        int positionX = 4;
+        int positionY = 0;
+        Spaceship spaceship = new Spaceship(positionX, positionY, lowerXLimit, upperXLimit);
         Bullet bullet = new Bullet(spaceship);
         bullet.changeBulletExists(true);
         int previusPos = bullet.getPositionY();
@@ -46,7 +48,9 @@ public class bulletTest{
 
     @Test
     public void itShouldSayIfAlienHasNotShootAnotherBullet() {
-        Alien alien = new Alien(5,0,lowerXLimit,upperXLimit);
+        int positionX = 5;
+        int positionY = 0;
+        Alien alien = new Alien(positionX, positionY, lowerXLimit, upperXLimit);
         Bullet bullet = new Bullet(alien);
         bullet.changeBulletExists(true);
         int previusPos = bullet.getPositionY();
@@ -54,7 +58,7 @@ public class bulletTest{
         int actualPos = bullet.getPositionY();
         assertEquals(previusPos, actualPos);
     }
-    
+
     @Test
     public void itShouldMoveBulletOfAlienOnePositionDown() {
         int positionInitAlienX = 5;
