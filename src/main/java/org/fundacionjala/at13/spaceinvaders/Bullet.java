@@ -55,6 +55,14 @@ public class Bullet {
     }
 
     /**
+     * Description: The function changes the state of a bullet.
+     *
+     */
+    public void changeBulletExists(final Boolean newState) {
+        this.bulletExist = newState;
+    }
+
+    /**
      * Description: The function displays a bullet shoot.
      * from the Spaceship.
      *
