@@ -174,7 +174,7 @@ public class bulletTest{
     }
 
     @Test
-    public void itShouldSayBulletFromAliendoesntCollapseWithSpaceshipMoving() {
+    public void itShouldSayBulletFromAlienDoesntCollapseWithSpaceshipMoving() {
         int positionInitAlienX = 6;
         int positionInitAlienY = 4;
         int positionInitSpaceshipX = 5;
