@@ -23,7 +23,7 @@ public final class Main {
         space.setAlien(alienGroup.getAliens());
         Bullet bullet = spaceship.shoot();
         space.setBullet(bullet);
-        Interface grafic = new Interface();
+        Interface2 grafic = new Interface2();
         print(space.show());
         System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
             + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
