@@ -12,14 +12,15 @@ public class Interface2 extends JFrame {
     private static JLabel ship = new JLabel(new ImageIcon("resources/spaceship.png"));
     private static JLabel[] alien;
     private static JLabel bullet = new JLabel(new ImageIcon("resources/spaceship.png"));
-    
+
     private static final int SIZE_IMAGE = 20;
     private static final int POS_Y = Space.DEFAULT_HEIGHT * 18;
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 20;
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 20;
-    private int SCALE = 20;
+    public static final int SCALE = 20;
+    public static final int WAIT = 20;
     private Game game;
-    
+
     public Interface2() {
         game = new Game();
         init();
@@ -54,7 +55,7 @@ public class Interface2 extends JFrame {
                 spaceShipImage(game.posXSpaceship(), POS_Y);
             }
         };
-        
+
         System.out.println("antes del keylistener");
         SwingUtilities.invokeLater(r);
         eventKey();
@@ -73,8 +74,8 @@ public class Interface2 extends JFrame {
      */
     public final void spaceAlienImage() {
         for (int i = 0; i < game.getAlienGroup().size(); i++) {
-                alien[i].setBounds(game.getAlienGroup().get(i).getPosX() * 20,
-                game.getAlienGroup().get(i).getPosY() * 20, SIZE_IMAGE, SIZE_IMAGE);
+                alien[i].setBounds(game.getAlienGroup().get(i).getPosX() * SCALE,
+                game.getAlienGroup().get(i).getPosY() * SCALE, SIZE_IMAGE, SIZE_IMAGE);
                 panel.add(alien[i]);
         }
     }
@@ -105,14 +106,13 @@ public class Interface2 extends JFrame {
     public void start() {
         while (true) {
             try {
-                game.startMoving();;
-                Thread.sleep(500);
+                game.startMoving();
+                Thread.sleep(WAIT);
                 spaceAlienImage2();
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
-        
     }
 
     /**
@@ -120,16 +120,14 @@ public class Interface2 extends JFrame {
      */
     public final void spaceAlienImage2() {
         for (int i = 0; i < game.getAlienGroup().size(); i++) {
-                alien[i].setLocation(game.getAlienGroup().get(i).getPosX() * 20,
-                game.getAlienGroup().get(i).getPosY() * 20);
+                alien[i].setLocation(game.getAlienGroup().get(i).getPosX() * SCALE,
+                game.getAlienGroup().get(i).getPosY() * SCALE);
                 panel.add(alien[i]);
         }
-        if(game.getBullet()!=null) {
-            bullet.setLocation(game.getBullet().getPositionX() * 20,
-            game.getBullet().getPositionX() * 20);
+        if (game.getBullet() != null) {
+            bullet.setLocation(game.getBullet().getPositionX() * SCALE,
+            game.getBullet().getPositionX() * SCALE);
             panel.add(bullet);
         }
     }
 }
-    
-

@@ -2,7 +2,6 @@ package org.fundacionjala.at13.spaceinvaders;
 import java.util.ArrayList;
 public class Game {
 
-    
     private Space space;
     private Spaceship spaceship;
     private AlienGroup alienGroup;
@@ -12,14 +11,14 @@ public class Game {
     private int height = Space.DEFAULT_HEIGHT;
     private int llimit = Space.INITIAL_RANGE;
     private int ulimit = Space.DEFAULT_WIDTH;
-    public final int posXSp = Spaceship.DEFAULT_POSX;
-    public final int posYSp = Spaceship.DEFAULT_POSY;
+    private final int posXSp = Spaceship.DEFAULT_POSX;
+    private final int posYSp = Spaceship.DEFAULT_POSY;
     public static final int ALIEN_COLUMN = 10;
     public static final int ALIEN_ROW = 5;
     private static final int GO_LEFT = 37;
     private static final int GO_RIGHT = 39;
-    private static final int SHOOT = 115;
-    
+    private static final int SHOOT = 32;
+
 
     public Game() {
         this.space = new Space(height, width);
@@ -46,13 +45,13 @@ public class Game {
     }
     /** */
     public void moveSpaceship(final int action) {
-        if(action == GO_LEFT) {
+        if (action == GO_LEFT) {
             this.spaceship.moveLeft();
         }
-        if(action == GO_RIGHT) {
+        if (action == GO_RIGHT) {
             this.spaceship.moveRight();
         }
-        if(action == SHOOT) {
+        if (action == SHOOT) {
             this.bullet = this.spaceship.shoot();
         }
         /* bullet.isShootingToAlien(); */
@@ -80,7 +79,7 @@ public class Game {
     /** */
     public void startMoving() {
         alienGroup.moveAliens();
-        if(this.bullet!=null) {
+        if (this.bullet != null) {
             this.bullet.isShootingToAlien();
         }
     }
