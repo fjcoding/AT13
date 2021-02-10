@@ -19,6 +19,7 @@ public class Interface extends JFrame {
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 5;
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 15;
     private final Spaceship spaceship = new Spaceship((SCALE_WIDTH - SIZE_IMAGE) / 2, SCALE_HEIGHT - SIZE_IMAGE, 0, SCALE_WIDTH - 23);
+    private final GameOver gameOver = new GameOver();
 
     public Interface() {
         init();
@@ -43,7 +44,11 @@ public class Interface extends JFrame {
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                spaceShipImage(POS_X, POS_Y);
+                if (spaceship.getAlive()) {
+                    spaceShipImage(POS_X, POS_Y);
+                } else {
+                    gameOver.showGameOver(panel);
+                }
             }
         };
         SwingUtilities.invokeLater(r);
