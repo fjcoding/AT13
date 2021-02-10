@@ -27,23 +27,28 @@ public class Game {
         space.setSpaceship(spaceship);
         space.setAlien(alienGroup.getAliens());
     }
-    /** */
+
+    /** @return a integer that is the width of space.*/
     public int widthSpace() {
         return this.width;
     }
-    /** */
+
+    /** @return a integer that is the height of space.*/
     public int heightSpace() {
         return this.height;
     }
-    /** */
+
+    /** @return a integer that is the position X of spaceship.*/
     public int posXSpaceship() {
-        return this.posYSp;
+        return this.posXSp;
     }
-    /** */
+
+    /** @return a integer that is the position Y of spaceship.*/
     public int posYSpaceship() {
         return this.posYSp;
     }
-    /** */
+
+    /** execute actions that spaceship can do.*/
     public void moveSpaceship(final int action) {
         if (action == GO_LEFT) {
             this.spaceship.moveLeft();
@@ -57,17 +62,17 @@ public class Game {
         /* bullet.isShootingToAlien(); */
     }
 
-    /** */
+    /** @return a spaceship*/
     public Spaceship getSpaceship() {
         return this.spaceship;
     }
 
-    /** */
+    /** @return a bullet*/
     public Bullet getBullet() {
         return this.bullet;
     }
 
-    /** */
+    /** @return ArrayList of aliens*/
     public ArrayList<Alien> getAlienGroup() {
         return this.alienGroup.getAliens();
     }
@@ -76,7 +81,7 @@ public class Game {
 
     } */
 
-    /** */
+    /** do one move of all aliens that are in group*/
     public void startMoving() {
         alienGroup.moveAliens();
         if (this.bullet != null) {

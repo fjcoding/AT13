@@ -18,7 +18,7 @@ public class Interface2 extends JFrame {
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 20;
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 20;
     public static final int SCALE = 20;
-    public static final int WAIT = 20;
+    public static final int WAIT = 600;
     private Game game;
 
     public Interface2() {
@@ -70,7 +70,7 @@ public class Interface2 extends JFrame {
     }
 
     /**
-     * Method initialize the image.
+     * Method initialize the alien group.
      */
     public final void spaceAlienImage() {
         for (int i = 0; i < game.getAlienGroup().size(); i++) {
@@ -102,7 +102,7 @@ public class Interface2 extends JFrame {
         panel.addKeyListener(keyEvent);
     }
 
-    /** */
+    /** Start moving alien group  */
     public void start() {
         while (true) {
             try {
@@ -116,7 +116,7 @@ public class Interface2 extends JFrame {
     }
 
     /**
-     * Method initialize the image.
+     * Method initialize the images of Aliens and Bullet.
      */
     public final void spaceAlienImage2() {
         for (int i = 0; i < game.getAlienGroup().size(); i++) {
