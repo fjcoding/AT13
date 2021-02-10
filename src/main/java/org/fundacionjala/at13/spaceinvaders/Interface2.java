@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Interface2 extends JFrame {
+public class Interface2 {
     private final JFrame frame = new JFrame();
     private final JPanel panel = new JPanel();
 
@@ -46,7 +46,7 @@ public class Interface2 extends JFrame {
                 frame.setTitle("Jala AT13 - Space Invanders");
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 alien = new JLabel[game.ALIEN_ROW * game.ALIEN_COLUMN];
                 for (int i = 0; i < alien.length; i++) {
                         alien[i] = new JLabel(new ImageIcon("resources/spaceship.png"));
