@@ -152,6 +152,21 @@ public class bulletTest{
         bulletAlien.isShootingToSpaceship();
         assertTrue(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
     }
+
+    @Test
+    public void itShouldSayBulletFromAliendoesntCollapseWithSpaceshipMoving() {
+        int positionInitAlienX = 6;
+        int positionInitAlienY = 4;
+        int positionInitSpaceshipX = 5;
+        int positionInitSpaceshipY = 0;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletAlien = new Bullet(alien);
+        bulletAlien.isShootingToSpaceship();
+        bulletAlien.isShootingToSpaceship();
+        bulletAlien.isShootingToSpaceship();
+        assertFalse(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
+    }
     @Test
     public void itShouldSayIfBulletFromAlienNotCollapseWithSpaceshipMoving() {
         Alien alien=new Alien(posXInitAlien,posYInitAlien,lowerXLimit,upperXLimit);
