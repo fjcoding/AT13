@@ -6,8 +6,6 @@ import java.lang.annotation.Target;
 
 import org.junit.Test;
 
-import jdk.jfr.Timestamp;
-
 public class SpaceshipTest{
 
     @Test
