@@ -9,18 +9,23 @@ public class Interface2 extends JFrame {
     private final JFrame frame = new JFrame();
     private final JPanel panel = new JPanel();
 
-    private static JLabel ship = new JLabel(new ImageIcon("resources/spaceship.png"));/* 
-    private static JLabel bullet = new JLabel(new ImageIcon("resources/spaceship.png")); */
-/*     private static final int GO_LEFT = 37;
-    private static final int GO_RIGHT = 39; */
+    private static JLabel ship = new JLabel(new ImageIcon("resources/spaceship.png"));
+    private static JLabel[] alien;
+    private static JLabel bullet = new JLabel(new ImageIcon("resources/spaceship.png"));
+    
     private static final int SIZE_IMAGE = 20;
-    private static final int POS_X = (Space.DEFAULT_WIDTH * 5 - 23) / 2;
-    private static final int POS_Y = Space.DEFAULT_HEIGHT * 14 - 23;
+    private static final int POS_Y = Space.DEFAULT_HEIGHT * 18;
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 20;
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 20;
+    private int SCALE = 20;
+    private Game game;
     
     public Interface2() {
+        game = new Game();
         init();
+        System.out.println("antes de star()");
+        start();
+        System.out.println("adespues de star()");
     }
 
     /**
@@ -30,23 +35,29 @@ public class Interface2 extends JFrame {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                Space space = new Space(SCALE_WIDTH, SCALE_HEIGHT);
                 frame.getContentPane().add(panel);
                 panel.setFocusable(true);
                 panel.requestFocusInWindow();
                 panel.setLayout(null);
                 panel.setBackground(Color.BLACK);
-                frame.setSize(new Dimension(SCALE_WIDTH, SCALE_HEIGHT));
+                frame.setSize(new Dimension(game.widthSpace() * SCALE + SIZE_IMAGE, game.heightSpace() * SCALE));
                 frame.setVisible(true);
                 frame.setTitle("Jala AT13 - Space Invanders");
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                //spaceShipImage(POS_X, POS_Y);
+                alien = new JLabel[game.ALIEN_ROW * game.ALIEN_COLUMN];
+                for (int i = 0; i < alien.length; i++) {
+                        alien[i] = new JLabel(new ImageIcon("resources/spaceship.png"));
+                }
+                spaceAlienImage();
+                spaceShipImage(game.posXSpaceship(), POS_Y);
             }
         };
+        
+        System.out.println("antes del keylistener");
         SwingUtilities.invokeLater(r);
-        //eventKey();
+        eventKey();
     }
 
     /**
@@ -54,9 +65,18 @@ public class Interface2 extends JFrame {
      */
     public final void spaceShipImage(final int posX, final int posY) {
         ship.setBounds(posX, posY, SIZE_IMAGE, SIZE_IMAGE);
-        bullet.setBounds(posX, posY - SIZE_IMAGE, SIZE_IMAGE, SIZE_IMAGE);
         panel.add(ship);
-        panel.add(bullet);
+    }
+
+    /**
+     * Method initialize the image.
+     */
+    public final void spaceAlienImage() {
+        for (int i = 0; i < game.getAlienGroup().size(); i++) {
+                alien[i].setBounds(game.getAlienGroup().get(i).getPosX() * 20,
+                game.getAlienGroup().get(i).getPosY() * 20, SIZE_IMAGE, SIZE_IMAGE);
+                panel.add(alien[i]);
+        }
     }
 
     /**
@@ -70,9 +90,8 @@ public class Interface2 extends JFrame {
 
             @Override
             public void keyPressed(final KeyEvent e) {
-                Game.moveSpaceship(e.getKeyCode());
-                ship.setBounds(Game.spaceship.getPosX() * SIZE_IMAGE, POS_Y, SIZE_IMAGE, SIZE_IMAGE);
-                bullet.setBounds(POS_X, POS_Y - Game.bullet.getPositionY(), SIZE_IMAGE, SIZE_IMAGE);
+                game.moveSpaceship(e.getKeyCode());
+                ship.setBounds(game.getSpaceship().getPosX() * SIZE_IMAGE, POS_Y, SIZE_IMAGE, SIZE_IMAGE);
             }
 
             @Override
@@ -80,6 +99,36 @@ public class Interface2 extends JFrame {
 
         };
         panel.addKeyListener(keyEvent);
+    }
+
+    /** */
+    public void start() {
+        while (true) {
+            try {
+                game.startMoving();;
+                Thread.sleep(500);
+                spaceAlienImage2();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        
+    }
+
+    /**
+     * Method initialize the image.
+     */
+    public final void spaceAlienImage2() {
+        for (int i = 0; i < game.getAlienGroup().size(); i++) {
+                alien[i].setLocation(game.getAlienGroup().get(i).getPosX() * 20,
+                game.getAlienGroup().get(i).getPosY() * 20);
+                panel.add(alien[i]);
+        }
+        if(game.getBullet()!=null) {
+            bullet.setLocation(game.getBullet().getPositionX() * 20,
+            game.getBullet().getPositionX() * 20);
+            panel.add(bullet);
+        }
     }
 }
     

@@ -7,7 +7,7 @@ public class AlienGroup {
     private static ArrayList<Alien> alienGroup;
     private boolean directionIsTowardsRight = true;
     private static final int SPACE_SIZE_HEIGHT = 30;
-    private static final int SPACE_SIZE_WIDTH = 100;
+    private static final int SPACE_SIZE_WIDTH = 50;
     private static final int SPACESHIP_ROW_LIMIT = 3;
     private int groupLeftLimit;
     private int groupRightLimit;
