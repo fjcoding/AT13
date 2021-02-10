@@ -221,5 +221,15 @@ public class bulletTest{
         assertFalse(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
     }
     
-    
+    @Test
+    public void itShouldReturnBulletToPosition0X0YWhenItGetYLimit() {
+        int positionInitSpaceshipX = 5;
+        int positionInitSpaceshipY = 28;
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletSpaceship = new Bullet(spaceship);
+        bulletSpaceship.isShootingToAlien();
+        assertTrue(bulletSpaceship.getBulletExist());
+        assertEquals(0, bulletSpaceship.getPositionX());
+        assertEquals(0, bulletSpaceship.getPositionY());
+    }
 }
