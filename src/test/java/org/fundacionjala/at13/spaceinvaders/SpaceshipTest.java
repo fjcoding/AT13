@@ -84,5 +84,8 @@ public class SpaceshipTest{
         //Third Impact
         assertTrue(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
         assertEquals(0,spaceship.getNumbersLife());
+        //When the bullet is in the same place where the spaceShip died
+        assertTrue(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
+        assertEquals(0,spaceship.getNumbersLife());
     }
 }
