@@ -64,12 +64,12 @@ public class AlienGroupTest {
     @Test
     public void shouldCheckRightLimitAndMoveDown() {
         /**
-         * SPACE_SIZE_WIDTH = 100
+         * SPACE_SIZE_WIDTH = 40
          * Alien group with 3 rows
          * Alien group starts moving right
          * groupDownLimit = rows - 1 = 2
          */
-        AlienGroup alienGroup = new AlienGroup(3, 100);
+        AlienGroup alienGroup = new AlienGroup(3, 30);
         alienGroup.moveAliens();
         assertEquals(3 ,alienGroup.getgroupDownLimit());
     }

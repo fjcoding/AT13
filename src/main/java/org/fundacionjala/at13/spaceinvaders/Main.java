@@ -1,51 +1,40 @@
 package org.fundacionjala.at13.spaceinvaders;
+import javax.swing.*;
+import javax.swing.JFrame;
+import java.awt.EventQueue;
+public final class Main extends JFrame {
 
-public final class Main {
-
+    /**
+     *
+     */
+    private static final long serialVersionUID = -8447528754405114368L;
     public static final int WAIT_PERIOD = 50; // milliseconds
     public static final int ROWS = 3;
     public static final int COLUMNS = 5;
 
-    private Main() {
-    }
-
     public static final int VALORY = 10;
     public static final int ALIEN_COLUMN = 10;
     public static final int ALIEN_ROW = 5;
-    public static void main(final String[] args) throws InterruptedException {
-        System.out.println("Space Invaders!!! by AT13" + "\n");
-
-        // Space invaders example with spaceship
-        Space space = new Space(Space.DEFAULT_HEIGHT, Space.DEFAULT_WIDTH);
-        Spaceship spaceship = new Spaceship(Spaceship.DEFAULT_POSX, Spaceship.DEFAULT_POSY, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH);
-        space.setSpaceship(spaceship);
-        AlienGroup alienGroup = new AlienGroup(ALIEN_ROW, ALIEN_COLUMN);
-        space.setAlien(alienGroup.getAliens());
-        Bullet bullet = spaceship.shoot();
-        space.setBullet(bullet);
-        Interface grafic = new Interface();
-        print(space.show());
-        System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
-            + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
-        while (true) {
-            alienGroup.moveAliens();
-            spaceship.moveRight();
-            bullet.isShootingToAlien();
-            Thread.sleep(WAIT_PERIOD);
-            print(space.show());
-            System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
-            + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
-        }
+    public static final int SPACE_COL_GRIDS = 30;
+    public static final int SPACE_ROW_GRIDS = 20;
+    public static final int FRAME_HEIGHT = 800;
+    public static final int FRAME_WIDHT = 1200;
+    
+    private Main() {
+        initializeMain();
     }
-
-    private static void print(final String[][] matrix) {
-        System.out.println("=====================================================================================================");
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("=====================================================================================================");
+    private void initializeMain() {
+        add(new Space(SPACE_COL_GRIDS, SPACE_ROW_GRIDS));
+        setSize(FRAME_WIDHT, FRAME_HEIGHT);
+        setResizable(false);
+        setTitle("Space Invaders");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void main(final String[] args) {
+        EventQueue.invokeLater(() -> {
+            Main mainFrame = new Main();
+            mainFrame.setVisible(true);
+        });
     }
 }
