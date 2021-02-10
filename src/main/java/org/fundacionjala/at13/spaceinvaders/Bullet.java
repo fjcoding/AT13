@@ -110,6 +110,7 @@ public class Bullet {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
             bulletExist = false;
+            spaceship.isStillAlive();
             return true;
         }
         return false;
