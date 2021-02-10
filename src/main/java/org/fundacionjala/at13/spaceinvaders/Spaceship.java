@@ -28,4 +28,11 @@ public class Spaceship extends SpaceElement {
             System.out.print("Game Over");
         }
     }
+
+    /**
+     * @return el how many lives spaceship has
+     */
+    public int getNumbersLife() {
+        return numbersLife;
+    }
 }
