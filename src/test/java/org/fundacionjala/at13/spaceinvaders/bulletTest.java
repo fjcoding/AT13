@@ -163,5 +163,27 @@ public class bulletTest{
         bulletAlien.isShootingToSpaceship();
         assertFalse(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
     }
+
+     /*
+     Spaceship in posicion x is the same as Alien but is different in posicion Y
+     */   
+    @Test
+    public void itShouldSayIfBulletFromAlienNotCollapseWithSpaceshipMoving2() {
+        int lowerXLimit=0;
+        int upperXLimit=10;
+        int positionInitialX = 5;
+        int positionInitialY = 9;
+        int posXInitAlien = 5;
+        int posYInitAlien = 5;
+        Alien alien=new Alien(posXInitAlien,posYInitAlien,lowerXLimit,upperXLimit);
+        Spaceship spaceship=new Spaceship(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
+        Bullet bulletAlien = new Bullet(alien);
+        bulletAlien.isShootingToSpaceship();
+        bulletAlien.isShootingToSpaceship();
+        bulletAlien.isShootingToSpaceship();
+        bulletAlien.isShootingToSpaceship();
+        assertFalse(bulletAlien.isCollapsedBulletWithSpaceship(spaceship));
+    }
+    
     
 }
