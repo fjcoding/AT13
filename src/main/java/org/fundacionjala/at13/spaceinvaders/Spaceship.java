@@ -44,7 +44,7 @@ public class Spaceship extends SpaceElement {
             this.numbersLife -= 1;
         }
         if (numbersLife == 0) {
-            System.out.print("Game Over");
+            this.die();
         }
     }
 
