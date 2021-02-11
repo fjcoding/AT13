@@ -18,11 +18,11 @@ public class Space extends JPanel implements KeyListener, EventListener {
     public static final String SPACESHIP_LABEL = "Spaceship";
     public static final String ALIEN_LABEL = "Alien";
     public static final String BULLET_LABEL = "Bullet";
-    public static final int DEFAULT_HEIGHT = 20;
-    public static final int DEFAULT_WIDTH = 30;
+    public static final int DEFAULT_HEIGHT = 10;
+    public static final int DEFAULT_WIDTH = 15;
     public static final int INITIAL_RANGE = 0;
     public static final int SPACESHIP_INITIAL_X_POS = 5;
-    public static final int SPACESHIP_INITIAL_Y_POS = 19;
+    public static final int SPACESHIP_INITIAL_Y_POS = 9;
     public static final int NUMBER_OF_ALIEN_COLUMNS = 5;
     public static final int NUMBER_OF_ALIEN_ROWS = 3;
     public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE = 50;

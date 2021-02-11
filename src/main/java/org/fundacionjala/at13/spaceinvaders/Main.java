@@ -10,8 +10,8 @@ public class Main extends JFrame {
         initializeMain();
     }
     private void initializeMain(){
-        add(new Space(20, 30));
-        setSize(1200,800);
+        add(new Space(10, 15));
+        setSize(600,400);
         setResizable(false);
         setTitle("Space Invaders");
         setLocationRelativeTo(null);
