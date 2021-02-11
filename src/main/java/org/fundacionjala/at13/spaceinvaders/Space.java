@@ -3,17 +3,17 @@ package org.fundacionjala.at13.spaceinvaders;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-// import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class Space extends JPanel implements KeyListener {
-    
+public class Space extends JPanel implements KeyListener, EventListener {
+
     public static final String SPACE_LABEL = "Space";
     public static final String SPACESHIP_LABEL = "Spaceship";
     public static final String ALIEN_LABEL = "Alien";
@@ -31,13 +31,10 @@ public class Space extends JPanel implements KeyListener {
     private Spaceship spaceship;
     private AlienGroup alienGroup;
     private ArrayList<Alien> aliens;
-    private Bullet bullet;
     private int height;
     private int width;
     private static JLabel[][] space;
     private Timer timer;
-    private boolean gameOver;
-    private int cont = 0;
     private int tic;
 
     public Space(final int heightToSet, final int widthToSet) {
@@ -50,6 +47,7 @@ public class Space extends JPanel implements KeyListener {
      * Add grids to the panel and initialize objects.
      */
     public void initializeSpace() {
+        timer = new Timer();
         spaceship = new Spaceship(SPACESHIP_INITIAL_X_POS, SPACESHIP_INITIAL_Y_POS, INITIAL_RANGE, DEFAULT_WIDTH);
         alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
         aliens = alienGroup.getAliens();
@@ -78,21 +76,21 @@ public class Space extends JPanel implements KeyListener {
      * Starts the timer task to repeat the updates to the panel.
      */
     public void start() {
-
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE == 0) {
                     alienGroup.moveAliens();
-                    tic /= tic;
+                    tic /= 100;
                 }
                 if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_SHOOT == 0) {
-                    return;
+                   
                 }
                 tic += 1;
                 updateSpace();
             }
         };
+        //updateSpace();
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
     }
     /**
@@ -172,44 +170,15 @@ public class Space extends JPanel implements KeyListener {
      * Sets a new spaceship for this space instance
      */
     public void setBullet(final Bullet newBullet) {
-        this.bullet = newBullet;
+        //this.bullet = newBullet;
     }
 
     /**
      * Method that returns a String representation of the space.
      */
     public void show() {
-        // String[][] space = new String[height][width];
-        // for (int i = 0; i < space.length; i++) {
-        //     for (int j = 0; j < space[i].length; j++) {
-        //         space[i][j] = EMPTY;
-        //     }
-        // }
-        // if (this.spaceship != null) {
-        //     int posX = this.spaceship.getPosX();
-        //     int posY = this.spaceship.getPosY();
-        //     PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-        //     space[position.getIndexi()][position.getIndexj()] = SPACESHIP;
-        // }
-        // if (this.aliens != null) {
-        //     for (Alien alien  : aliens) {
-        //         int posX = alien.getPosX();
-        //         int posY = alien.getPosY();
-        //         space[posY][posX] = ALIEN;
-        //     }
-        // }
-        // if (this.bullet != null) {
-        //     int posX = this.bullet.getPositionX();
-        //     int posY = this.bullet.getPositionY();
-        //     PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-        //     space[position.getIndexi()][position.getIndexj()] = BULLET;
-        // }
-        // return space;
-    }
-    // @Override
-    // public void actionPerformed(ActionEvent event) {
 
-    // }
+    }
     /**
      * @Override keyTyped.
     */
