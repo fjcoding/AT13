@@ -28,6 +28,7 @@ public class Space extends JPanel implements KeyListener, EventListener {
     public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE = 50;
     public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_SHOOT = 40;
     public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
+    public static final int TIK = 100;
     private Spaceship spaceship;
     private AlienGroup alienGroup;
     private ArrayList<Alien> aliens;
@@ -43,7 +44,7 @@ public class Space extends JPanel implements KeyListener, EventListener {
         this.width = widthToSet;
         initializeSpace();
     }
-    
+
     /**
      * Add grids to the panel and initialize objects.
      */
@@ -67,7 +68,7 @@ public class Space extends JPanel implements KeyListener, EventListener {
         this.addKeyListener(this);
         start();
     }
-    
+
     /**
      * Starts the timer task to repeat the updates to the panel.
      */
@@ -76,12 +77,8 @@ public class Space extends JPanel implements KeyListener, EventListener {
             @Override
             public void run() {
                 if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE == 0) {
-                    tic /= 100;
+                    tic /= TIK;
                 }
-                if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_SHOOT == 0) {
-                   
-                }
-                tic += 1;
                 updateSpace();
             }
         };
@@ -172,5 +169,10 @@ public class Space extends JPanel implements KeyListener, EventListener {
     @Override
     public void keyReleased(final KeyEvent e) {
         return;
+    }
+
+    /** @return a spaceship from space*/
+    public Spaceship getSpaceship() {
+        return this.spaceship;
     }
 }

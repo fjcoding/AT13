@@ -16,8 +16,8 @@ public class SpaceTest {
     public void itShouldShowSpaceWithSpaceship() {
         int height = 10;
         int width = 9;
-        int spaceshipInitPosX = 5;
-        int spaceshipInitPosY = 19;
+        int spaceshipInitPosX = Space.SPACESHIP_INITIAL_X_POS;
+        int spaceshipInitPosY = Space.SPACESHIP_INITIAL_Y_POS;
 
         Space space = new Space(height, width);
         Spaceship spaceship = new Spaceship(spaceshipInitPosX, spaceshipInitPosY, 0, Space.DEFAULT_WIDTH);
