@@ -26,7 +26,7 @@ public class GameOver {
     }
 
     /**
-     * @return an Integer with actual X position of SpaceElement.
+     * Shows game over interface.
      */
     public void showGameOver(final JPanel panel) {
         JLabel gameOverLabel = new JLabel("Game over");
