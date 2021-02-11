@@ -5,22 +5,41 @@ import javax.swing.*;
 import javax.swing.ImageIcon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
-public class Interface extends JFrame {
+public class Gameboard {
+    
+    private ArrayList<Alien> aliens;
+    private static JLabel[][] space;
     private final JFrame frame = new JFrame();
     private final JPanel panel = new JPanel();
 
-    private static JLabel ship = new JLabel(new ImageIcon("resources/spaceship.png"));
     private static final int GO_LEFT = 37;
     private static final int GO_RIGHT = 39;
     private static final int SIZE_IMAGE = 20;
-    private static final int POS_X = (Space.DEFAULT_WIDTH * 5 - 20) / 2;
-    private static final int POS_Y = Space.DEFAULT_HEIGHT * 14 - 20;
-    private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 5;
-    private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 15;
+    private static final int SCALE_WIDTH = Constants.SPACE_SIZE_WIDTH * 5;
+    private static final int SCALE_HEIGHT = Constants.SPACE_SIZE_HEIGHT * 15;
     private final Spaceship spaceship = new Spaceship((SCALE_WIDTH - SIZE_IMAGE) / 2, SCALE_HEIGHT - SIZE_IMAGE, 0, SCALE_WIDTH - 23);
 
-    public Interface() {
+    /**
+     * Create labels for the panel grids and add them.
+     */
+    public void fillGridsWithLabels() {
+        space = new JLabel[Constants.SPACE_SIZE_HEIGHT][Constants.SPACE_SIZE_WIDTH];
+        //setLayout(new GridLayout(Constants.SPACE_SIZE_HEIGHT, Constants.SPACE_SIZE_WIDTH, 0, 0));
+        for (int row = 0; row < Constants.SPACE_SIZE_HEIGHT; row++) {
+            for (int col = 0; col < Constants.SPACE_SIZE_WIDTH; col++) {
+                JLabel label = new JLabel();
+                label.setOpaque(true);
+                label.setBackground(Color.black);
+                label.setVisible(true);
+                space[row][col] = label;
+                panel.add(label);
+            }
+        }
+    }
+
+    public Gameboard() {
         init();
     }
 
@@ -31,19 +50,19 @@ public class Interface extends JFrame {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                Space space = new Space(SCALE_WIDTH, SCALE_HEIGHT);
+                frame.setSize(Constants.UI_WIDTH, Constants.UI_HEIGHT);
                 frame.getContentPane().add(panel);
-                panel.setFocusable(true);
-                panel.requestFocusInWindow();
-                panel.setLayout(null);
-                panel.setBackground(Color.BLACK);
-                frame.setSize(new Dimension(SCALE_WIDTH, SCALE_HEIGHT));
                 frame.setVisible(true);
                 frame.setTitle("Jala AT13 - Space Invanders");
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                spaceShipImage(POS_X, POS_Y);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                panel.setFocusable(true);
+                panel.setBackground(Color.BLACK);
+                panel.requestFocusInWindow();
+                panel.setLayout(new GridLayout(Constants.SPACE_SIZE_HEIGHT, Constants.SPACE_SIZE_WIDTH, 0, 0));
+                fillGridsWithLabels();
+                //spaceShipImage(POS_X, POS_Y);
             }
         };
         SwingUtilities.invokeLater(r);
@@ -54,8 +73,8 @@ public class Interface extends JFrame {
      * Method initialize the image.
      */
     public final void spaceShipImage(final int posX, final int posY) {
-        ship.setBounds(posX, posY, SIZE_IMAGE, SIZE_IMAGE);
-        panel.add(ship);
+        //ship.setBounds(posX, posY, SIZE_IMAGE, SIZE_IMAGE);
+        //panel.add(ship);
     }
 
     /**
@@ -71,13 +90,12 @@ public class Interface extends JFrame {
             public void keyPressed(final KeyEvent e) {
                 if (e.getKeyCode() == GO_LEFT) {
                     spaceship.moveLeft();
-                    System.out.println("izquierda");
-                    ship.setBounds(spaceship.getPosX(), POS_Y, SIZE_IMAGE, SIZE_IMAGE);
+
+                    //ship.setBounds(spaceship.getPosX(), POS_Y, SIZE_IMAGE, SIZE_IMAGE);
                 }
                 if (e.getKeyCode() == GO_RIGHT) {
                     spaceship.moveRight();
-                    System.out.println("derecha");
-                    ship.setBounds(spaceship.getPosX(), POS_Y, SIZE_IMAGE, SIZE_IMAGE);
+                    //ship.setBounds(spaceship.getPosX(), POS_Y, SIZE_IMAGE, SIZE_IMAGE);
                 }
             }
 

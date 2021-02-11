@@ -6,9 +6,7 @@ public class AlienGroup {
     private static int numberOfAlienColumns;
     private static ArrayList<Alien> alienGroup;
     private boolean directionIsTowardsRight = true;
-    private static final int SPACE_SIZE_HEIGHT = 10;
-    private static final int SPACE_SIZE_WIDTH = 15;
-    private static final int SPACESHIP_ROW_LIMIT = 3;
+
     private int groupLeftLimit;
     private int groupRightLimit;
     private int groupDownLimit;
@@ -30,7 +28,7 @@ public class AlienGroup {
     public void addAliens() {
         for (int row = 0; row < numberOfAlienRows; row++) {
             for (int col = 0; col < numberOfAlienColumns; col++) {
-                Alien alien = new Alien(col, row, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH);
+                Alien alien = new Alien(col, row, Constants.INITIAL_RANGE, Constants.SPACE_SIZE_WIDTH);
                 alienGroup.add(alien);
             }
         }
@@ -69,7 +67,7 @@ public class AlienGroup {
      * @return a boolean when the group reached the spaceship.
      */
     public boolean gotToTheSpaceship() {
-        return this.groupDownLimit > SPACE_SIZE_HEIGHT - SPACESHIP_ROW_LIMIT;
+        return this.groupDownLimit > Constants.SPACE_SIZE_HEIGHT - Constants.SPACESHIP_ROW_LIMIT;
     }
     /**
      * method to change the directionIsTowardsRight variable.
@@ -114,7 +112,7 @@ public class AlienGroup {
                     this.groupLeftLimit -= 1;
                 }
             } else {
-                if (this.groupRightLimit == SPACE_SIZE_WIDTH - 1) {
+                if (this.groupRightLimit == Constants.SPACE_SIZE_WIDTH - 1) {
                     aliensMoveDown();
                     this.groupDownLimit += 1;
                     switchDirection();
