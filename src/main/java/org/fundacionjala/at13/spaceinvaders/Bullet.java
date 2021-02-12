@@ -113,7 +113,7 @@ public class Bullet {
      *
      */
     public void movingBulletUp() {
-        if (positionInitialY >= lowerLimit) {
+        if (positionInitialY >= lowerLimit - 1) {
             positionInitialY -= 1;
         } else {
             bulletExist = true;
