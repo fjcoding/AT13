@@ -8,8 +8,8 @@ public class Space {
     public static final String SPACESHIP = "^";
     public static final String ALIEN = "*";
     public static final String BULLET = "|";
-    public static final int DEFAULT_HEIGHT = 30;
-    public static final int DEFAULT_WIDTH = 100;
+    public static final int DEFAULT_HEIGHT = 10;
+    public static final int DEFAULT_WIDTH = 15;
     public static final int INITIAL_RANGE = 0;
 
     private Spaceship spaceship;
@@ -17,6 +17,7 @@ public class Space {
     private Bullet bullet;
     private int height;
     private int width;
+    private Gameboard gameboard;
 
     public Space(final int heightToSet, final int widthToSet) {
         this.height = heightToSet;

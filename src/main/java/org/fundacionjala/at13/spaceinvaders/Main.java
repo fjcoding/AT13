@@ -13,39 +13,7 @@ public final class Main {
     public static final int ALIEN_COLUMN = 10;
     public static final int ALIEN_ROW = 5;
     public static void main(final String[] args) throws InterruptedException {
-        System.out.println("Space Invaders!!! by AT13" + "\n");
-
-        // Space invaders example with spaceship
-        Space space = new Space(Space.DEFAULT_HEIGHT, Space.DEFAULT_WIDTH);
-        Spaceship spaceship = new Spaceship(Spaceship.DEFAULT_POSX, Spaceship.DEFAULT_POSY, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH);
-        space.setSpaceship(spaceship);
-        AlienGroup alienGroup = new AlienGroup(ALIEN_ROW, ALIEN_COLUMN);
-        space.setAlien(alienGroup.getAliens());
-        Bullet bullet = spaceship.shoot();
-        space.setBullet(bullet);
-        Interface grafic = new Interface();
-        print(space.show());
-        System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
-            + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
-        while (true) {
-            alienGroup.moveAliens();
-            spaceship.moveRight();
-            bullet.isShootingToAlien();
-            Thread.sleep(WAIT_PERIOD);
-            print(space.show());
-            System.out.println("spaceship position: " + spaceship.getPosX() + "," + spaceship.getPosY()
-            + " bullet position: " + bullet.getPositionX() + "," + bullet.getPositionY());
-        }
-    }
-
-    private static void print(final String[][] matrix) {
-        System.out.println("=====================================================================================================");
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("=====================================================================================================");
+        Gameboard gameboard = new Gameboard();
+        gameboard.init();
     }
 }

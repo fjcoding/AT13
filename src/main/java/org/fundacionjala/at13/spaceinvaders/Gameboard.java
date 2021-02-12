@@ -6,22 +6,22 @@ import javax.swing.ImageIcon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Interface extends JFrame {
+public class Gameboard extends JFrame {
     private final JFrame frame = new JFrame();
     private final JPanel panel = new JPanel();
 
     private static JLabel ship = new JLabel(new ImageIcon("resources/spaceship.png"));
     private static final int GO_LEFT = 37;
     private static final int GO_RIGHT = 39;
-    private static final int SIZE_IMAGE = 20;
-    private static final int POS_X = (Space.DEFAULT_WIDTH * 5 - 20) / 2;
-    private static final int POS_Y = Space.DEFAULT_HEIGHT * 14 - 20;
-    private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH * 5;
-    private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT * 15;
+    private static final int SIZE_IMAGE = 40;
+    private static final int POS_X = (Space.DEFAULT_WIDTH * 5 - SIZE_IMAGE) / 2;
+    private static final int POS_Y = Space.DEFAULT_HEIGHT * 14 - SIZE_IMAGE;
+    private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
+    private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
     private final Spaceship spaceship = new Spaceship((SCALE_WIDTH - SIZE_IMAGE) / 2, SCALE_HEIGHT - SIZE_IMAGE, 0, SCALE_WIDTH - 23);
     private final GameOver gameOver = new GameOver();
 
-    public Interface() {
+    public Gameboard() {
         init();
     }
 
@@ -32,23 +32,25 @@ public class Interface extends JFrame {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                Space space = new Space(SCALE_WIDTH, SCALE_HEIGHT);
+
+                Space space = new Space(SCALE_HEIGHT, SCALE_WIDTH);
+                GridLayout gridLayout = new GridLayout(SCALE_HEIGHT, SCALE_WIDTH);
                 frame.getContentPane().add(panel);
                 panel.setFocusable(true);
                 panel.requestFocusInWindow();
-                panel.setLayout(null);
+                panel.setLayout(gridLayout);
                 panel.setBackground(Color.BLACK);
-                frame.setSize(new Dimension(SCALE_WIDTH, SCALE_HEIGHT));
+                frame.setSize(new Dimension(SCALE_WIDTH * SIZE_IMAGE, SCALE_HEIGHT * SIZE_IMAGE));
                 frame.setVisible(true);
                 frame.setTitle("Jala AT13 - Space Invanders");
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                if (spaceship.getAlive()) {
-                    spaceShipImage(POS_X, POS_Y);
-                } else {
-                    gameOver.showGameOver(panel);
-                }
+                // if (spaceship.getAlive()) {
+                //     spaceShipImage(POS_X, POS_Y);
+                // } else {
+                //     gameOver.showGameOver(panel);
+                // }
             }
         };
         SwingUtilities.invokeLater(r);
