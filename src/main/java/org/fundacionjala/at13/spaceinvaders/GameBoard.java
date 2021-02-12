@@ -2,8 +2,10 @@ package org.fundacionjala.at13.spaceinvaders;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class GameBoard extends JFrame {
+public class GameBoard extends JFrame implements KeyListener {
 
     private static final int SIZE_IMAGE = 40;
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
@@ -43,6 +45,7 @@ public class GameBoard extends JFrame {
             }
         }
         spaceShip();
+        addKeyListener(this);
     }
 
     /**
@@ -50,8 +53,54 @@ public class GameBoard extends JFrame {
      */
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
+        refresh();
+    }
+
+    /**
+     * @Override keyReleased.
+    */
+    @Override
+    public void keyTyped(final KeyEvent e) {
+        return;
+    }
+
+    /**
+     * @Override keyPressed.
+    */
+    @Override
+    public void keyPressed(final KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            clean();
+            spaceship.moveLeft();
+            refresh();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            clean();
+            spaceship.moveRight();
+            refresh();
+        }
+    }
+
+    /**
+    * @Override keyReleased.
+    */
+    @Override
+    public void keyReleased(final KeyEvent e) {
+        return;
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     * */
+    public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
     }
 
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     * */
+    public void clean() {
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+    }
 }
