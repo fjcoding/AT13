@@ -15,6 +15,8 @@ public class GameBoard extends JFrame implements KeyListener {
 
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
+    private Alien alien;
+    private AlienGroup alienGroup;
 
     public GameBoard() {
 
@@ -45,6 +47,8 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         spaceShip();
+        spaceAlien();
+       // spaceAlienGroup();
         addKeyListener(this);
     }
 
@@ -54,6 +58,14 @@ public class GameBoard extends JFrame implements KeyListener {
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
         refresh();
+    }
+
+    /**
+     * Method to initialize and show the alien.
+     */
+    public void spaceAlien() {
+        alien = new Alien(0, 0  , 0, SCALE_WIDTH);
+        refreshAlien();
     }
 
     /**
@@ -71,13 +83,17 @@ public class GameBoard extends JFrame implements KeyListener {
     public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             clean();
+            alien.moveLeft();
             spaceship.moveLeft();
             refresh();
+            refreshAlien();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             clean();
+            alien.moveRight();
             spaceship.moveRight();
             refresh();
+            refreshAlien();
         }
     }
 
@@ -98,9 +114,18 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Refresh the icon of a label where it is our Alien.
+     * */
+    public void refreshAlien() {
+        ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+        labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+    }
+
+    /**
      * Clean the icon of a label where it was our spaceship.
      * */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+        labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
     }
 }
