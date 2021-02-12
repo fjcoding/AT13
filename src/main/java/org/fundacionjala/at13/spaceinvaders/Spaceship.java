@@ -1,10 +1,13 @@
 package org.fundacionjala.at13.spaceinvaders;
 
+import javax.swing.ImageIcon;
+
 public class Spaceship extends SpaceElement {
 
     public static final int DEFAULT_POSX = 0;
     public static final int DEFAULT_POSY = 0;
     private int score;
+    private ImageIcon image;
     public static final int VALUE = 30;
 
     private static final int FULL_LIFE = 3;
@@ -13,6 +16,7 @@ public class Spaceship extends SpaceElement {
     public Spaceship(final int pX, final int pY, final int llimit, final int ulimit) {
         super(pX, pY, llimit, ulimit);
         this.score = 0;
+        image = new ImageIcon("src/resources/spaceship.png");
     }
 
     /**
@@ -53,5 +57,8 @@ public class Spaceship extends SpaceElement {
      */
     public int getNumbersLife() {
         return numbersLife;
+    }
+    public ImageIcon getImage() {
+        return this.image;
     }
 }

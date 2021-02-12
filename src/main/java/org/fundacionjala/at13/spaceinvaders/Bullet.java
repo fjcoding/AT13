@@ -1,10 +1,14 @@
 package org.fundacionjala.at13.spaceinvaders;
+
+import javax.swing.ImageIcon;
+
 public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
     private final int upperLimit = 29;
+    private ImageIcon image = new ImageIcon("src/resources/shot.gif");;
     //private String type;
 
     /*public Bullet(final String shooterType, final int x, final int y) {
@@ -17,13 +21,13 @@ public class Bullet {
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
-        positionInitialY = spaceship.getPosY() + 1;
+        positionInitialY = spaceship.getPosY() - 1;
         bulletExist = false;
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
-        positionInitialY = alien.getPosY() - 1;
+        positionInitialY = alien.getPosY() + 1;
         bulletExist = false;
     }
 
@@ -143,5 +147,7 @@ public class Bullet {
             positionInitialY = 0;
         }
     }
-
+    public ImageIcon getImage() {
+        return this.image;
+    }
 }

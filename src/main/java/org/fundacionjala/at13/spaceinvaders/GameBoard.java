@@ -16,8 +16,8 @@ public class GameBoard extends JFrame implements KeyListener {
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
 
-    public GameBoard() {
-
+    public GameBoard(Spaceship spaceship) {
+        this.spaceship = spaceship;
     }
 
     /**
@@ -44,10 +44,25 @@ public class GameBoard extends JFrame implements KeyListener {
                 add(label);
             }
         }
-        spaceShip();
+        //spaceShip();
         addKeyListener(this);
     }
-
+    public void clearSpace() {
+        for (int row = 0; row < SCALE_HEIGHT; row++) {
+            for (int col = 0; col < SCALE_WIDTH; col++) {
+                labelArray[row][col].setIcon(null);
+            }
+        }
+    }
+    public void printSpaceship(int posX, int posY, ImageIcon image) {
+        labelArray[posY][posX].setIcon(image);
+    }
+    public void printAlien(int posX, int posY, ImageIcon image) {
+        labelArray[posY][posX].setIcon(image);
+    }
+    public void printBullet(int posX, int posY, ImageIcon image) {
+        labelArray[posY][posX].setIcon(image);
+    }
     /**
      * Method to initialize and show the spaceShip.
      */

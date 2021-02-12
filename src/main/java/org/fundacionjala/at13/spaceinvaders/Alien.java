@@ -1,11 +1,16 @@
 package org.fundacionjala.at13.spaceinvaders;
+
+import javax.swing.ImageIcon;
+
 public class Alien extends SpaceElement {
 
     public static final int DEFAULT_POSX = 25;
     public static final int DEFAULT_POSY = 28;
+    public ImageIcon image;
 
     public Alien(final int pX, final int pY, final int llimit, final int ulimit) {
         super(pX, pY, llimit, ulimit);
+        image = new ImageIcon("src/resources/alien.png");
     }
 
     /**
@@ -21,5 +26,7 @@ public class Alien extends SpaceElement {
     public void moveDown() {
         setPosY(getPosY() + 1);
     }
-
+    public ImageIcon getImage() {
+        return this.image;
+    }
 }
