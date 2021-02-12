@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class GameBoard extends JFrame implements KeyListener {
 
@@ -16,6 +17,8 @@ public class GameBoard extends JFrame implements KeyListener {
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
     private Alien alien;
+    private Alien alien2;
+    private ArrayList<Alien> aliensList;
     private AlienGroup alienGroup;
 
     public GameBoard() {
@@ -47,8 +50,9 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         spaceShip();
-        spaceAlien();
-       // spaceAlienGroup();
+//        spaceAlien();
+        spaceArrayAlien();
+//       /spaceAlienGroup();
         addKeyListener(this);
     }
 
@@ -65,7 +69,19 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceAlien() {
         alien = new Alien(0, 0  , 0, SCALE_WIDTH);
-        refreshAlien();
+           refreshAlien();
+    }
+
+    /**
+     * Method to initialize and show the alien.
+     */
+    public void spaceArrayAlien() {
+        aliensList = new ArrayList<>();
+        int xInitial = 0;
+        for (int i = 0; i < 5 ; i++) {
+            aliensList.add(new Alien(xInitial+i, 0  , 0, SCALE_WIDTH));
+        }
+        refreshArrayAlien();
     }
 
     /**
@@ -83,17 +99,21 @@ public class GameBoard extends JFrame implements KeyListener {
     public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             clean();
-            alien.moveLeft();
+//            alien.moveLeft();
+            moveArrayAlienLeft();
             spaceship.moveLeft();
             refresh();
-            refreshAlien();
+            //refreshAlien();
+            refreshArrayAlien();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             clean();
-            alien.moveRight();
+            //alien.moveRight();
+            moveArrayAlienRight();
             spaceship.moveRight();
             refresh();
-            refreshAlien();
+//            refreshAlien();
+            refreshArrayAlien();
         }
     }
 
@@ -122,10 +142,42 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Refresh the icon of a label where it is our Alien.
+     * */
+    public void refreshArrayAlien() {
+        for (Alien alien : aliensList) {
+            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        }
+
+    }
+
+    /**
      * Clean the icon of a label where it was our spaceship.
      * */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
-        labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+//        labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+        cleanArrayAlien();
     }
+
+    public void moveArrayAlienLeft() {
+        for (Alien alien : aliensList) {
+            alien.moveLeft();
+        }
+    }
+    public void moveArrayAlienRight() {
+        for (Alien alien : aliensList) {
+            alien.moveRight();
+        }
+    }
+
+    public void cleanArrayAlien() {
+        for (Alien alien : aliensList) {
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+        }
+    }
+
+
+
 }
