@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class GameBoard extends JFrame implements KeyListener {
 
@@ -20,7 +22,8 @@ public class GameBoard extends JFrame implements KeyListener {
     private Alien alien2;
     private ArrayList<Alien> aliensList;
     private AlienGroup alienGroup;
-
+    private Timer timer;
+    private int tic;
     public GameBoard() {
 
     }
@@ -29,7 +32,7 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method initialize the graphical interface.
      */
     public void init() {
-
+        timer = new Timer();
         setSize(SIZE_WINDOW_WIDTH, SIZE_WINDOW_HEIGHT);
         setTitle("Space Invaders");
         setLocationRelativeTo(null);
@@ -53,7 +56,9 @@ public class GameBoard extends JFrame implements KeyListener {
 //        spaceAlien();
 //        spaceArrayAlien();
        spaceAlienGroup();
+        start();
         addKeyListener(this);
+
     }
 
     /**
@@ -113,7 +118,6 @@ public class GameBoard extends JFrame implements KeyListener {
             refresh();
             //refreshAlien();
 //            refreshArrayAlien();
-            refreshAlienGroup();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             clean();
@@ -123,7 +127,6 @@ public class GameBoard extends JFrame implements KeyListener {
             refresh();
 //            refreshAlien();
 //            refreshArrayAlien();
-            refreshAlienGroup();
         }
     }
 
@@ -193,16 +196,30 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-    public void moveAlienGroup() {
-//        for (Alien alien : alienGroup.getAliens()) {
-//            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-//            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
-//        }
-        alienGroup.moveAliens();
+    public void start() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (tic % 50 == 0) {
+                    alienGroup.moveAliens();
+                    tic /= 100;
+                }
+                tic += 1;
+                //cleanAlienGroup();
+                //refreshAlienGroup();
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 10);
     }
 
     public void cleanArrayAlien() {
         for (Alien alien : aliensList) {
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+        }
+    }
+
+    public void cleanAlienGroup() {
+        for (Alien alien : alienGroup.getAliens()) {
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
         }
     }
