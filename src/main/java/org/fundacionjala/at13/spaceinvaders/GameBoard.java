@@ -51,8 +51,8 @@ public class GameBoard extends JFrame implements KeyListener {
         }
         spaceShip();
 //        spaceAlien();
-        spaceArrayAlien();
-//       /spaceAlienGroup();
+//        spaceArrayAlien();
+       spaceAlienGroup();
         addKeyListener(this);
     }
 
@@ -85,6 +85,14 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Method to initialize and show the alien group.
+     */
+    public void spaceAlienGroup() {
+       alienGroup = new AlienGroup(3,5);
+       refreshAlienGroup();
+    }
+
+    /**
      * @Override keyReleased.
     */
     @Override
@@ -100,11 +108,12 @@ public class GameBoard extends JFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             clean();
 //            alien.moveLeft();
-            moveArrayAlienLeft();
+//            moveArrayAlienLeft();
             spaceship.moveLeft();
             refresh();
             //refreshAlien();
-            refreshArrayAlien();
+//            refreshArrayAlien();
+            refreshAlienGroup();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             clean();
@@ -113,7 +122,8 @@ public class GameBoard extends JFrame implements KeyListener {
             spaceship.moveRight();
             refresh();
 //            refreshAlien();
-            refreshArrayAlien();
+//            refreshArrayAlien();
+            refreshAlienGroup();
         }
     }
 
@@ -153,6 +163,17 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Refresh the icon of a label where it is our Alien.
+     * */
+    public void refreshAlienGroup() {
+        for (Alien alien : alienGroup.getAliens()) {
+            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        }
+
+    }
+
+    /**
      * Clean the icon of a label where it was our spaceship.
      * */
     public void clean() {
@@ -170,6 +191,14 @@ public class GameBoard extends JFrame implements KeyListener {
         for (Alien alien : aliensList) {
             alien.moveRight();
         }
+    }
+
+    public void moveAlienGroup() {
+//        for (Alien alien : alienGroup.getAliens()) {
+//            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+//            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+//        }
+        alienGroup.moveAliens();
     }
 
     public void cleanArrayAlien() {
