@@ -13,7 +13,7 @@ public final class Main {
     public static final int ALIEN_COLUMN = 10;
     public static final int ALIEN_ROW = 5;
     public static void main(final String[] args) throws InterruptedException {
-        Gameboard gameboard = new Gameboard();
+        GameBoard gameboard = new GameBoard();
         gameboard.init();
     }
 }

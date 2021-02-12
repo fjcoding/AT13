@@ -17,7 +17,6 @@ public class Space {
     private Bullet bullet;
     private int height;
     private int width;
-    private Gameboard gameboard;
 
     public Space(final int heightToSet, final int widthToSet) {
         this.height = heightToSet;
