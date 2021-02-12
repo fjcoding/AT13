@@ -4,9 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.EventListener;
 
-public class GameBoard extends JFrame implements KeyListener, EventListener {
+public class GameBoard extends JFrame implements KeyListener {
 
     private static final int SIZE_IMAGE = 40;
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
