@@ -14,6 +14,7 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
+    private static final int NUMBER_HUNDRED = 100;
 
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
@@ -25,10 +26,10 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int VELOCITY_GROUP_ALIEN = 50;
 
     public static final int VELOCITY_SHOOT_BULLET = 40;
-    public static boolean switchBullet = false;
-    public static Bullet bullet;
-    public static int actualPositionX;
-    public static int actualPositionY = SCALE_HEIGHT - 1;
+    private static boolean switchBullet = false;
+    private static Bullet bullet;
+    private static int actualPositionX;
+    private static int actualPositionY = SCALE_HEIGHT - 1;
 
     public GameBoard() {
 
@@ -74,13 +75,16 @@ public class GameBoard extends JFrame implements KeyListener {
         refresh();
     }
 
+    /**
+     * Method to initialize timer.
+     */
     public void start() {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (tic % VELOCITY_GROUP_ALIEN == 0) {
 
-                    tic /= 100;
+                    tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
                     if (switchBullet) {
@@ -95,6 +99,9 @@ public class GameBoard extends JFrame implements KeyListener {
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
     }
 
+    /**
+     * Method to show and move the bullet.
+     */
     public void bulletShotAnimation() {
 
         labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
