@@ -4,40 +4,54 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameBoard extends JFrame {
-    private final JFrame frame = new JFrame();
-    private final JPanel panel = new JPanel();
 
     private static final int SIZE_IMAGE = 40;
     private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
+    private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
+    private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
+
+    private static JLabel[][] labelArray;
+    private Spaceship spaceship;
 
     public GameBoard() {
-        init();
+
     }
 
     /**
      * Method initialize the graphical interface.
      */
     public void init() {
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
 
-                Space space = new Space(SCALE_HEIGHT, SCALE_WIDTH);
-                GridLayout gridLayout = new GridLayout(SCALE_HEIGHT, SCALE_WIDTH);
-                frame.getContentPane().add(panel);
-                panel.setFocusable(true);
-                panel.requestFocusInWindow();
-                panel.setLayout(gridLayout);
-                panel.setBackground(Color.BLACK);
-                frame.setSize(new Dimension(SCALE_WIDTH * SIZE_IMAGE, SCALE_HEIGHT * SIZE_IMAGE));
-                frame.setVisible(true);
-                frame.setTitle("Jala AT13 - Space Invanders");
-                frame.setLocationRelativeTo(null);
-                frame.setResizable(false);
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(SIZE_WINDOW_WIDTH, SIZE_WINDOW_HEIGHT);
+        setTitle("Space Invaders");
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setFocusable(true);
+        labelArray = new JLabel[SCALE_HEIGHT][SCALE_WIDTH];
+        setLayout(new GridLayout(SCALE_HEIGHT, SCALE_WIDTH));
+
+        for (int row = 0; row < SCALE_HEIGHT; row++) {
+            for (int col = 0; col < SCALE_WIDTH; col++) {
+                JLabel label = new JLabel();
+                label.setName("Spaceship");
+                label.setOpaque(true);
+                label.setBackground(Color.black);
+                labelArray[row][col] = label;
+                add(label);
             }
-        };
-        SwingUtilities.invokeLater(r);
+        }
+        spaceShip();
     }
+
+    /**
+     * Method to initialize and show the spaceShip.
+     */
+    public void spaceShip() {
+        spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
+        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
+    }
+
 }
