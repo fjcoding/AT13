@@ -53,8 +53,6 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
-        /* ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
-        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo); */
         refresh();
     }
 
@@ -65,6 +63,7 @@ public class GameBoard extends JFrame implements KeyListener {
     public void keyTyped(final KeyEvent e) {
         return;
     }
+
     /**
      * @Override keyPressed.
     */
@@ -83,20 +82,24 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
-     * @Override keyReleased.
+    * @Override keyReleased.
     */
     @Override
     public void keyReleased(final KeyEvent e) {
         return;
     }
 
-    /**Refresh the icon of a label where it is our spaceship.*/
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     * */
     public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
     }
 
-    /** Clean the icon of a label where it was our spaceship.*/
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     * */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
     }
