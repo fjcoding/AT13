@@ -1,30 +1,24 @@
 package org.fundacionjala.at13.spaceinvaders;
+
 public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 29;
-    //private String type;
-
-    /*public Bullet(final String shooterType, final int x, final int y) {
-        positionInitialX = x;
-        positionInitialY = y;
-        bulletExist = false;
-        this.type = shooterType;
-        goForward();
-    }*/
+    private final int upperLimit;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
-        positionInitialY = spaceship.getPosY() + 1;
+        positionInitialY = spaceship.getPosY();
         bulletExist = false;
+        upperLimit = positionInitialY + 1;
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
-        positionInitialY = alien.getPosY() - 1;
+        positionInitialY = alien.getPosY();
         bulletExist = false;
+        upperLimit = positionInitialY + 1;
     }
 
     /**
@@ -63,8 +57,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function displays a bullet shoot.
-     * from the Spaceship.
+     * Description: The function displays a bullet shoot. from the Spaceship.
      *
      */
     public void isShootingToAlien() {
@@ -75,8 +68,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function displays a bullet shoot.
-     * from the Alien.
+     * Description: The function displays a bullet shoot. from the Alien.
      *
      */
     public void isShootingToSpaceship() {
@@ -88,8 +80,8 @@ public class Bullet {
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet  from Spaceship
-     * collapses with alien.
+     * @return a boolean that verifies if the bullet from Spaceship collapses with
+     *         alien.
      */
     public boolean isCollapsedBulletWithAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
@@ -103,8 +95,8 @@ public class Bullet {
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet  from Alien
-     * collapses with Spaceship.
+     * @return a boolean that verifies if the bullet from Alien collapses with
+     *         Spaceship.
      */
     public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
@@ -121,8 +113,8 @@ public class Bullet {
      *
      */
     public void movingBulletUp() {
-        if (positionInitialY < upperLimit) {
-            positionInitialY += 1;
+        if (positionInitialY >= lowerLimit) {
+            positionInitialY -= 1;
         } else {
             bulletExist = true;
             positionInitialX = 0;
@@ -135,13 +127,17 @@ public class Bullet {
      *
      */
     public void movingBulletDown() {
-        if (positionInitialY > lowerLimit) {
-            positionInitialY -= 1;
+        if (positionInitialY < upperLimit) {
+            positionInitialY += 1;
         } else {
             bulletExist = true;
             positionInitialX = 0;
             positionInitialY = 0;
         }
+    }
+
+    public void finishBull() {
+        positionInitialY = upperLimit - 1;
     }
 
 }
