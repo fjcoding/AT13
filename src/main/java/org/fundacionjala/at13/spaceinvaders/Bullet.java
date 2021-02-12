@@ -136,6 +136,10 @@ public class Bullet {
         }
     }
 
+    /**
+     * Description: The function saves the uppeLimit in positionInitialY .
+     *
+     */
     public void finishBull() {
         positionInitialY = upperLimit - 1;
     }
