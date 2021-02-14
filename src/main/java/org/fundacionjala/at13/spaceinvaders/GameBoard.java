@@ -150,7 +150,6 @@ public class GameBoard extends JFrame implements KeyListener {
     public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
-
         if (switchBullet) {
             System.out.println("paso por bullet animation refres");
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");

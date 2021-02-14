@@ -55,7 +55,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function displays a bullet shoot. from the Spaceship.
+     * Description: The function displays a bullet shoot from the Spaceship.
      *
      */
     public void isShootingToAlien() {
@@ -66,7 +66,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function displays a bullet shoot. from the Alien.
+     * Description: The function displays a bullet shoot from the Alien.
      *
      */
     public void isShootingToSpaceship() {
