@@ -213,8 +213,6 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-
-
     /**
      * Starts the timer task to repeat the updates to the panel.
      */
