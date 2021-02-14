@@ -31,6 +31,7 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bullet;
     private static int actualPositionX;
     private static int actualPositionY = SCALE_HEIGHT - 1;
+    private Bullet bullet;
 
     public GameBoard() {
 
@@ -177,7 +178,6 @@ public class GameBoard extends JFrame implements KeyListener {
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
     }
-<<<<<<< HEAD
     /**
      * Given a pos X and Y, compares with every alien in array to check if there is a coincidence.
      */
@@ -188,7 +188,6 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         return false;
-=======
 
     /**
      * Refresh the icon of a label where it is our spaceship.
@@ -197,6 +196,5 @@ public class GameBoard extends JFrame implements KeyListener {
         //labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(null);
         ImageIcon iconLogo = new ImageIcon("resources/shot.gif");
         labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(iconLogo);
->>>>>>> e37d7c7... acept changes in Bullet and GameBoard clases
     }
 }
