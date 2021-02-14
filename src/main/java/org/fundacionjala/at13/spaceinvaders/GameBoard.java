@@ -31,7 +31,6 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bullet;
     private static int actualPositionX;
     private static int actualPositionY = SCALE_HEIGHT - 1;
-    private Bullet bullet;
 
     public GameBoard() {
 
