@@ -5,20 +5,18 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit;
+    private final int upperLimit = 10;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
         positionInitialY = spaceship.getPosY();
         bulletExist = false;
-        upperLimit = positionInitialY + 1;
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
         positionInitialY = alien.getPosY();
         bulletExist = false;
-        upperLimit = positionInitialY + 1;
     }
 
     /**
@@ -83,7 +81,7 @@ public class Bullet {
      * @return a boolean that verifies if the bullet from Spaceship collapses with
      *         alien.
      */
-    public boolean isCollapsedBulletWithAlien(final Alien alien) {
+    public boolean hasHitTheAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
             System.out.println("The bullet has kill Alien");
             bulletExist = false;
@@ -98,7 +96,7 @@ public class Bullet {
      * @return a boolean that verifies if the bullet from Alien collapses with
      *         Spaceship.
      */
-    public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
+    public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
             bulletExist = false;
@@ -109,7 +107,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function move the bullet shoot Up.
+     * Description: The function move the bullet's shoot Up.
      *
      */
     public void movingBulletUp() {
@@ -123,7 +121,7 @@ public class Bullet {
     }
 
     /**
-     * Description: The function move the bullet shoot Down.
+     * Description: The function move the bullet's shoot Down.
      *
      */
     public void movingBulletDown() {
