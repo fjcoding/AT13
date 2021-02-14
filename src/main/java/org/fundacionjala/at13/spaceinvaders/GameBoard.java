@@ -195,7 +195,7 @@ public class GameBoard extends JFrame implements KeyListener {
     }
     /**
      * Refresh the icon of a label where it is our spaceship.
-     * 
+     *
      */
     public void refreshBullet() {
         //labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(null);
