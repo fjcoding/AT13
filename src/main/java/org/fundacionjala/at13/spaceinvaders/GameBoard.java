@@ -205,8 +205,8 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= 100;
                 }
                 tic += 1;
-                //cleanAlienGroup();
-                //refreshAlienGroup();
+                cleanAlienGroup();
+                refreshAlienGroup();
             }
         };
         timer.scheduleAtFixedRate(task, 0, 10);
@@ -223,7 +223,4 @@ public class GameBoard extends JFrame implements KeyListener {
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
         }
     }
-
-
-
 }
