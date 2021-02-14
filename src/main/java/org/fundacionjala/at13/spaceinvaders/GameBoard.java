@@ -77,7 +77,6 @@ public class GameBoard extends JFrame implements KeyListener {
             @Override
             public void run() {
                 if (tic % VELOCITY_GROUP_ALIEN == 0) {
-
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
@@ -85,7 +84,6 @@ public class GameBoard extends JFrame implements KeyListener {
                         bulletShotAnimation();
                         System.out.println(actualPositionX + " " + actualPositionY);
                     }
-
                 }
                 tic += 1;
             }
@@ -97,7 +95,6 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method to show and move the bullet.
      */
     public void bulletShotAnimation() {
-
         labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
         bullet.isShootingToAlien();
         if (bullet.getPositionY() == -1) {
