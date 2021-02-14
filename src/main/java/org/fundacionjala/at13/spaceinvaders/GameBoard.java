@@ -16,12 +16,10 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
-
     private ArrayList<Alien> aliens;
     private AlienGroup alienGroup;
     public static final int NUMBER_OF_ALIEN_COLUMNS = 5;
     public static final int NUMBER_OF_ALIEN_ROWS = 3;
-
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
     private Timer timer;
