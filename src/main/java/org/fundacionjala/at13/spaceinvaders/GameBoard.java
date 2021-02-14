@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class GameBoard extends JFrame implements KeyListener {
 
@@ -12,9 +14,18 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
-
+    private static final int NUMBER_HUNDRED = 100;
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
+    private Timer timer;
+    private int tic;
+    public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
+    public static final int VELOCITY_GROUP_ALIEN = 50;
+    public static final int VELOCITY_SHOOT_BULLET = 40;
+    private static boolean switchBullet = false;
+    private static Bullet bullet;
+    private static int actualPositionX;
+    private static int actualPositionY = SCALE_HEIGHT - 1;
 
     public GameBoard() {
 
@@ -24,7 +35,7 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method initialize the graphical interface.
      */
     public void init() {
-
+        timer = new Timer();
         setSize(SIZE_WINDOW_WIDTH, SIZE_WINDOW_HEIGHT);
         setTitle("Space Invaders");
         setLocationRelativeTo(null);
@@ -46,6 +57,7 @@ public class GameBoard extends JFrame implements KeyListener {
         }
         spaceShip();
         addKeyListener(this);
+        start();
     }
 
     /**
@@ -53,12 +65,49 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
+        bullet = spaceship.shoot();
+        refresh();
+    }
+
+    /**
+     * Method to initialize timer.
+     */
+    public void start() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (tic % VELOCITY_GROUP_ALIEN == 0) {
+                    tic /= NUMBER_HUNDRED;
+                }
+                if (tic % VELOCITY_SHOOT_BULLET == 0) {
+                    if (switchBullet) {
+                        bulletShotAnimation();
+                        System.out.println(actualPositionX + " " + actualPositionY);
+                    }
+                }
+                tic += 1;
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
+    }
+
+    /**
+     * Method to show and move the bullet.
+     */
+    public void bulletShotAnimation() {
+        labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
+        bullet.isShootingToAlien();
+        if (bullet.getPositionY() == -1) {
+            bullet.finishBull();
+            actualPositionY = SCALE_HEIGHT - 1;
+            switchBullet = false;
+        }
         refresh();
     }
 
     /**
      * @Override keyReleased.
-    */
+     */
     @Override
     public void keyTyped(final KeyEvent e) {
         return;
@@ -66,7 +115,7 @@ public class GameBoard extends JFrame implements KeyListener {
 
     /**
      * @Override keyPressed.
-    */
+     */
     @Override
     public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -79,11 +128,17 @@ public class GameBoard extends JFrame implements KeyListener {
             spaceship.moveRight();
             refresh();
         }
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (!switchBullet) {
+                actualPositionX = spaceship.getPosX();
+            }
+            switchBullet = true;
+        }
     }
 
     /**
-    * @Override keyReleased.
-    */
+     * @Override keyReleased.
+     */
     @Override
     public void keyReleased(final KeyEvent e) {
         return;
@@ -91,15 +146,20 @@ public class GameBoard extends JFrame implements KeyListener {
 
     /**
      * Refresh the icon of a label where it is our spaceship.
-     * */
+     */
     public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
+        if (switchBullet) {
+            System.out.println("paso por bullet animation refres");
+            ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
+            labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
+        }
     }
 
     /**
      * Clean the icon of a label where it was our spaceship.
-     * */
+     */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
     }
