@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.TimerTask;
 import java.util.Timer;
+import java.util.ArrayList;
 
 public class GameBoard extends JFrame implements KeyListener {
 
@@ -15,6 +16,10 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
+    private ArrayList<Alien> aliens;
+    private AlienGroup alienGroup;
+    public static final int NUMBER_OF_ALIEN_COLUMNS = 5;
+    public static final int NUMBER_OF_ALIEN_ROWS = 3;
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
     private Timer timer;
@@ -44,7 +49,8 @@ public class GameBoard extends JFrame implements KeyListener {
         setFocusable(true);
         labelArray = new JLabel[SCALE_HEIGHT][SCALE_WIDTH];
         setLayout(new GridLayout(SCALE_HEIGHT, SCALE_WIDTH));
-
+        alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
+        aliens = alienGroup.getAliens();
         for (int row = 0; row < SCALE_HEIGHT; row++) {
             for (int col = 0; col < SCALE_WIDTH; col++) {
                 JLabel label = new JLabel();
@@ -155,6 +161,14 @@ public class GameBoard extends JFrame implements KeyListener {
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
             labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
         }
+        for (int row = 0; row < SCALE_HEIGHT; row++) {
+            for (int col = 0; col < SCALE_WIDTH; col++) {
+                if (checkIfThereIsAlienInThisPos(row, col)) {
+                    iconLogo = new ImageIcon("resources/alien.png");
+                    labelArray[row][col].setIcon(iconLogo);
+                }
+            }
+        }
     }
 
     /**
@@ -162,5 +176,16 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+    }
+    /**
+     * Given a pos X and Y, compares with every alien in array to check if there is a coincidence.
+     */
+    public boolean checkIfThereIsAlienInThisPos(final int rowToCheck, final int colToCheck) {
+        for (Alien alien : aliens) {
+            if (alien.getPosX() == colToCheck && alien.getPosY() == rowToCheck) {
+                return true;
+            }
+        }
+        return false;
     }
 }
