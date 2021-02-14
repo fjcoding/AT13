@@ -31,6 +31,10 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bullet;
     private static int actualPositionX;
     private static int actualPositionY = SCALE_HEIGHT - 1;
+    private static final int ALIEN_ROWS = 3;
+    private static final int ALIEN_COLUMNS = 5;
+    public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE = 50;
+    public static final int TIK = 100;
 
     public GameBoard() {
 
@@ -64,6 +68,7 @@ public class GameBoard extends JFrame implements KeyListener {
         spaceShip();
         addKeyListener(this);
         start();
+        startAlienGroup();
     }
 
     /**
@@ -187,5 +192,53 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         return false;
+    }
+
+    /**
+     * Method to initialize and show the alien group.
+     */
+    public void spaceAlienGroup() {
+        alienGroup = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
+        refreshAlienGroup();
+    }
+
+    /**
+     * Refresh the icon of a label where it is our Alien.
+     * */
+    public void refreshAlienGroup() {
+        cleanAlienGroup();
+        for (Alien alien : alienGroup.getAliens()) {
+            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        }
+    }
+
+    /**
+     * Starts the timer task to repeat the updates to the panel.
+     */
+    public void startAlienGroup() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                cleanAlienGroup();
+                if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE == 0) {
+                    alienGroup.moveAliens();
+                    tic /= TIK;
+                }
+                tic += 1;
+
+                refreshAlienGroup();
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
+    }
+
+    /**
+     * Clean the icon of a label where it was our alienGroup.
+     * */
+    public void cleanAlienGroup() {
+        for (Alien alien : alienGroup.getAliens()) {
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+        }
     }
 }
