@@ -15,7 +15,12 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
-
+    private static final int ALIEN_ROWS = 3;
+    private static final int ALIEN_COLUMNS = 5;
+    public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE = 50;
+    public static final int TIK = 100;
+    public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_SHOOT = 40;
+    public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
     private Alien alien;
@@ -56,8 +61,9 @@ public class GameBoard extends JFrame implements KeyListener {
 //        spaceAlien();
 //        spaceArrayAlien();
        spaceAlienGroup();
-        start();
         addKeyListener(this);
+        start();
+
 
     }
 
@@ -69,31 +75,13 @@ public class GameBoard extends JFrame implements KeyListener {
         refresh();
     }
 
-    /**
-     * Method to initialize and show the alien.
-     */
-    public void spaceAlien() {
-        alien = new Alien(0, 0  , 0, SCALE_WIDTH);
-           refreshAlien();
-    }
 
-    /**
-     * Method to initialize and show the alien.
-     */
-    public void spaceArrayAlien() {
-        aliensList = new ArrayList<>();
-        int xInitial = 0;
-        for (int i = 0; i < 5 ; i++) {
-            aliensList.add(new Alien(xInitial+i, 0  , 0, SCALE_WIDTH));
-        }
-        refreshArrayAlien();
-    }
 
     /**
      * Method to initialize and show the alien group.
      */
     public void spaceAlienGroup() {
-       alienGroup = new AlienGroup(3,5);
+       alienGroup = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
        refreshAlienGroup();
     }
 
@@ -112,21 +100,13 @@ public class GameBoard extends JFrame implements KeyListener {
     public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             clean();
-//            alien.moveLeft();
-//            moveArrayAlienLeft();
             spaceship.moveLeft();
             refresh();
-            //refreshAlien();
-//            refreshArrayAlien();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             clean();
-            //alien.moveRight();
-            moveArrayAlienRight();
             spaceship.moveRight();
             refresh();
-//            refreshAlien();
-//            refreshArrayAlien();
         }
     }
 
@@ -146,34 +126,17 @@ public class GameBoard extends JFrame implements KeyListener {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
     }
 
-    /**
-     * Refresh the icon of a label where it is our Alien.
-     * */
-    public void refreshAlien() {
-        ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-        labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
-    }
 
-    /**
-     * Refresh the icon of a label where it is our Alien.
-     * */
-    public void refreshArrayAlien() {
-        for (Alien alien : aliensList) {
-            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
-        }
-
-    }
 
     /**
      * Refresh the icon of a label where it is our Alien.
      * */
     public void refreshAlienGroup() {
+        cleanAlienGroup();
         for (Alien alien : alienGroup.getAliens()) {
             ImageIcon iconLogo = new ImageIcon("resources/alien.png");
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
         }
-
     }
 
     /**
@@ -181,43 +144,32 @@ public class GameBoard extends JFrame implements KeyListener {
      * */
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
-//        labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
-        cleanArrayAlien();
     }
 
-    public void moveArrayAlienLeft() {
-        for (Alien alien : aliensList) {
-            alien.moveLeft();
-        }
-    }
-    public void moveArrayAlienRight() {
-        for (Alien alien : aliensList) {
-            alien.moveRight();
-        }
-    }
 
+    /**
+     * Starts the timer task to repeat the updates to the panel.
+     */
     public void start() {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                if (tic % 50 == 0) {
+                cleanAlienGroup();
+                if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE == 0) {
                     alienGroup.moveAliens();
-                    tic /= 100;
+                    tic /= TIK;
                 }
                 tic += 1;
-                cleanAlienGroup();
+
                 refreshAlienGroup();
             }
         };
-        timer.scheduleAtFixedRate(task, 0, 10);
+        timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
     }
 
-    public void cleanArrayAlien() {
-        for (Alien alien : aliensList) {
-            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
-        }
-    }
-
+    /**
+     * Clean the icon of a label where it was our alienGroup.
+     * */
     public void cleanAlienGroup() {
         for (Alien alien : alienGroup.getAliens()) {
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
