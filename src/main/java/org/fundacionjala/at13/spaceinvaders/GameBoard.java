@@ -16,7 +16,7 @@ public class GameBoard extends JFrame implements KeyListener {
 
     private ArrayList<Alien> aliens;
     private AlienGroup alienGroup;
-    public static final int NUMBER_OF_ALIEN_COLUMNS = 5;
+    public static final int NUMBER_OF_ALIEN_COLUMNS = 6;
     public static final int NUMBER_OF_ALIEN_ROWS = 3;
 
     private static JLabel[][] labelArray;
@@ -102,8 +102,8 @@ public class GameBoard extends JFrame implements KeyListener {
     public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
-        for (int row = 0; row < SCALE_HEIGHT; row++) {
-            for (int col = 0; col < SCALE_WIDTH; col++) {
+        for (int row = 0; row < NUMBER_OF_ALIEN_ROWS; row++) {
+            for (int col = 0; col < NUMBER_OF_ALIEN_COLUMNS; col++) {
                 if (checkIfThereIsAlienInThisPos(row, col)) {
                     iconLogo = new ImageIcon("resources/alien.png");
                     labelArray[row][col].setIcon(iconLogo);
