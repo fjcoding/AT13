@@ -31,7 +31,6 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bullet;
     private static int actualPositionX;
     private static int actualPositionY = SCALE_HEIGHT - 1;
-    private Bullet bullet;
 
     public GameBoard() {
 
@@ -188,10 +187,11 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         return false;
-
+    }
     /**
      * Refresh the icon of a label where it is our spaceship.
-     * */
+     * 
+     */
     public void refreshBullet() {
         //labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(null);
         ImageIcon iconLogo = new ImageIcon("resources/shot.gif");
