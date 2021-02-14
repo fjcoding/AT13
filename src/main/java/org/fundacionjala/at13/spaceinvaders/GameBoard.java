@@ -15,16 +15,12 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
-
     private static JLabel[][] labelArray;
     private Spaceship spaceship;
-
     private Timer timer;
     private int tic;
     public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
-
     public static final int VELOCITY_GROUP_ALIEN = 50;
-
     public static final int VELOCITY_SHOOT_BULLET = 40;
     private static boolean switchBullet = false;
     private static Bullet bullet;
@@ -39,9 +35,7 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method initialize the graphical interface.
      */
     public void init() {
-
         timer = new Timer();
-
         setSize(SIZE_WINDOW_WIDTH, SIZE_WINDOW_HEIGHT);
         setTitle("Space Invaders");
         setLocationRelativeTo(null);
