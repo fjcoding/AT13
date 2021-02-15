@@ -106,14 +106,86 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method to show and move the bullet.
      */
     public void bulletShotAnimation() {
-        labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
+
+        if (bullet.getPositionY() < spaceship.getPosY()) {
+            cleanBullet();
+        }
         bullet.isShootingToAlien();
         if (bullet.getPositionY() == -1) {
             bullet.finishBull();
-            actualPositionY = SCALE_HEIGHT - 1;
             switchBullet = false;
         }
-        refresh();
+        refreshBullet();
+    }
+
+    /**
+     * @Override keyReleased.
+     */
+    @Override
+    public void keyReleased(final KeyEvent e) {
+        return;
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshBullet() {
+
+        if (switchBullet) {
+            ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
+            labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
+        }
+
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanBullet() {
+        labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshSpace() {
+        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanSpace() {
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+    }
+
+    /**
+     * Method to initialize and show the alien group.
+     */
+    public void spaceAlienGroup() {
+        alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
+        aliens = alienGroup.getAliens();
+        refreshAlienGroup();
+    }
+
+    /**
+     * Refresh the icon of a label where it is our Alien.
+     */
+    public void refreshAlienGroup() {
+        for (Alien alien : alienGroup.getAliens()) {
+            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        }
+    }
+
+    /**
+     * Clean the icon of a label where it was our alienGroup.
+     */
+    public void cleanAlienGroup() {
+        for (Alien alien : alienGroup.getAliens()) {
+            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
+        }
     }
 
     /**
@@ -144,75 +216,6 @@ public class GameBoard extends JFrame implements KeyListener {
                 actualPositionX = spaceship.getPosX();
             }
             switchBullet = true;
-        }
-    }
-
-    /**
-     * @Override keyReleased.
-     */
-    @Override
-    public void keyReleased(final KeyEvent e) {
-        return;
-    }
-
-    /**
-     * Refresh the icon of a label where it is our spaceship.
-     */
-    public void refresh() {
-
-        if (switchBullet) {
-            ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
-            labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
-        }
-
-    }
-
-    /**
-     * Refresh the icon of a label where it is our spaceship.
-     */
-    public void refreshSpace() {
-        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
-        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
-    }
-
-    /**
-     * Clean the icon of a label where it was our spaceship.
-     */
-    public void cleanSpace() {
-        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
-    }
-
-    /**
-     * Clean the icon of a label where it was our spaceship.
-     */
-    public void clean() {
-    }
-
-    /**
-     * Method to initialize and show the alien group.
-     */
-    public void spaceAlienGroup() {
-        alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
-        aliens = alienGroup.getAliens();
-        refreshAlienGroup();
-    }
-
-    /**
-     * Refresh the icon of a label where it is our Alien.
-     */
-    public void refreshAlienGroup() {
-        for (Alien alien : alienGroup.getAliens()) {
-            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
-        }
-    }
-
-    /**
-     * Clean the icon of a label where it was our alienGroup.
-     */
-    public void cleanAlienGroup() {
-        for (Alien alien : alienGroup.getAliens()) {
-            labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
         }
     }
 }
