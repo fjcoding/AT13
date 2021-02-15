@@ -21,7 +21,7 @@ public class Bullet {
 
     /**
      * Description: The function displays bullet's position initial x.
-     *
+
      * @return a int that shows bullet's position initial x.
      */
     public int getPositionX() {
@@ -30,7 +30,6 @@ public class Bullet {
 
     /**
      * Description: The function displays bullet's position initial y.
-     *
      * @return a int that shows bullet's position initial y.
      */
     public int getPositionY() {
@@ -39,7 +38,6 @@ public class Bullet {
 
     /**
      * Description: The function verifies if the bullet exists.
-     *
      * @return a boolean that verifies if the bullet exists.
      */
     public boolean getBulletExist() {
@@ -48,7 +46,6 @@ public class Bullet {
 
     /**
      * Description: The function changes the state of a bullet.
-     *
      */
     public void changeBulletExists(final Boolean newState) {
         this.bulletExist = newState;
@@ -56,9 +53,8 @@ public class Bullet {
 
     /**
      * Description: The function displays a bullet shoot from the Spaceship.
-     *
      */
-    public void isShootingToAlien() {
+    public void shootAlien() {
         if (!bulletExist) {
             movingBulletUp();
         }
@@ -67,9 +63,8 @@ public class Bullet {
 
     /**
      * Description: The function displays a bullet shoot from the Alien.
-     *
      */
-    public void isShootingToSpaceship() {
+    public void shootSpaceship() {
         if (!bulletExist) {
             movingBulletDown();
         }
@@ -77,9 +72,7 @@ public class Bullet {
 
     /**
      * Description: The function verifies if the bullet collapses.
-     *
-     * @return a boolean that verifies if the bullet from Spaceship collapses with
-     *         alien.
+     * @return a boolean that verifies if the bullet from Spaceship collapses with alien.
      */
     public boolean hasHitTheAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
@@ -93,8 +86,7 @@ public class Bullet {
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet from Alien collapses with
-     *         Spaceship.
+     * @return a boolean that verifies if the bullet from Alien collapses with Spaceship.
      */
     public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
@@ -108,7 +100,6 @@ public class Bullet {
 
     /**
      * Description: The function move the bullet's shoot Up.
-     *
      */
     public void movingBulletUp() {
         if (positionInitialY >= lowerLimit - 1) {
@@ -122,7 +113,6 @@ public class Bullet {
 
     /**
      * Description: The function move the bullet's shoot Down.
-     *
      */
     public void movingBulletDown() {
         if (positionInitialY < upperLimit) {
@@ -136,7 +126,6 @@ public class Bullet {
 
     /**
      * Description: The function saves the uppeLimit in positionInitialY .
-     *
      */
     public void finishBull() {
         positionInitialY = upperLimit - 1;

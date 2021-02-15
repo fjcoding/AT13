@@ -107,7 +107,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void bulletShotAnimation() {
         labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
-        bullet.isShootingToAlien();
+        bullet.shootAlien();
         if (bullet.getPositionY() == -1) {
             bullet.finishBull();
             actualPositionY = SCALE_HEIGHT - 1;

@@ -11,7 +11,7 @@ public class AlienTest {
         int positionInitialY = 6;
         Alien alien = new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
         Bullet bullet = new Bullet(alien);
-        bullet.isShootingToSpaceship();
+        bullet.shootSpaceship();
         assertTrue(!bullet.getBulletExist());
     }
 
