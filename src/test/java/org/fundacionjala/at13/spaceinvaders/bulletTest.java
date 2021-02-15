@@ -163,7 +163,7 @@ public class bulletTest{
     @Test
     public void itShouldSayIfBulletFromAlienCollapseWithSpaceshipMoving() {
         int positionInitAlienX = 4;
-        int positionInitAlienY = 2;
+        int positionInitAlienY = 3;
         int positionInitSpaceshipX = 3;
         int positionInitSpaceshipY = 9;
         Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
@@ -232,7 +232,6 @@ public class bulletTest{
         int positionInitSpaceshipY = 9;
         Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY, lowerXLimit, upperXLimit);
         Bullet bulletSpaceship = new Bullet(spaceship);
-        bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
