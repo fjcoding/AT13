@@ -132,4 +132,8 @@ public class Bullet {
         positionInitialY = upperLimit;
     }
 
+    /** */
+    public void setPositionY(final int pY) {
+        positionInitialY = pY;
+    }
 }

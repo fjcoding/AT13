@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.TimerTask;
 import java.util.Timer;
-import java.util.ArrayList;
 
 public class GameBoard extends JFrame implements KeyListener {
 
@@ -28,6 +27,7 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int VELOCITY_SHOOT_BULLET = 40;
     private static boolean switchBullet = false;
     private static Bullet bullet;
+    private static Bullet bulletFromAlien;
     private static int actualPositionX;
     public static final int TIK = 100;
 
@@ -88,6 +88,8 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
+                    shootFromRamdonAlien();
+                    bulletShotAnimation2();
                     if (switchBullet) {
                         bulletShotAnimation();
                         collisionBulletToAlien();
@@ -99,11 +101,12 @@ public class GameBoard extends JFrame implements KeyListener {
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
     }
 
+    /** */
     public void collisionBulletToAlien() {
         for (Alien alien : alienGroup.getAliens()) {
             if (alien.getPosY() == bullet.getPositionY() && alien.getPosX() == actualPositionX && alien.getAlive()) {
-                System.out.println("colision : (" + alien.getPosY() + " " + bullet.getPositionY() + " ),( "
-                        + alien.getPosX() + " " + actualPositionX + " ) ");
+                /* System.out.println("colision : (" + alien.getPosY() + " " + bullet.getPositionY() + " ),( "
+                        + alien.getPosX() + " " + actualPositionX + " ) "); */
                 bullet.finishBull();
                 switchBullet = false;
                 alien.die();
@@ -128,6 +131,27 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Method to show and move the bullet.
+     */
+    public void bulletShotAnimation2() {
+        cleanBullet2();
+        System.out.println("bullet : (" + bulletFromAlien.getPositionY() + ", " + bulletFromAlien.getPositionX()+" )");
+        /* bulletFromAlien.setPositionY(bulletFromAlien.getPositionY() + 1); */
+        bulletFromAlien.shootSpaceship();
+        System.out.println("bullet : (" + bulletFromAlien.getPositionY() + ", " + bulletFromAlien.getPositionX()+" )");
+        refreshBullet2();
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshBullet2() {
+
+        ImageIcon iconBullet = new ImageIcon("resources/abullet.png");
+        labelArray[bulletFromAlien.getPositionY()][bulletFromAlien.getPositionX()].setIcon(iconBullet);
+    }
+
+    /**
      * Refresh the icon of a label where it is our spaceship.
      */
     public void refreshBullet() {
@@ -136,7 +160,6 @@ public class GameBoard extends JFrame implements KeyListener {
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
             labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
         }
-
     }
 
     /**
@@ -144,6 +167,13 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void cleanBullet() {
         labelArray[bullet.getPositionY()][actualPositionX].setIcon(null);
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanBullet2() {
+        labelArray[bulletFromAlien.getPositionY()][bulletFromAlien.getPositionX()].setIcon(null);
     }
 
     /**
@@ -234,6 +264,18 @@ public class GameBoard extends JFrame implements KeyListener {
                 actualPositionX = spaceship.getPosX();
             }
             switchBullet = true;
+        }
+    }
+
+    /** */
+    public void shootFromRamdonAlien() {
+        if (bulletFromAlien == null) {
+            int fromAlien = (int)(Math.random() * (alienGroup.getAliens().size() - 1));
+            System.out.println("nro random: " + fromAlien);
+            System.out.print("aliesn x: " + alienGroup.getAliens().get(fromAlien).getPosX() + " ");
+            System.out.println("y: " + alienGroup.getAliens().get(fromAlien).getPosY());
+            bulletFromAlien = alienGroup.getAliens().get(fromAlien).shoot();
+            System.out.println("alien soot : (" + bulletFromAlien.getPositionY() + "," + bulletFromAlien.getPositionX()+" )");
         }
     }
 }
