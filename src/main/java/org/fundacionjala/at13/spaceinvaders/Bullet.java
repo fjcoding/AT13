@@ -5,7 +5,7 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private int upperLimit;
+    private int upperLimit = 0;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
@@ -18,6 +18,7 @@ public class Bullet {
         positionInitialX = alien.getPosX();
         positionInitialY = alien.getPosY();
         bulletExist = false;
+        upperLimit = alien.getUpperLimit();
     }
 
     /**
