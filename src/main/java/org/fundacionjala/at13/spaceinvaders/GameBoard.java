@@ -33,7 +33,6 @@ public class GameBoard extends JFrame implements KeyListener {
     private static int actualPositionY = SCALE_HEIGHT - 1;
     private static final int ALIEN_ROWS = 3;
     private static final int ALIEN_COLUMNS = 5;
-    public static final int NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE = 50;
     public static final int TIK = 100;
 
     public GameBoard() {
@@ -68,7 +67,6 @@ public class GameBoard extends JFrame implements KeyListener {
         spaceShip();
         addKeyListener(this);
         start();
-        startAlienGroup();
     }
 
     /**
@@ -88,15 +86,18 @@ public class GameBoard extends JFrame implements KeyListener {
             @Override
             public void run() {
                 if (tic % VELOCITY_GROUP_ALIEN == 0) {
+                    cleanAlienGroup();
+                    alienGroup.moveAliens();
+                    refreshAlienGroup();
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
                     if (switchBullet) {
                         bulletShotAnimation();
-                        System.out.println(actualPositionX + " " + actualPositionY);
                     }
                 }
                 tic += 1;
+
             }
         };
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
@@ -162,7 +163,6 @@ public class GameBoard extends JFrame implements KeyListener {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
         if (switchBullet) {
-            System.out.println("paso por bullet animation refres");
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
             labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
         }
@@ -182,8 +182,10 @@ public class GameBoard extends JFrame implements KeyListener {
     public void clean() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
     }
+
     /**
-     * Given a pos X and Y, compares with every alien in array to check if there is a coincidence.
+     * Given a pos X and Y, compares with every alien in array to check if there is
+     * a coincidence.
      */
     public boolean checkIfThereIsAlienInThisPos(final int rowToCheck, final int colToCheck) {
         for (Alien alien : aliens) {
@@ -204,7 +206,7 @@ public class GameBoard extends JFrame implements KeyListener {
 
     /**
      * Refresh the icon of a label where it is our Alien.
-     * */
+     */
     public void refreshAlienGroup() {
         cleanAlienGroup();
         for (Alien alien : alienGroup.getAliens()) {
@@ -214,28 +216,8 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
-     * Starts the timer task to repeat the updates to the panel.
-     */
-    public void startAlienGroup() {
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                cleanAlienGroup();
-                if (tic % NUMBER_OF_CYCLES_ALIENS_WAIT_TO_MOVE == 0) {
-                    alienGroup.moveAliens();
-                    tic /= TIK;
-                }
-                tic += 1;
-
-                refreshAlienGroup();
-            }
-        };
-        timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
-    }
-
-    /**
      * Clean the icon of a label where it was our alienGroup.
-     * */
+     */
     public void cleanAlienGroup() {
         for (Alien alien : alienGroup.getAliens()) {
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
