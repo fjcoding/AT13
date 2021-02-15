@@ -90,12 +90,26 @@ public class GameBoard extends JFrame implements KeyListener {
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
                     if (switchBullet) {
                         bulletShotAnimation();
+                        collisionBulletToAlien();
                     }
                 }
                 tic += 1;
             }
         };
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
+    }
+
+    public void collisionBulletToAlien() {
+        for (Alien alien : alienGroup.getAliens()) {
+            if (alien.getPosY() == bullet.getPositionY() && alien.getPosX() == actualPositionX && alien.getAlive()) {
+                System.out.println("colision : (" + alien.getPosY() + " " + bullet.getPositionY() + " ),( "
+                        + alien.getPosX() + " " + actualPositionX + " ) ");
+                bullet.finishBull();
+                switchBullet = false;
+                alien.die();
+            }
+        }
+        System.out.println("----------------------------");
     }
 
     /**
@@ -160,8 +174,11 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void refreshAlienGroup() {
         for (Alien alien : alienGroup.getAliens()) {
-            ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-            labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+            if (alien.getAlive()) {
+                ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+                labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+
+            }
         }
     }
 
