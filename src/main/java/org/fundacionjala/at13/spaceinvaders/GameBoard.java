@@ -37,7 +37,6 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int TIK = 100;
 
     public GameBoard() {
-
     }
 
     /**

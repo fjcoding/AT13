@@ -58,7 +58,6 @@ public class Bullet {
         if (!bulletExist) {
             movingBulletUp();
         }
-
     }
 
     /**
