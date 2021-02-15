@@ -106,11 +106,10 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method to show and move the bullet.
      */
     public void bulletShotAnimation() {
-
         if (bullet.getPositionY() < spaceship.getPosY()) {
             cleanBullet();
         }
-        bullet.isShootingToAlien();
+        bullet.shootAlien();
         if (bullet.getPositionY() == -1) {
             bullet.finishBull();
             switchBullet = false;
