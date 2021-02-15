@@ -75,7 +75,7 @@ public class GameBoard extends JFrame implements KeyListener {
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
         bullet = spaceship.shoot();
-        refresh();
+        refreshSpace();
     }
 
     /**
@@ -130,14 +130,14 @@ public class GameBoard extends JFrame implements KeyListener {
     @Override
     public void keyPressed(final KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            clean();
+            cleanSpace();
             spaceship.moveLeft();
-            refresh();
+            refreshSpace();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            clean();
+            cleanSpace();
             spaceship.moveRight();
-            refresh();
+            refreshSpace();
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!switchBullet) {
@@ -159,8 +159,6 @@ public class GameBoard extends JFrame implements KeyListener {
      * Refresh the icon of a label where it is our spaceship.
      */
     public void refresh() {
-        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
-        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
 
         if (switchBullet) {
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
@@ -170,10 +168,24 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshSpace() {
+        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanSpace() {
+        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+    }
+
+    /**
      * Clean the icon of a label where it was our spaceship.
      */
     public void clean() {
-        labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
     }
 
     /**
