@@ -27,7 +27,6 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int VELOCITY_SHOOT_BULLET = 40;
     private static boolean switchBullet = false;
     private static Bullet bullet;
-    private static int actualPositionX;
     public static final int TIK = 100;
 
     public GameBoard() {
@@ -98,16 +97,16 @@ public class GameBoard extends JFrame implements KeyListener {
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
     }
 
+    /**
+     * Method to check colision the spaceship bullet in a alien
+     */
     public void collisionBulletToAlien() {
         for (Alien alien : alienGroup.getAliens()) {
             if (bullet.hasHitTheAlien(alien)) {
-                System.out.println("colision : (" + alien.getPosY() + " " + bullet.getPositionY() + " ),( "
-                        + alien.getPosX() + " " + bullet.getPositionX() + " ) ");
                 switchBullet = false;
                 alien.die();
             }
         }
-        System.out.println("----------------------------");
     }
 
     /**

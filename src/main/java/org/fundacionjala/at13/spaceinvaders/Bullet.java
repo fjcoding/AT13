@@ -23,7 +23,7 @@ public class Bullet {
 
     /**
      * Description: The function displays bullet's position initial x.
-     * 
+     *
      * @return a int that shows bullet's position initial x.
      */
     public int getPositionX() {
@@ -32,7 +32,7 @@ public class Bullet {
 
     /**
      * Description: The function displays bullet's position initial y.
-     * 
+     *
      * @return a int that shows bullet's position initial y.
      */
     public int getPositionY() {
@@ -41,7 +41,7 @@ public class Bullet {
 
     /**
      * Description: The function verifies if the bullet exists.
-     * 
+     *
      * @return a boolean that verifies if the bullet exists.
      */
     public boolean getBulletExist() {
@@ -50,7 +50,7 @@ public class Bullet {
 
     /**
      * Description: The function verifies if the bullet exists.
-     * 
+     *
      * @return a boolean that verifies if the bullet exists.
      */
     public void setPositionX(final int newPositionX) {
@@ -85,13 +85,12 @@ public class Bullet {
 
     /**
      * Description: The function verifies if the bullet collapses.
-     * 
+     *
      * @return a boolean that verifies if the bullet from Spaceship collapses with
      *         alien.
      */
     public boolean hasHitTheAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.getPositionY() == alien.getPosY() && alien.getAlive()) {
-            System.out.println("The bullet has kill Alien");
             bulletExist = false;
             this.finishBull();
             return true;
