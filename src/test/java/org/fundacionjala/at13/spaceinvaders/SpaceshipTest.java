@@ -44,4 +44,47 @@ public class SpaceshipTest{
         Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
         assertEquals(3,spaceship.getNumbersLife());
     }
+    @Test
+    public void itShouldSayIfSpaceshipStillAlive() {
+        int lowerXLimit=0;
+        int upperXLimit=12;
+        int positionInitAlienX = 4;
+        int positionInitAlienY = 0;
+        int positionInitSpaceshipX = 4;
+        int positionInitSpaceshipY = 4;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletAlien = new Bullet(alien);
+        bulletAlien.movingBulletDown();
+        bulletAlien.movingBulletDown();
+        bulletAlien.movingBulletDown();
+        bulletAlien.movingBulletDown();
+        assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
+        assertEquals(2,spaceship.getNumbersLife());
+    }
+
+    @Test
+    public void itShouldSayIfSpaceshipIsReduceLifeAndDie() {
+        int lowerXLimit=0;
+        int upperXLimit=12;
+        int positionInitAlienX = 4;
+        int positionInitAlienY = 6;
+        int positionInitSpaceshipX = 4;
+        int positionInitSpaceshipY = 6;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletAlien = new Bullet(alien);
+        //First Impact
+        assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
+        assertEquals(2,spaceship.getNumbersLife());
+        //Secont Impact
+        assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
+        assertEquals(1,spaceship.getNumbersLife());
+        //Third Impact
+        assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
+        assertEquals(0,spaceship.getNumbersLife());
+        //When the bullet is in the same place where the spaceShip died
+        assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
+        assertFalse(spaceship.getAlive());
+    }    
 }

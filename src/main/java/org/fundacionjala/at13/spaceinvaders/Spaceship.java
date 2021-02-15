@@ -39,7 +39,7 @@ public class Spaceship extends SpaceElement {
     /**
     * @return Ask if spacehip has more than 3 lives
     */
-    public void isStillAlive() {
+    public void reduceLife() {
         if (numbersLife > 0) {
             this.numbersLife -= 1;
         }
