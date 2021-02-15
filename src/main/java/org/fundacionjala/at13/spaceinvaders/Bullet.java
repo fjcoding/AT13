@@ -5,18 +5,20 @@ public class Bullet {
     private int positionInitialY;
     private boolean bulletExist;
     private final int lowerLimit = 0;
-    private final int upperLimit = 10;
+    private int upperLimit = 0;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
         positionInitialY = spaceship.getPosY();
         bulletExist = false;
+        upperLimit = positionInitialY;
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
         positionInitialY = alien.getPosY();
         bulletExist = false;
+        upperLimit = alien.getUpperLimit();
     }
 
     /**
@@ -102,7 +104,7 @@ public class Bullet {
      * Description: The function move the bullet's shoot Up.
      */
     public void movingBulletUp() {
-        if (positionInitialY >= lowerLimit - 1) {
+        if (positionInitialY >= lowerLimit) {
             positionInitialY -= 1;
         } else {
             bulletExist = true;
@@ -128,7 +130,7 @@ public class Bullet {
      * Description: The function saves the uppeLimit in positionInitialY .
      */
     public void finishBull() {
-        positionInitialY = upperLimit - 1;
+        positionInitialY = upperLimit;
     }
 
 }
