@@ -8,7 +8,7 @@ public class Space {
     public static final String SPACESHIP = "^";
     public static final String ALIEN = "*";
     public static final String BULLET = "|";
-    public static final int DEFAULT_HEIGHT = 10;
+    public static final int DEFAULT_HEIGHT = 11;
     public static final int DEFAULT_WIDTH = 15;
     public static final int INITIAL_RANGE = 0;
 
