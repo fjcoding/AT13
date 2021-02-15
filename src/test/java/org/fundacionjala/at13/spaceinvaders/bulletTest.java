@@ -194,16 +194,6 @@ public class bulletTest{
         assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
     }
 
-/*     @Test
-    public void spaceshipBulletShouldNotMoveUp() {
-        int positionInitSpaceshipX = 5;
-        int positionInitSpaceshipY = 1;
-        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY, lowerXLimit, upperXLimit);
-        Bullet bullet = new Bullet(spaceship);
-        bullet.shootAlien();
-        assertEquals(0, bullet.getPositionY());
-    } */
-
     @Test
     public void itShouldChangeStateOfBulletSinceReachLimitAlienDown() {
         int positionInitAlienX = 5;
