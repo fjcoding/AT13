@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.TimerTask;
 import java.util.Timer;
-import java.util.ArrayList;
 
 public class GameBoard extends JFrame implements KeyListener {
 
