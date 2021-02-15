@@ -52,8 +52,7 @@ public class GameBoard extends JFrame implements KeyListener {
         setFocusable(true);
         labelArray = new JLabel[SCALE_HEIGHT][SCALE_WIDTH];
         setLayout(new GridLayout(SCALE_HEIGHT, SCALE_WIDTH));
-        alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
-        aliens = alienGroup.getAliens();
+
         for (int row = 0; row < SCALE_HEIGHT; row++) {
             for (int col = 0; col < SCALE_WIDTH; col++) {
                 JLabel label = new JLabel();
@@ -65,6 +64,7 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         }
         spaceShip();
+        spaceAlienGroup();
         addKeyListener(this);
         start();
     }
@@ -97,7 +97,6 @@ public class GameBoard extends JFrame implements KeyListener {
                     }
                 }
                 tic += 1;
-
             }
         };
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
@@ -162,18 +161,12 @@ public class GameBoard extends JFrame implements KeyListener {
     public void refresh() {
         ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(iconLogo);
+
         if (switchBullet) {
             ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
             labelArray[bullet.getPositionY()][actualPositionX].setIcon(iconBullet);
         }
-        for (int row = 0; row < SCALE_HEIGHT; row++) {
-            for (int col = 0; col < SCALE_WIDTH; col++) {
-                if (checkIfThereIsAlienInThisPos(row, col)) {
-                    iconLogo = new ImageIcon("resources/alien.png");
-                    labelArray[row][col].setIcon(iconLogo);
-                }
-            }
-        }
+
     }
 
     /**
@@ -184,23 +177,11 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
-     * Given a pos X and Y, compares with every alien in array to check if there is
-     * a coincidence.
-     */
-    public boolean checkIfThereIsAlienInThisPos(final int rowToCheck, final int colToCheck) {
-        for (Alien alien : aliens) {
-            if (alien.getPosX() == colToCheck && alien.getPosY() == rowToCheck) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Method to initialize and show the alien group.
      */
     public void spaceAlienGroup() {
-        alienGroup = new AlienGroup(ALIEN_ROWS, ALIEN_COLUMNS);
+        alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
+        aliens = alienGroup.getAliens();
         refreshAlienGroup();
     }
 
@@ -208,7 +189,6 @@ public class GameBoard extends JFrame implements KeyListener {
      * Refresh the icon of a label where it is our Alien.
      */
     public void refreshAlienGroup() {
-        cleanAlienGroup();
         for (Alien alien : alienGroup.getAliens()) {
             ImageIcon iconLogo = new ImageIcon("resources/alien.png");
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
