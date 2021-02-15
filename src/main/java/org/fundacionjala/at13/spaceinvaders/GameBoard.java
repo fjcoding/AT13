@@ -16,7 +16,6 @@ public class GameBoard extends JFrame implements KeyListener {
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
-    private ArrayList<Alien> aliens;
     private AlienGroup alienGroup;
     public static final int NUMBER_OF_ALIEN_COLUMNS = 5;
     public static final int NUMBER_OF_ALIEN_ROWS = 3;
@@ -30,9 +29,6 @@ public class GameBoard extends JFrame implements KeyListener {
     private static boolean switchBullet = false;
     private static Bullet bullet;
     private static int actualPositionX;
-    private static int actualPositionY = SCALE_HEIGHT - 1;
-    private static final int ALIEN_ROWS = 3;
-    private static final int ALIEN_COLUMNS = 5;
     public static final int TIK = 100;
 
     public GameBoard() {
@@ -118,14 +114,6 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
-     * @Override keyReleased.
-     */
-    @Override
-    public void keyReleased(final KeyEvent e) {
-        return;
-    }
-
-    /**
      * Refresh the icon of a label where it is our spaceship.
      */
     public void refreshBullet() {
@@ -164,7 +152,6 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceAlienGroup() {
         alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
-        aliens = alienGroup.getAliens();
         refreshAlienGroup();
     }
 
@@ -185,6 +172,14 @@ public class GameBoard extends JFrame implements KeyListener {
         for (Alien alien : alienGroup.getAliens()) {
             labelArray[alien.getPosY()][alien.getPosX()].setIcon(null);
         }
+    }
+
+    /**
+     * @Override keyReleased.
+     */
+    @Override
+    public void keyReleased(final KeyEvent e) {
+        return;
     }
 
     /**
