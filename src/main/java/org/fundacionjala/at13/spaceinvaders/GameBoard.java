@@ -75,7 +75,7 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method to initialize and show the spaceShip.
      */
     public void spaceShip() {
-        spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 1, 0, SCALE_WIDTH);
+        spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
         bullet = spaceship.shoot();
         refresh();
     }
@@ -172,6 +172,12 @@ public class GameBoard extends JFrame implements KeyListener {
                     iconLogo = new ImageIcon("resources/alien.png");
                     labelArray[row][col].setIcon(iconLogo);
                 }
+            }
+        }
+        if (spaceship.getAlive()) {
+            for (int drawnHeart = 0; drawnHeart < spaceship.getNumbersLife(); drawnHeart++) {
+                iconLogo = new ImageIcon("resources/heart.png");
+                labelArray[SCALE_HEIGHT - 1][drawnHeart].setIcon(iconLogo);
             }
         }
     }
