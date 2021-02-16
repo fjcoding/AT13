@@ -103,20 +103,6 @@ public class bulletTest{
         bulletAlien.shootSpaceship();
         assertTrue(bulletAlien.hasHitTheSpaceship(spaceship));
     }
-
-    @Test
-    public void itShoulSayIfAlienBulletNotCollapseWithSpaceship() {
-        int positionInitAlienX = 3;
-        int positionInitAlienY = 5;
-        int positionInitSpaceshipX = 6;
-        int positionInitSpaceshipY = 3;
-        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
-        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
-        Bullet bulletSpaceship = new Bullet(spaceship);
-        bulletSpaceship.hasHitTheAlien(alien);
-        assertFalse(bulletSpaceship.hasHitTheAlien(alien));
-    }
-
     @Test
     public void itShouldSayIfBulletFromSpaceshipCollapseWithSomeAlienMoving() {
         int positionInitAlienX = 6;
@@ -130,6 +116,18 @@ public class bulletTest{
         bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
         assertTrue(bulletSpaceship.hasHitTheAlien(alien));
+    }
+    @Test
+    public void itShoulSayIfAlienBulletNotCollapseWithSpaceship() {
+        int positionInitAlienX = 3;
+        int positionInitAlienY = 5;
+        int positionInitSpaceshipX = 6;
+        int positionInitSpaceshipY = 3;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletSpaceship = new Bullet(spaceship);
+        bulletSpaceship.hasHitTheAlien(alien);
+        assertFalse(bulletSpaceship.hasHitTheAlien(alien));
     }
 
     @Test
@@ -147,6 +145,7 @@ public class bulletTest{
         bulletSpaceship.shootAlien();
         assertFalse(bulletSpaceship.hasHitTheAlien(alien));
     }
+    
     @Test
     public void itShouldSayIfBulletFromSpaceshipNotCollapseWithSomeAlienMovingDifferentsPosY() {
         int positionInitAlienX = 6;
@@ -162,17 +161,20 @@ public class bulletTest{
         bulletSpaceship.shootAlien();
         assertFalse(bulletSpaceship.hasHitTheAlien(alien));
     }
+
     @Test
-    public void itShouldSayIfBulletFromSpaceshipNotCollapseWithSomeAlien() {
-        int positionInitAlienX = 1;
-        int positionInitAlienY = 5;
-        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
-        Spaceship spaceship = new Spaceship(positionInitialX, positionInitialY, lowerXLimit, upperXLimit);
+    public void itShouldSayIfAlienIsDead() {
+        int positionInitAlienX = 6;
+        int positionInitAlienY = 1;
+        int positionInitSpaceshipX = 6;
+        int positionInitSpaceshipY = 4;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY, lowerXLimit, upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY, lowerXLimit, upperXLimit);
         Bullet bulletSpaceship = new Bullet(spaceship);
         bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
         bulletSpaceship.shootAlien();
-        bulletSpaceship.shootAlien();
+        alien.die();
         assertFalse(bulletSpaceship.hasHitTheAlien(alien));
     }
 
