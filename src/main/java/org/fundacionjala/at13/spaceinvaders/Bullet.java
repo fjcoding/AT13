@@ -96,7 +96,7 @@ public class Bullet {
     public boolean hasHitTheAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.getPositionY() == alien.getPosY() && alien.getAlive()) {
             this.changeBulletExists(false);
-            positionInitialY = upperLimit;
+            this.setPositionY(upperLimit);
             return true;
         }
         return false;
@@ -111,7 +111,7 @@ public class Bullet {
     public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
-            bulletExist = false;
+            this.changeBulletExists(false);
             spaceship.reduceLife();
             return true;
         }
@@ -141,13 +141,6 @@ public class Bullet {
             positionInitialX = 0;
             positionInitialY = 0;
         }
-    }
-
-    /**
-     * Description: The function saves the uppeLimit in positionInitialY .
-     */
-    public void finishBull() {
-        positionInitialY = upperLimit;
     }
 
 }

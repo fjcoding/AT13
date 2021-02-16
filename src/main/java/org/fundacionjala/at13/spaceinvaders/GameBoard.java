@@ -105,8 +105,6 @@ public class GameBoard extends JFrame implements KeyListener {
                 alien.die();
             }
         }
-        System.out.println(alienGroup.getAliens().size());
-
     }
 
     /**
