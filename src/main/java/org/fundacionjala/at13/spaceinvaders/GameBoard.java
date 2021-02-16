@@ -56,10 +56,10 @@ public class GameBoard extends JFrame implements KeyListener {
                 add(label);
             }
         }
-        spaceShip();
+        /* spaceShip();
         spaceAlienGroup();
         addKeyListener(this);
-        start();
+        start(); */
     }
 
     /**
@@ -215,11 +215,8 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     @Override
     public void keyPressed(final KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            cleanSpaceShip();
-            spaceship.moveLeft();
-            refreshSpaceShip();
-        }
+
+        executeMoveLeft(e.getKeyCode());
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             cleanSpaceShip();
             spaceship.moveRight();
@@ -231,5 +228,25 @@ public class GameBoard extends JFrame implements KeyListener {
             }
             switchBullet = true;
         }
+    }
+
+    /** */
+    public void executeMoveLeft(final int keyCode) {
+        if (keyCode == KeyEvent.VK_LEFT) {
+            cleanSpaceShip();
+            spaceship.moveLeft();
+            refreshSpaceShip();
+        }
+    }
+
+    /** */
+    public Spaceship getSpaceship() {
+        return spaceship;
+    }
+
+    /** */
+    public void showSpaceship(final Spaceship ship) {
+        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
+        labelArray[ship.getPosY()][ship.getPosX()].setIcon(iconLogo);
     }
 }
