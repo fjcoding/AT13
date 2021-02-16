@@ -10,9 +10,9 @@ public class AlienTest {
         int positionInitialX = 5;
         int positionInitialY = 6;
         Alien alien = new Alien(positionInitialX,positionInitialY,lowerXLimit,upperXLimit);
-        Bullet bullet = new Bullet(alien);
-        bullet.shootSpaceship();
-        assertTrue(!bullet.getBulletExist());
+        Bullet bullet = alien.shoot();
+        assertEquals(5, bullet.getPositionX());
+        assertEquals(6, bullet.getPositionY());
     }
 
     @Test

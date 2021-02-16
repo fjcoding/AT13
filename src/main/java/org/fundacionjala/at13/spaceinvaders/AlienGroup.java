@@ -78,6 +78,12 @@ public class AlienGroup {
         this.directionIsTowardsRight = !directionIsTowardsRight;
     }
     /**
+     * method to return the directionIsTowardsRight variable.
+     */
+    public boolean getSwitchDirection() {
+        return this.directionIsTowardsRight;
+    }
+    /**
      * method to get groupDownLimit.
      * @return an int with the groupDownLimit.
      */
