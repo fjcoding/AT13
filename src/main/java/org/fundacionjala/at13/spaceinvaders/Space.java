@@ -38,13 +38,6 @@ public class Space {
     }
 
     /**
-     * Sets a new spaceship for this space instance
-     */
-    public void setBullet(final Bullet newBullet) {
-        this.bullet = newBullet;
-    }
-
-    /**
      * Method that returns a String representation of the space.
      */
     public String[][] show() {
@@ -66,12 +59,6 @@ public class Space {
                 int posY = alien.getPosY();
                 space[posY][posX] = ALIEN;
             }
-        }
-        if (this.bullet != null) {
-            int posX = this.bullet.getPositionX();
-            int posY = this.bullet.getPositionY();
-            PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-            space[position.getIndexi()][position.getIndexj()] = BULLET;
         }
         return space;
     }
