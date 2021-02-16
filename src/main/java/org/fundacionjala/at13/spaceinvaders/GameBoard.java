@@ -136,10 +136,15 @@ public class GameBoard extends JFrame implements KeyListener {
     public void bulletShotAnimation2() {
         cleanBullet2();
         System.out.println("bullet : (" + bulletFromAlien.getPositionY() + ", " + bulletFromAlien.getPositionX()+" )");
-        /* bulletFromAlien.setPositionY(bulletFromAlien.getPositionY() + 1); */
-        bulletFromAlien.shootSpaceship();
-        System.out.println("bullet : (" + bulletFromAlien.getPositionY() + ", " + bulletFromAlien.getPositionX()+" )");
-        refreshBullet2();
+        bulletFromAlien.setPositionY(bulletFromAlien.getPositionY() + 1);
+        /* bulletFromAlien.shootSpaceship(); */
+        /* bulletFromAlien.movingBulletDown(); */
+        if (bulletFromAlien.getPositionY() == SCALE_HEIGHT - 1) {
+            bulletFromAlien = null;
+        }else {
+            System.out.println("bullet : (" + bulletFromAlien.getPositionY() + ", " + bulletFromAlien.getPositionX()+" )");
+            refreshBullet2();
+        }
     }
 
     /**
@@ -274,6 +279,9 @@ public class GameBoard extends JFrame implements KeyListener {
             System.out.println("nro random: " + fromAlien);
             System.out.print("aliesn x: " + alienGroup.getAliens().get(fromAlien).getPosX() + " ");
             System.out.println("y: " + alienGroup.getAliens().get(fromAlien).getPosY());
+            while (!alienGroup.getAliens().get(fromAlien).getAlive()) {
+                fromAlien = (int)(Math.random() * (alienGroup.getAliens().size() - 1));    
+            }
             bulletFromAlien = alienGroup.getAliens().get(fromAlien).shoot();
             System.out.println("alien soot : (" + bulletFromAlien.getPositionY() + "," + bulletFromAlien.getPositionX()+" )");
         }
