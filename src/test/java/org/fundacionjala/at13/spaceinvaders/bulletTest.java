@@ -234,6 +234,7 @@ public class bulletTest{
         bulletAlien.shootSpaceship();
         assertFalse(bulletAlien.hasHitTheSpaceship(spaceship));
     }
+    
     @Test
     public void itShouldSayBulletFromAlienDoesntCollapseWithSpaceshipMovingDiferentPosY() {
         int positionInitAlienX = 4;
@@ -302,7 +303,4 @@ public class bulletTest{
         bulletAlien.movingBulletUp();
         assertEquals(0, bulletAlien.getPositionY());
     }
-
-
-
 }
