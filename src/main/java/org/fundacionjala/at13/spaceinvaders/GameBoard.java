@@ -85,7 +85,7 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
-                    if (switchBullet) {
+                    if (bullet.getBulletExist()) {
                         bulletShotAnimation();
                         collisionBulletToAlien();
                     }
@@ -102,10 +102,11 @@ public class GameBoard extends JFrame implements KeyListener {
     public void collisionBulletToAlien() {
         for (Alien alien : alienGroup.getAliens()) {
             if (bullet.hasHitTheAlien(alien)) {
-                switchBullet = false;
                 alien.die();
             }
         }
+        System.out.println(alienGroup.getAliens().size());
+
     }
 
     /**
@@ -116,11 +117,9 @@ public class GameBoard extends JFrame implements KeyListener {
             cleanBullet();
         }
         bullet.shootAlien();
-        if (bullet.getPositionY() == -1) {
-            bullet.finishBull();
-            switchBullet = false;
+        if (bullet.getBulletExist()) {
+            refreshBullet();
         }
-        refreshBullet();
     }
 
     /**
@@ -128,10 +127,8 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void refreshBullet() {
 
-        if (switchBullet) {
-            ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
-            labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(iconBullet);
-        }
+        ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
+        labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(iconBullet);
 
     }
 
@@ -226,10 +223,10 @@ public class GameBoard extends JFrame implements KeyListener {
             refreshSpaceShip();
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (!switchBullet) {
+            if (!bullet.getBulletExist()) {
                 bullet.setPositionX(spaceship.getPosX());
             }
-            switchBullet = true;
+            bullet.changeBulletExists(true);
         }
     }
 }
