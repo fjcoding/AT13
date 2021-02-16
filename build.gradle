@@ -11,6 +11,10 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
+//    // https://mvnrepository.com/artifact/com.sikulix/sikulixapi
+//    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.0'
+// https://mvnrepository.com/artifact/com.sikulix/sikulixapi
+    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.4'
 }
 
 test {
