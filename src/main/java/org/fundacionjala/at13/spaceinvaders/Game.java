@@ -14,6 +14,17 @@ public class Game {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
         gameboard = new GameBoard();
         gameboard.init();
+        gameboard.showSpaceship(spaceship);
+    }
+
+    /** */
+    public Spaceship getSpaceship() {
+        return spaceship;
+    }
+
+    /** */
+    public AlienGroup getAlienGroup() {
+        return alienGroup;
     }
 
 }
