@@ -215,11 +215,8 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     @Override
     public void keyPressed(final KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            cleanSpaceShip();
-            spaceship.moveLeft();
-            refreshSpaceShip();
-        }
+        
+        executeMoveLeft(e.getKeyCode());
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             cleanSpaceShip();
             spaceship.moveRight();
@@ -231,5 +228,19 @@ public class GameBoard extends JFrame implements KeyListener {
             }
             switchBullet = true;
         }
+    }
+
+    /** */
+    public void executeMoveLeft(final int keyCode) {
+        if (keyCode == KeyEvent.VK_LEFT) {
+            cleanSpaceShip();
+            spaceship.moveLeft();
+            refreshSpaceShip();
+        }
+    }
+
+    /** */
+    public Spaceship getSpaceship() {
+        return spaceship;
     }
 }
