@@ -71,7 +71,7 @@ public class AlienGroupTest {
          */
         AlienGroup alienGroup = new AlienGroup(3, 100);
         alienGroup.moveAliens();
-        assertEquals(3 ,alienGroup.getgroupDownLimit());
+        assertEquals(2 ,alienGroup.getgroupDownLimit());
     }
     @Test
     public void shouldCheckRightLimitAndMoveRight() {
