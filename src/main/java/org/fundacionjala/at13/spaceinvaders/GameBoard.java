@@ -56,10 +56,10 @@ public class GameBoard extends JFrame implements KeyListener {
                 add(label);
             }
         }
-        spaceShip();
+        /* spaceShip();
         spaceAlienGroup();
         addKeyListener(this);
-        start();
+        start(); */
     }
 
     /**
