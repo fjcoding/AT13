@@ -11,10 +11,11 @@ public class Game {
 
     public Game() {
         alienGroup = new AlienGroup(NUMBER_OF_ALIEN_ROWS, NUMBER_OF_ALIEN_COLUMNS);
-        spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
-        gameboard = new GameBoard();
-        gameboard.init();
-        gameboard.showSpaceship(spaceship);
+        spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);    }
+
+    /** */
+    public Spaceship createSpaceship() {
+        return new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
     }
 
     /** */
@@ -25,6 +26,13 @@ public class Game {
     /** */
     public AlienGroup getAlienGroup() {
         return alienGroup;
+    }
+
+    /** */
+    public void startGame() {
+        gameboard = new GameBoard();
+        gameboard.init();
+        gameboard.showSpaceship(spaceship);
     }
 
 }
