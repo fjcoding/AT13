@@ -244,4 +244,21 @@ public class bulletTest{
         bulletAlien.movingBulletDown();
         assertEquals(0, bulletAlien.getPositionY());
     }
+    @Test
+    public void itShouldReturnBulletToPosition0X0YWhenItGetYLimitForMovingBulletUp() {
+        int lowerXLimit=0;
+        int upperXLimit=4;
+        int positionInitAlienX = 4;
+        int positionInitAlienY = 0;
+        int positionInitSpaceshipX = 4;
+        int positionInitSpaceshipY = 4;
+        Alien alien = new Alien(positionInitAlienX, positionInitAlienY,lowerXLimit,upperXLimit);
+        Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY,lowerXLimit,upperXLimit);
+        Bullet bulletAlien = new Bullet(alien);
+        bulletAlien.movingBulletUp();
+        bulletAlien.movingBulletUp();
+        bulletAlien.movingBulletUp();
+        bulletAlien.movingBulletUp();
+        assertEquals(0, bulletAlien.getPositionY());
+    }
 }
