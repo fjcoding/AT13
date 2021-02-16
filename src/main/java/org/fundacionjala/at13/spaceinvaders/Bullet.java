@@ -18,7 +18,7 @@ public class Bullet {
         positionInitialX = alien.getPosX();
         positionInitialY = alien.getPosY();
         bulletExist = false;
-        lowerLimit = positionInitialY;
+        upperLimit = alien.getUpperLimit();
     }
 
     /**
@@ -73,14 +73,16 @@ public class Bullet {
      * Description: The function displays a bullet shoot from the Spaceship.
      */
     public void shootAlien() {
-        movingBulletUp();
+        if (this.bulletExist) {
+            movingBulletUp();
+        }
     }
 
     /**
      * Description: The function displays a bullet shoot from the Alien.
      */
     public void shootSpaceship() {
-        if (!bulletExist) {
+        if (this.bulletExist) {
             movingBulletDown();
         }
     }
