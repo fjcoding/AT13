@@ -224,7 +224,7 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
-    * Method that creates an array of JLables
+    * Method that creates an array of JLabels
     */
     public void createLabelArray(final JLabel[][] labelsArray) {
         for (int row = 0; row < SCALE_HEIGHT; row++) {
