@@ -215,7 +215,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     @Override
     public void keyPressed(final KeyEvent e) {
-        
+
         executeMoveLeft(e.getKeyCode());
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             cleanSpaceShip();
