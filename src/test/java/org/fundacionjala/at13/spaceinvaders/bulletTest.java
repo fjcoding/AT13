@@ -78,13 +78,13 @@ public class bulletTest {
         bullet.changeBulletExists(true);
         bullet.shootSpaceship();
         bullet.shootSpaceship();
-        assertEquals(true, bullet.getBulletExist());
+        assertEquals(false, bullet.getBulletExist());
     }
 
     @Test
     public void itShouldGetErrorBulletIsOutOfRangeAlienDown() {
         int positionInitAlienX = 5;
-        int positionInitAlienY = 10;
+        int positionInitAlienY = 7;
         Alien Alien = new Alien(positionInitAlienX, positionInitAlienY, lowerXLimit, upperXLimit);
         Bullet bullet = new Bullet(Alien);
         bullet.changeBulletExists(true);
@@ -285,6 +285,7 @@ public class bulletTest {
         Alien alien = new Alien(positionInitAlienX, positionInitAlienY, lowerXLimit, upperXLimit);
         Spaceship spaceship = new Spaceship(positionInitSpaceshipX, positionInitSpaceshipY, lowerXLimit, upperXLimit);
         Bullet bulletAlien = new Bullet(alien);
+        bulletAlien.changeBulletExists(true);
         bulletAlien.movingBulletDown();
         bulletAlien.movingBulletDown();
         bulletAlien.movingBulletDown();
