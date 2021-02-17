@@ -22,6 +22,20 @@ public class Bullet {
     }
 
     /**
+     * Get te getUpperLimit bullet.
+     */
+    public int getUpperLimit() {
+        return this.upperLimit;
+    }
+
+    /**
+     * Set te getUpperLimit.
+     */
+    public void setUpperLimit(final int newUpperLimit) {
+        this.upperLimit = newUpperLimit;
+    }
+
+    /**
      * Description: The function displays bullet's position initial x.
      *
      * @return a int that shows bullet's position initial x.
@@ -110,7 +124,6 @@ public class Bullet {
      */
     public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
-            System.out.println("The bullet has impact Spaceship");
             this.changeBulletExists(false);
             spaceship.reduceLife();
             return true;
@@ -125,8 +138,8 @@ public class Bullet {
         if (positionInitialY > lowerLimit) {
             positionInitialY -= 1;
         } else {
-            bulletExist = false;
-            positionInitialY = upperLimit;
+            this.changeBulletExists(false);
+            this.setPositionY(upperLimit);
         }
     }
 
@@ -137,9 +150,8 @@ public class Bullet {
         if (positionInitialY < upperLimit) {
             positionInitialY += 1;
         } else {
-            bulletExist = true;
-            positionInitialX = 0;
-            positionInitialY = 0;
+            this.setPositionY(0);
+            this.changeBulletExists(false);
         }
     }
 
