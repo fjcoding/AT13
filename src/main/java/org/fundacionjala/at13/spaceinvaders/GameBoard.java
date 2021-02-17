@@ -29,6 +29,7 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bulletSpaceShip;
     private static Bullet bulletAlien;
     public static final int TIK = 100;
+    private static final int POSITION_MESSAGE_X = 5;
 
     public GameBoard() {
     }
@@ -86,6 +87,11 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
+                    if (!spaceship.getAlive()) {
+
+                        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setText("Game");
+                        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setText("Over");
+                    }
                     shootFromRamdonAlien();
                     bulletAlienShotAnimation();
                     if (bulletSpaceShip.getBulletExist()) {
@@ -126,6 +132,10 @@ public class GameBoard extends JFrame implements KeyListener {
         bulletAlien.shootSpaceship();
         if (bulletAlien.getBulletExist()) {
             refreshBulletAlien();
+            if (bulletAlien.hasHitTheSpaceship(spaceship)) {
+                labelArray[SCALE_HEIGHT - 1][spaceship.getNumbersLife()].setIcon(null);
+                labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+            }
         }
         if (!bulletAlien.getBulletExist()) {
             bulletAlien = null;
@@ -208,6 +218,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void cleanSpaceShip() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+
     }
 
     /**
@@ -263,7 +274,7 @@ public class GameBoard extends JFrame implements KeyListener {
     public void keyPressed(final KeyEvent e) {
 
         executeMoveLeft(e.getKeyCode());
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT && spaceship.getAlive()) {
             cleanSpaceShip();
             spaceship.moveRight();
             refreshSpaceShip();
@@ -278,7 +289,7 @@ public class GameBoard extends JFrame implements KeyListener {
 
     /** */
     public void executeMoveLeft(final int keyCode) {
-        if (keyCode == KeyEvent.VK_LEFT) {
+        if (keyCode == KeyEvent.VK_LEFT && spaceship.getAlive()) {
             cleanSpaceShip();
             spaceship.moveLeft();
             refreshSpaceShip();
