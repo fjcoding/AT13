@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import java.util.Timer;
 
 public class GameOver {
-
     private static final int FONT_SIZE = 70;
     private static final int X_BOUND = 120;
     private static final int Y_BOUND = 5;
@@ -27,7 +26,7 @@ public class GameOver {
     }
 
     /**
-    * Shows game over interface.
+     * Shows game over interface.
      */
     public void showGameOver(final JFrame frame, final Timer timer) {
         frame.getContentPane().removeAll();
