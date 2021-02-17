@@ -56,10 +56,10 @@ public class GameBoard extends JFrame implements KeyListener {
                 add(label);
             }
         }
-        /* spaceShip();
+        spaceShip();
         spaceAlienGroup();
         addKeyListener(this);
-        start(); */
+        start();
     }
 
     /**
@@ -234,14 +234,4 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-    /** */
-    public Spaceship getSpaceship() {
-        return spaceship;
-    }
-
-    /** */
-    public void showSpaceship(final Spaceship ship) {
-        ImageIcon iconLogo = new ImageIcon("resources/spaceship.png");
-        labelArray[ship.getPosY()][ship.getPosX()].setIcon(iconLogo);
-    }
 }
