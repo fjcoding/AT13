@@ -76,7 +76,8 @@ public class GameBoard extends JFrame implements KeyListener {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
         bulletSpaceShip = spaceship.shoot();
         refreshSpaceShip();
-        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS].setText("Points");
+        ImageIcon iconPoints = new ImageIcon("resources/points.png");
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS].setIcon(iconPoints);
         labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS + 1].setText(": " + points);
     }
 
@@ -95,10 +96,10 @@ public class GameBoard extends JFrame implements KeyListener {
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
                     if (!spaceship.getAlive()) {
-                        messageEndGame("Game", "Over");
+                        messageEndGame("Game Over");
                     }
                     if (points == FINAL_POINTS) {
-                        messageEndGame("You", "Win");
+                        messageEndGame("You Win");
                     }
                     shootFromRamdonAlien();
                     bulletAlienShotAnimation();
@@ -117,9 +118,20 @@ public class GameBoard extends JFrame implements KeyListener {
     /**
      * Method to show any message.
      */
-    public void messageEndGame(final String message1, final String message2) {
-        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setText(message1);
-        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setText(message2);
+    public void messageEndGame(final String message) {
+        if (message == "Game Over") {
+            ImageIcon iconGame = new ImageIcon("resources/game.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setIcon(iconGame);
+            ImageIcon iconOver = new ImageIcon("resources/over.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setIcon(iconOver);
+        }
+        if (message == "You Win") {
+            ImageIcon iconYou = new ImageIcon("resources/you.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setIcon(iconYou);
+            ImageIcon iconWin = new ImageIcon("resources/win.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setIcon(iconWin);
+        }
+
     }
 
     /**

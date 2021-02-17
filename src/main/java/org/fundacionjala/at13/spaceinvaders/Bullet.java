@@ -11,21 +11,14 @@ public class Bullet {
         positionInitialX = spaceship.getPosX();
         positionInitialY = spaceship.getPosY();
         bulletExist = false;
-        upperLimit = positionInitialY;
+        this.setUpperLimit(positionInitialY);
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
         positionInitialY = alien.getPosY();
         bulletExist = false;
-        upperLimit = alien.getUpperLimit();
-    }
-
-    /**
-     * Get te getUpperLimit bullet.
-     */
-    public int getUpperLimit() {
-        return this.upperLimit;
+        this.setUpperLimit(alien.getUpperLimit());
     }
 
     /**
