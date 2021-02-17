@@ -29,6 +29,7 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bulletSpaceShip;
     private static Bullet bulletAlien;
     public static final int TIK = 100;
+    private final GameOver gameOver = new GameOver();
     private static final int POSITION_MESSAGE_X = 5;
     private static final int POSITION_MESSAGE_POINTS = 12;
     private static int points = 0;
