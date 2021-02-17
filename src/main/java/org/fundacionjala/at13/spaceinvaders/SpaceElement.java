@@ -14,7 +14,7 @@ public class SpaceElement {
         this.lowerLimit = llimit;
         this.upperLimit = ulimit;
         setPosX(pX);
-        this.posY = pY;
+        setPosY(pY);
         this.alive = true;
     }
 
@@ -81,7 +81,7 @@ public class SpaceElement {
     }
 
     /**
-     * Description: Add one position to posX if new psition is between limits.
+     * Description: Add one position to posX if new position is between limits.
      */
     public void moveRight() {
         if (this.posX < upperLimit - 1) {
@@ -90,7 +90,7 @@ public class SpaceElement {
     }
 
     /**
-     * Description: Less one position to posX if new psition is between limits.
+     * Description: Less one position to posX if new position is between limits.
      */
     public void moveLeft() {
         if (this.posX > lowerLimit) {

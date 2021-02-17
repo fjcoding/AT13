@@ -19,7 +19,7 @@ public class Alien extends SpaceElement {
      * Description: Less one position to posY in order to move down.
      */
     public void moveDown() {
-        setPosY(getPosY() - 1);
+        setPosY(getPosY() + 1);
     }
 
 }

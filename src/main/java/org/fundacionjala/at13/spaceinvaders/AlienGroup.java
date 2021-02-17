@@ -74,8 +74,14 @@ public class AlienGroup {
     /**
      * method to change the directionIsTowardsRight variable.
      */
-    public void setdirectionIsTowardsRight() {
+    public void switchDirection() {
         this.directionIsTowardsRight = !directionIsTowardsRight;
+    }
+    /**
+     * method to return the directionIsTowardsRight variable.
+     */
+    public boolean getSwitchDirection() {
+        return this.directionIsTowardsRight;
     }
     /**
      * method to get groupDownLimit.
@@ -106,7 +112,7 @@ public class AlienGroup {
             if (!directionIsTowardsRight) {
                 if (this.groupLeftLimit == 0) {
                     aliensMoveDown();
-                    setdirectionIsTowardsRight();
+                    switchDirection();
                     this.groupDownLimit += 1;
                 } else {
                     aliensMoveLeft();
@@ -117,7 +123,7 @@ public class AlienGroup {
                 if (this.groupRightLimit == SPACE_SIZE_WIDTH - 1) {
                     aliensMoveDown();
                     this.groupDownLimit += 1;
-                    setdirectionIsTowardsRight();
+                    switchDirection();
                 } else {
                     aliensMoveRight();
                     this.groupRightLimit += 1;

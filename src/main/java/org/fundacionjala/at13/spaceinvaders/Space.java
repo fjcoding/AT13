@@ -1,5 +1,6 @@
 package org.fundacionjala.at13.spaceinvaders;
 
+import java.util.ArrayList;
 
 public class Space {
 
@@ -7,12 +8,12 @@ public class Space {
     public static final String SPACESHIP = "^";
     public static final String ALIEN = "*";
     public static final String BULLET = "|";
-    public static final int DEFAULT_HEIGHT = 30;
-    public static final int DEFAULT_WIDTH = 100;
+    public static final int DEFAULT_HEIGHT = 11;
+    public static final int DEFAULT_WIDTH = 15;
     public static final int INITIAL_RANGE = 0;
 
     private Spaceship spaceship;
-    private Alien[] aliens;
+    private ArrayList<Alien> aliens;
     private Bullet bullet;
     private int height;
     private int width;
@@ -32,15 +33,8 @@ public class Space {
     /**
      * Sets a new spaceship for this space instance
      */
-    public void setAlien(final Alien[] newAlien) {
-        this.aliens = newAlien;
-    }
-
-    /**
-     * Sets a new spaceship for this space instance
-     */
-    public void setBullet(final Bullet newBullet) {
-        this.bullet = newBullet;
+    public void setAlien(final ArrayList<Alien> arrayList) {
+        this.aliens = arrayList;
     }
 
     /**
@@ -63,15 +57,8 @@ public class Space {
             for (Alien alien  : aliens) {
                 int posX = alien.getPosX();
                 int posY = alien.getPosY();
-                PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-                space[position.getIndexi()][position.getIndexj()] = ALIEN;
+                space[posY][posX] = ALIEN;
             }
-        }
-        if (this.bullet != null) {
-            int posX = this.bullet.getPositionX();
-            int posY = this.bullet.getPositionY();
-            PositionElement position = new PositionAdapter().adaptPosition(posX, posY, space.length);
-            space[position.getIndexi()][position.getIndexj()] = BULLET;
         }
         return space;
     }

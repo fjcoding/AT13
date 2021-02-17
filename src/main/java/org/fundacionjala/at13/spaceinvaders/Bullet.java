@@ -1,30 +1,24 @@
 package org.fundacionjala.at13.spaceinvaders;
+
 public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
-    private final int lowerLimit = 0;
-    private final int upperLimit = 29;
-    //private String type;
-
-    /*public Bullet(final String shooterType, final int x, final int y) {
-        positionInitialX = x;
-        positionInitialY = y;
-        bulletExist = false;
-        this.type = shooterType;
-        goForward();
-    }*/
+    private int lowerLimit = 0;
+    private int upperLimit = 0;
 
     public Bullet(final Spaceship spaceship) {
         positionInitialX = spaceship.getPosX();
-        positionInitialY = spaceship.getPosY() + 1;
+        positionInitialY = spaceship.getPosY();
         bulletExist = false;
+        upperLimit = positionInitialY;
     }
 
     public Bullet(final Alien alien) {
         positionInitialX = alien.getPosX();
-        positionInitialY = alien.getPosY() - 1;
+        positionInitialY = alien.getPosY();
         bulletExist = false;
+        upperLimit = alien.getUpperLimit();
     }
 
     /**
@@ -55,24 +49,40 @@ public class Bullet {
     }
 
     /**
-     * Description: The function displays a bullet shoot.
-     * from the Spaceship.
-     *
+     * Set te position bullet X.
      */
-    public void isShootingToAlien() {
-        if (!bulletExist) {
-            movingBulletUp();
-        }
-
+    public void setPositionX(final int newPositionX) {
+        this.positionInitialX = newPositionX;
     }
 
     /**
-     * Description: The function displays a bullet shoot.
-     * from the Alien.
-     *
+     * Set te position bullet Y.
      */
-    public void isShootingToSpaceship() {
-        if (!bulletExist) {
+    public void setPositionY(final int newPositionY) {
+        this.positionInitialY = newPositionY;
+    }
+
+    /**
+     * Description: The function changes the state of a bullet.
+     */
+    public void changeBulletExists(final Boolean newState) {
+        this.bulletExist = newState;
+    }
+
+    /**
+     * Description: The function displays a bullet shoot from the Spaceship.
+     */
+    public void shootAlien() {
+        if (this.bulletExist) {
+            movingBulletUp();
+        }
+    }
+
+    /**
+     * Description: The function displays a bullet shoot from the Alien.
+     */
+    public void shootSpaceship() {
+        if (this.bulletExist) {
             movingBulletDown();
         }
     }
@@ -80,13 +90,13 @@ public class Bullet {
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet  from Spaceship
-     * collapses with alien.
+     * @return a boolean that verifies if the bullet from Spaceship collapses with
+     *         alien.
      */
-    public boolean isCollapsedBulletWithAlien(final Alien alien) {
-        if (this.getPositionX() == alien.getPosX() && this.positionInitialY == alien.getPosY()) {
-            System.out.println("The bullet has kill Alien");
-            bulletExist = false;
+    public boolean hasHitTheAlien(final Alien alien) {
+        if (this.getPositionX() == alien.getPosX() && this.getPositionY() == alien.getPosY() && alien.getAlive()) {
+            this.changeBulletExists(false);
+            this.setPositionY(upperLimit);
             return true;
         }
         return false;
@@ -95,39 +105,37 @@ public class Bullet {
     /**
      * Description: The function verifies if the bullet collapses.
      *
-     * @return a boolean that verifies if the bullet  from Alien
-     * collapses with Spaceship.
+     * @return a boolean that verifies if the bullet from Alien collapses with
+     *         Spaceship.
      */
-    public boolean isCollapsedBulletWithSpaceship(final Spaceship spaceship) {
+    public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
-            bulletExist = false;
+            this.changeBulletExists(false);
+            spaceship.reduceLife();
             return true;
         }
         return false;
     }
 
     /**
-     * Description: The function move the bullet shoot Up.
-     *
+     * Description: The function move the bullet's shoot Up.
      */
     public void movingBulletUp() {
-        if (positionInitialY < upperLimit) {
-            positionInitialY += 1;
+        if (positionInitialY > lowerLimit) {
+            positionInitialY -= 1;
         } else {
-            bulletExist = true;
-            positionInitialX = 0;
-            positionInitialY = 0;
+            bulletExist = false;
+            positionInitialY = upperLimit;
         }
     }
 
     /**
-     * Description: The function move the bullet shoot Down.
-     *
+     * Description: The function move the bullet's shoot Down.
      */
     public void movingBulletDown() {
-        if (positionInitialY > lowerLimit) {
-            positionInitialY -= 1;
+        if (positionInitialY < upperLimit) {
+            positionInitialY += 1;
         } else {
             bulletExist = true;
             positionInitialX = 0;

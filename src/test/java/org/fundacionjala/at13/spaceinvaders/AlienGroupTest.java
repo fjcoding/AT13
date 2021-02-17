@@ -1,6 +1,5 @@
 package org.fundacionjala.at13.spaceinvaders;   
 import static org.junit.Assert.*;
-import java.util.ArrayList;
 import org.junit.Test;
 
 public class AlienGroupTest {
@@ -8,63 +7,106 @@ public class AlienGroupTest {
     public void shouldFillArrayWithAliens() {
         int numberOfRowsForAliens = 3;
         int numberOfColumnsForAliens = 5;
-        // 3 * 5 = 15 aliens
+        /**
+         * Number of aliens:
+         * 3 * 5 = 15 aliens
+         */
         int numberOfAliensExpected = 15;
         AlienGroup alienGroup = new AlienGroup(numberOfRowsForAliens, numberOfColumnsForAliens);
+        assertNotNull(alienGroup.getAliens());
         assertEquals(numberOfAliensExpected, alienGroup.getAliens().size());
     }
     @Test
-    public void shouldReturnArrayOfAliens() {
-        AlienGroup alienGroup = new AlienGroup(1, 4);
-        assertNotNull(alienGroup.getAliens());
-    }
-    @Test
     public void shouldCheckIfDidNotGotToSpaceship() {
-        //Consider a Space size of 10 height and 15 width.
+        /**
+         * The aliens get to ship if they reach a defined limit: 
+         * SPACE_SIZE_HEIGHT = 30 
+         * SPACESHIP_ROW_LIMIT = 3
+         */
         AlienGroup alienGroup = new AlienGroup(2, 6);
         assertEquals(false, alienGroup.gotToTheSpaceship());
     }
     @Test
     public void shouldCheckIfGotToSpaceship() {
-        //Consider a Space size of 10 height and 15 width.
-        AlienGroup alienGroup = new AlienGroup(9, 6);
+        /**
+         * The aliens get to ship if they reach a defined limit: 
+         * SPACE_SIZE_HEIGHT = 30 
+         * SPACESHIP_ROW_LIMIT = 3
+         */
+        AlienGroup alienGroup = new AlienGroup(30, 6);
         assertEquals(true, alienGroup.gotToTheSpaceship());
     }
     @Test
     public void shouldCheckLeftLimitAndMoveDown() {
+        /**
+         * Alien group with 3 rows
+         * Alien group starts moving right
+         * The initial position of the last row on the aliens is:
+         * groupDownLimit = rows - 1 = 2
+         */
         AlienGroup alienGroup = new AlienGroup(3, 5);
-        alienGroup.setdirectionIsTowardsRight();
+        alienGroup.switchDirection();
         alienGroup.moveAliens();
         assertEquals(3 ,alienGroup.getgroupDownLimit());
     }
     @Test
     public void shouldCheckLeftLimitAndMoveLeft() {
+        /**
+         * Initial position of alien group is 0
+         * Alien group starts moving right
+         */
         AlienGroup alienGroup = new AlienGroup(3, 5);
         alienGroup.moveAliens();
-        alienGroup.setdirectionIsTowardsRight();
+        alienGroup.switchDirection();
         alienGroup.moveAliens();
         assertEquals(0 ,alienGroup.getGroupLeftLimit());
     }
     @Test
     public void shouldCheckRightLimitAndMoveDown() {
-        AlienGroup alienGroup = new AlienGroup(3, 15);
+        /**
+         * SPACE_SIZE_WIDTH = 100
+         * Alien group with 3 rows
+         * Alien group starts moving right
+         * groupDownLimit = rows - 1 = 2
+         */
+        AlienGroup alienGroup = new AlienGroup(3, 100);
         alienGroup.moveAliens();
-        assertEquals(3 ,alienGroup.getgroupDownLimit());
+        assertEquals(2 ,alienGroup.getgroupDownLimit());
     }
     @Test
     public void shouldCheckRightLimitAndMoveRight() {
+        /**
+         * Alien group with 5 columns
+         * Alien group starts moving right
+         * groupRightLimit = columns - 1 = 4
+         */
         AlienGroup alienGroup = new AlienGroup(3, 5);
-        //Initial rightlimit = 4;
         alienGroup.moveAliens();
-        //rightlimit should be 5 after a move;
         assertEquals(5 ,alienGroup.getGroupRightLimit());
     }
+    @Test
     public void shouldCheckIfGroupReachTheSpaceship() {
-        //Consider a Space size of 10 height and 15 width.
-        AlienGroup alienGroup = new AlienGroup(9, 5);
+        /**
+         * SPACE_SIZE_HEIGHT = 30
+         */
+        AlienGroup alienGroup = new AlienGroup(29, 5);
         int currentDownLimit = alienGroup.getgroupDownLimit();
         alienGroup.moveAliens();
         assertEquals(currentDownLimit, alienGroup.getgroupDownLimit());
+    }
+    
+    @Test
+    public void shouldCheckIfGroupMoveDown() {
+        AlienGroup alienGroup = new AlienGroup(2, 12);
+        //boolean actualSwitchDirection = getSwitchDirection();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        int currentDownLimit = alienGroup.getgroupDownLimit();
+        assertEquals(2, currentDownLimit);
+        assertEquals(false, alienGroup.getSwitchDirection()); 
+        assertEquals(14, alienGroup.getGroupRightLimit());
     }
 }
 
