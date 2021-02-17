@@ -25,8 +25,9 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
     public static final int VELOCITY_GROUP_ALIEN = 50;
     public static final int VELOCITY_SHOOT_BULLET = 40;
-    private static boolean switchBullet = false;
-    private static Bullet bullet;
+    private static boolean switchBulletAlien = false;
+    private static Bullet bulletSpaceShip;
+    private static Bullet bulletAlien;
     public static final int TIK = 100;
 
     public GameBoard() {
@@ -67,7 +68,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
-        bullet = spaceship.shoot();
+        bulletSpaceShip = spaceship.shoot();
         refreshSpaceShip();
     }
 
@@ -85,10 +86,13 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
-                    if (bullet.getBulletExist()) {
+                    shootFromRamdonAlien();
+                    bulletAlienShotAnimation();
+                    if (bulletSpaceShip.getBulletExist()) {
                         bulletShotAnimation();
                         collisionBulletToAlien();
                     }
+
                 }
                 tic += 1;
             }
@@ -97,11 +101,59 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Method to choise a alien to shoot.
+     */
+    public void shootFromRamdonAlien() {
+        if (bulletAlien == null) {
+            int fromAlien = (int) (Math.random() * (alienGroup.getAliens().size() - 1));
+            while (!alienGroup.getAliens().get(fromAlien).getAlive()) {
+                fromAlien = (int) (Math.random() * (alienGroup.getAliens().size() - 1));
+            }
+            bulletAlien = alienGroup.getAliens().get(fromAlien).shoot();
+            bulletAlien.changeBulletExists(true);
+            bulletAlien.setUpperLimit(SCALE_HEIGHT - 2);
+        }
+    }
+
+    /**
+     * Method to show and move the bullet the alien.
+     */
+    public void bulletAlienShotAnimation() {
+        if (switchBulletAlien) {
+            cleanBulletAlien();
+        }
+        switchBulletAlien = true;
+        bulletAlien.shootSpaceship();
+        if (bulletAlien.getBulletExist()) {
+            refreshBulletAlien();
+        }
+        if (!bulletAlien.getBulletExist()) {
+            bulletAlien = null;
+            switchBulletAlien = false;
+        }
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshBulletAlien() {
+        ImageIcon iconBullet = new ImageIcon("resources/abullet.png");
+        labelArray[bulletAlien.getPositionY()][bulletAlien.getPositionX()].setIcon(iconBullet);
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanBulletAlien() {
+        labelArray[bulletAlien.getPositionY()][bulletAlien.getPositionX()].setIcon(null);
+    }
+
+    /**
      * Method to check colision the spaceship bullet in a alien
      */
     public void collisionBulletToAlien() {
         for (Alien alien : alienGroup.getAliens()) {
-            if (bullet.hasHitTheAlien(alien)) {
+            if (bulletSpaceShip.hasHitTheAlien(alien)) {
                 alien.die();
             }
         }
@@ -111,11 +163,11 @@ public class GameBoard extends JFrame implements KeyListener {
      * Method to show and move the bullet.
      */
     public void bulletShotAnimation() {
-        if (bullet.getPositionY() < spaceship.getPosY()) {
+        if (bulletSpaceShip.getPositionY() < spaceship.getPosY()) {
             cleanBullet();
         }
-        bullet.shootAlien();
-        if (bullet.getBulletExist()) {
+        bulletSpaceShip.shootAlien();
+        if (bulletSpaceShip.getBulletExist()) {
             refreshBullet();
         }
     }
@@ -126,15 +178,14 @@ public class GameBoard extends JFrame implements KeyListener {
     public void refreshBullet() {
 
         ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
-        labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(iconBullet);
-
+        labelArray[bulletSpaceShip.getPositionY()][bulletSpaceShip.getPositionX()].setIcon(iconBullet);
     }
 
     /**
      * Clean the icon of a label where it was our spaceship.
      */
     public void cleanBullet() {
-        labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(null);
+        labelArray[bulletSpaceShip.getPositionY()][bulletSpaceShip.getPositionX()].setIcon(null);
     }
 
     /**
@@ -218,10 +269,10 @@ public class GameBoard extends JFrame implements KeyListener {
             refreshSpaceShip();
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (!bullet.getBulletExist()) {
-                bullet.setPositionX(spaceship.getPosX());
+            if (!bulletSpaceShip.getBulletExist()) {
+                bulletSpaceShip.setPositionX(spaceship.getPosX());
             }
-            bullet.changeBulletExists(true);
+            bulletSpaceShip.changeBulletExists(true);
         }
     }
 
@@ -233,5 +284,4 @@ public class GameBoard extends JFrame implements KeyListener {
             refreshSpaceShip();
         }
     }
-
 }
