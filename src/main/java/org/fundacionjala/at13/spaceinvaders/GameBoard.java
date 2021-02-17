@@ -30,6 +30,10 @@ public class GameBoard extends JFrame implements KeyListener {
     private static Bullet bulletAlien;
     public static final int TIK = 100;
     private static final int POSITION_MESSAGE_X = 5;
+    private static final int POSITION_MESSAGE_POINTS = 12;
+    private static int points = 0;
+    private static final int FINAL_POINTS = 150;
+    private static final int POINTS_BY_ALIEN = 10;
 
     public GameBoard() {
     }
@@ -71,6 +75,8 @@ public class GameBoard extends JFrame implements KeyListener {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
         bulletSpaceShip = spaceship.shoot();
         refreshSpaceShip();
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS].setText("Points");
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS + 1].setText(": " + points);
     }
 
     /**
@@ -88,9 +94,10 @@ public class GameBoard extends JFrame implements KeyListener {
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
                     if (!spaceship.getAlive()) {
-
-                        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setText("Game");
-                        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setText("Over");
+                        messageEndGame("Game", "Over");
+                    }
+                    if (points == FINAL_POINTS) {
+                        messageEndGame("You", "Win");
                     }
                     shootFromRamdonAlien();
                     bulletAlienShotAnimation();
@@ -104,6 +111,14 @@ public class GameBoard extends JFrame implements KeyListener {
             }
         };
         timer.scheduleAtFixedRate(task, 0, DELAY_OF_CYCLE_IN_MILISECONDS);
+    }
+
+    /**
+     * Method to show any message.
+     */
+    public void messageEndGame(final String message1, final String message2) {
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setText(message1);
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setText(message2);
     }
 
     /**
@@ -165,8 +180,17 @@ public class GameBoard extends JFrame implements KeyListener {
         for (Alien alien : alienGroup.getAliens()) {
             if (bulletSpaceShip.hasHitTheAlien(alien)) {
                 alien.die();
+                points += POINTS_BY_ALIEN;
+                refresMessagePoints();
             }
         }
+    }
+
+    /**
+     * Method to show the points message.
+     */
+    public void refresMessagePoints() {
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS + 1].setText(": " + points);
     }
 
     /**
