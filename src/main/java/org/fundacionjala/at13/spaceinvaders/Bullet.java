@@ -4,7 +4,7 @@ public class Bullet {
     private int positionInitialX;
     private int positionInitialY;
     private boolean bulletExist;
-    private final int lowerLimit = 0;
+    private int lowerLimit = 0;
     private int upperLimit = 0;
 
     public Bullet(final Spaceship spaceship) {
@@ -49,12 +49,17 @@ public class Bullet {
     }
 
     /**
-     * Description: The function verifies if the bullet exists.
-     *
-     * @return a boolean that verifies if the bullet exists.
+     * Set te position bullet X.
      */
     public void setPositionX(final int newPositionX) {
         this.positionInitialX = newPositionX;
+    }
+
+    /**
+     * Set te position bullet Y.
+     */
+    public void setPositionY(final int newPositionY) {
+        this.positionInitialY = newPositionY;
     }
 
     /**
@@ -68,7 +73,7 @@ public class Bullet {
      * Description: The function displays a bullet shoot from the Spaceship.
      */
     public void shootAlien() {
-        if (!bulletExist) {
+        if (this.bulletExist) {
             movingBulletUp();
         }
     }
@@ -77,7 +82,7 @@ public class Bullet {
      * Description: The function displays a bullet shoot from the Alien.
      */
     public void shootSpaceship() {
-        if (!bulletExist) {
+        if (this.bulletExist) {
             movingBulletDown();
         }
     }
@@ -90,8 +95,8 @@ public class Bullet {
      */
     public boolean hasHitTheAlien(final Alien alien) {
         if (this.getPositionX() == alien.getPosX() && this.getPositionY() == alien.getPosY() && alien.getAlive()) {
-            bulletExist = false;
-            this.finishBull();
+            this.changeBulletExists(false);
+            this.setPositionY(upperLimit);
             return true;
         }
         return false;
@@ -106,7 +111,7 @@ public class Bullet {
     public boolean hasHitTheSpaceship(final Spaceship spaceship) {
         if (this.getPositionX() == spaceship.getPosX() && this.positionInitialY == spaceship.getPosY()) {
             System.out.println("The bullet has impact Spaceship");
-            bulletExist = false;
+            this.changeBulletExists(false);
             spaceship.reduceLife();
             return true;
         }
@@ -117,12 +122,11 @@ public class Bullet {
      * Description: The function move the bullet's shoot Up.
      */
     public void movingBulletUp() {
-        if (positionInitialY >= lowerLimit) {
+        if (positionInitialY > lowerLimit) {
             positionInitialY -= 1;
         } else {
-            bulletExist = true;
-            positionInitialX = 0;
-            positionInitialY = 0;
+            bulletExist = false;
+            positionInitialY = upperLimit;
         }
     }
 
@@ -137,13 +141,6 @@ public class Bullet {
             positionInitialX = 0;
             positionInitialY = 0;
         }
-    }
-
-    /**
-     * Description: The function saves the uppeLimit in positionInitialY .
-     */
-    public void finishBull() {
-        positionInitialY = upperLimit;
     }
 
 }
