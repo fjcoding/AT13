@@ -21,4 +21,14 @@ public class GameBoardTest {
         gameboard.executeMoveRight(goRight);
         assertEquals(8, gameboard.getSpaceship().getPosX());        
     }
+
+    @Test
+    public void itShouldSpaceshipShoot() {
+        GameBoard gameboard = new GameBoard();
+        gameboard.init();
+        int shoot = 32;
+        gameboard.executeShoot(shoot);
+        assertEquals(7, gameboard.getBullet().getPositionX());
+        assertEquals(true, gameboard.getBullet().getBulletExist());      
+    }
 }

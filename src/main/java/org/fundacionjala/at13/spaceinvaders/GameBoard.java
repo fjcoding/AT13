@@ -213,12 +213,7 @@ public class GameBoard extends JFrame implements KeyListener {
 
         executeMoveLeft(e.getKeyCode());
         executeMoveRight(e.getKeyCode());
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (!bullet.getBulletExist()) {
-                bullet.setPositionX(spaceship.getPosX());
-            }
-            bullet.changeBulletExists(true);
-        }
+        executeShoot(e.getKeyCode());
     }
 
     /** */
@@ -240,8 +235,23 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /** */
+    public void executeShoot(final int keyCode) {
+        if (keyCode == KeyEvent.VK_SPACE) {
+            if (!bullet.getBulletExist()) {
+                bullet.setPositionX(spaceship.getPosX());
+            }
+            bullet.changeBulletExists(true);
+        }
+    }
+
+    /** */
     public Spaceship getSpaceship() {
         return spaceship;
+    }
+
+    /** */
+    public Bullet getBullet() {
+        return bullet;
     }
 
 }
