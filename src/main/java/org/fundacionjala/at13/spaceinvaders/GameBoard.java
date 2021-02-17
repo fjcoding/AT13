@@ -234,4 +234,9 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
+    /** */
+    public Spaceship getSpaceship() {
+        return spaceship;
+    }
+
 }
