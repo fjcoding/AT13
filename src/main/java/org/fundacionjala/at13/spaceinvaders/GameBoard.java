@@ -28,6 +28,7 @@ public class GameBoard extends JFrame implements KeyListener {
     private static boolean switchBullet = false;
     private static Bullet bullet;
     public static final int TIK = 100;
+    private final GameOver gameOver = new GameOver();
 
     public GameBoard() {
     }
