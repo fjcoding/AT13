@@ -47,6 +47,7 @@ public class GameOver {
         scaleImageToButton(playAgain, playAgainIcon);
         playAgain.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
+                playAgain(frame, timer);
             }
         });
         frame.add(gameOverLabel);
@@ -72,6 +73,17 @@ public class GameOver {
         Image imgScale = img.getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         button.setIcon(scaledIcon);
+    }
+
+    /**
+     * @return an Instance of GameBoard to play again
+     */
+    public GameBoard playAgain(final JFrame frame, final Timer timer) {
+        frame.dispose();
+        timer.cancel();
+        GameBoard gameboard = new GameBoard();
+        gameboard.init();
+        return gameboard;
     }
 
 }
