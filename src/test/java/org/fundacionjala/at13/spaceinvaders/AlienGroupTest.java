@@ -64,14 +64,14 @@ public class AlienGroupTest {
     @Test
     public void shouldCheckRightLimitAndMoveDown() {
         /**
-         * SPACE_SIZE_WIDTH = 100
+         * SPACE_SIZE_WIDTH = 15
          * Alien group with 3 rows
          * Alien group starts moving right
          * groupDownLimit = rows - 1 = 2
          */
-        AlienGroup alienGroup = new AlienGroup(3, 100);
+        AlienGroup alienGroup = new AlienGroup(3, 15);
         alienGroup.moveAliens();
-        assertEquals(2 ,alienGroup.getgroupDownLimit());
+        assertEquals(3 ,alienGroup.getgroupDownLimit());
     }
     @Test
     public void shouldCheckRightLimitAndMoveRight() {
@@ -87,9 +87,9 @@ public class AlienGroupTest {
     @Test
     public void shouldCheckIfGroupReachTheSpaceship() {
         /**
-         * SPACE_SIZE_HEIGHT = 30
+         * SPACE_SIZE_HEIGHT = 11
          */
-        AlienGroup alienGroup = new AlienGroup(29, 5);
+        AlienGroup alienGroup = new AlienGroup(10, 5);
         int currentDownLimit = alienGroup.getgroupDownLimit();
         alienGroup.moveAliens();
         assertEquals(currentDownLimit, alienGroup.getgroupDownLimit());
