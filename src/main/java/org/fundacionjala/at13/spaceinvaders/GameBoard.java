@@ -120,10 +120,8 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void messageEndGame(final String message) {
         if (message == "Game Over") {
-            ImageIcon iconGame = new ImageIcon("resources/game.png");
-            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setIcon(iconGame);
-            ImageIcon iconOver = new ImageIcon("resources/over.png");
-            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setIcon(iconOver);
+            gameOver.showGameOver(this, timer);
+            repaint();
         }
         if (message == "You Win") {
             ImageIcon iconYou = new ImageIcon("resources/you.png");
@@ -270,12 +268,17 @@ public class GameBoard extends JFrame implements KeyListener {
      * Refresh the icon of a label where it is our Alien.
      */
     public void refreshAlienGroup() {
-        for (Alien alien : alienGroup.getAliens()) {
-            if (alien.getAlive()) {
-                ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-                labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        if (!alienGroup.gotToTheSpaceship()) {
+            for (Alien alien : alienGroup.getAliens()) {
+                if (alien.getAlive()) {
+                    ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+                    labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
 
+                }
             }
+        } else {
+            gameOver.showGameOver(this, timer);
+            repaint();
         }
     }
 
