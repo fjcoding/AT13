@@ -268,14 +268,14 @@ public class GameBoard extends JFrame implements KeyListener {
      * Refresh the icon of a label where it is our Alien.
      */
     public void refreshAlienGroup() {
-        if(!alienGroup.gotToTheSpaceship()) {
-        for (Alien alien : alienGroup.getAliens()) {
-            if (alien.getAlive()) {
-                ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-                labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        if (!alienGroup.gotToTheSpaceship()) {
+            for (Alien alien : alienGroup.getAliens()) {
+                if (alien.getAlive()) {
+                    ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+                    labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
 
+                }
             }
-        }
         } else {
             gameOver.showGameOver(this, timer);
             repaint();
