@@ -54,17 +54,7 @@ public class GameBoard extends JFrame implements KeyListener {
         setFocusable(true);
         labelArray = new JLabel[SCALE_HEIGHT][SCALE_WIDTH];
         setLayout(new GridLayout(SCALE_HEIGHT, SCALE_WIDTH));
-
-        for (int row = 0; row < SCALE_HEIGHT; row++) {
-            for (int col = 0; col < SCALE_WIDTH; col++) {
-                JLabel label = new JLabel();
-                label.setName("Spaceship");
-                label.setOpaque(true);
-                label.setBackground(Color.black);
-                labelArray[row][col] = label;
-                add(label);
-            }
-        }
+        createLabelArray(labelArray);
         spaceShip();
         spaceAlienGroup();
         addKeyListener(this);
@@ -337,6 +327,22 @@ public class GameBoard extends JFrame implements KeyListener {
             cleanSpaceShip();
             spaceship.moveLeft();
             refreshSpaceShip();
+        }
+    }
+
+    /**
+    * Method that creates an array of JLables
+    */
+    public void createLabelArray(final JLabel[][] labelsArray) {
+        for (int row = 0; row < SCALE_HEIGHT; row++) {
+            for (int col = 0; col < SCALE_WIDTH; col++) {
+                JLabel label = new JLabel();
+                label.setName("Space");
+                label.setOpaque(true);
+                label.setBackground(Color.black);
+                labelsArray[row][col] = label;
+                add(label);
+            }
         }
     }
 }
