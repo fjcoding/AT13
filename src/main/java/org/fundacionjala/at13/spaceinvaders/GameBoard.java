@@ -216,7 +216,9 @@ public class GameBoard extends JFrame implements KeyListener {
         executeShoot(e.getKeyCode());
     }
 
-    /** */
+    /** 
+     * Execute functionality of moving left of spaceship.
+     */
     public void executeMoveLeft(final int keyCode) {
         if (keyCode == KeyEvent.VK_LEFT) {
             cleanSpaceShip();
@@ -225,7 +227,9 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-    /** */
+    /** 
+     * Execute functionality of moving right of spaceship.
+     */
     public void executeMoveRight(final int keyCode) {
         if (keyCode == KeyEvent.VK_RIGHT) {
             cleanSpaceShip();
@@ -234,7 +238,9 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-    /** */
+    /** 
+     * Execute functionality of shooting of spaceship.
+     */
     public void executeShoot(final int keyCode) {
         if (keyCode == KeyEvent.VK_SPACE) {
             if (!bullet.getBulletExist()) {
@@ -244,12 +250,16 @@ public class GameBoard extends JFrame implements KeyListener {
         }
     }
 
-    /** */
+    /** 
+     * @return our spaceship.  
+     */
     public Spaceship getSpaceship() {
         return spaceship;
     }
 
-    /** */
+    /** 
+     * @return our bullet.
+     */
     public Bullet getBullet() {
         return bullet;
     }
