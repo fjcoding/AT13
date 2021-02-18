@@ -9,9 +9,11 @@ import java.util.Timer;
 
 public class GameBoard extends JFrame implements KeyListener {
 
+    public static final int DEFAULT_HEIGHT = 11;
+    public static final int DEFAULT_WIDTH = 15;
     private static final int SIZE_IMAGE = 40;
-    private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
-    private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
+    private static final int SCALE_WIDTH = DEFAULT_WIDTH;
+    private static final int SCALE_HEIGHT = DEFAULT_HEIGHT;
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
