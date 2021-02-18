@@ -120,6 +120,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void messageEndGame(final String message) {
         if (message == "Game Over") {
+            points = 0;
             gameOver.showGameOver(this, timer);
             repaint();
         }
@@ -277,6 +278,7 @@ public class GameBoard extends JFrame implements KeyListener {
                 }
             }
         } else {
+            points = 0;
             gameOver.showGameOver(this, timer);
             repaint();
         }
