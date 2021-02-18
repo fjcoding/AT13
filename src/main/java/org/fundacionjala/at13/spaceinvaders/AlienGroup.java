@@ -9,6 +9,8 @@ public class AlienGroup {
     private static final int SPACE_SIZE_HEIGHT = 10;
     private static final int SPACE_SIZE_WIDTH = 15;
     private static final int SPACESHIP_ROW_LIMIT = 3;
+    public static final int DEFAULT_WIDTH = 15;
+    public static final int INITIAL_RANGE = 0;
     private int groupLeftLimit;
     private int groupRightLimit;
     private int groupDownLimit;
@@ -30,7 +32,7 @@ public class AlienGroup {
     public void addAliens() {
         for (int row = 0; row < numberOfAlienRows; row++) {
             for (int col = 0; col < numberOfAlienColumns; col++) {
-                Alien alien = new Alien(col, row, Space.INITIAL_RANGE, Space.DEFAULT_WIDTH);
+                Alien alien = new Alien(col, row, INITIAL_RANGE, DEFAULT_WIDTH);
                 alienGroup.add(alien);
             }
         }
@@ -76,6 +78,12 @@ public class AlienGroup {
      */
     public void switchDirection() {
         this.directionIsTowardsRight = !directionIsTowardsRight;
+    }
+    /**
+     * method to return the directionIsTowardsRight variable.
+     */
+    public boolean getSwitchDirection() {
+        return this.directionIsTowardsRight;
     }
     /**
      * method to get groupDownLimit.

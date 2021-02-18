@@ -9,9 +9,11 @@ import java.util.Timer;
 
 public class GameBoard extends JFrame implements KeyListener {
 
+    public static final int DEFAULT_HEIGHT = 11;
+    public static final int DEFAULT_WIDTH = 15;
     private static final int SIZE_IMAGE = 40;
-    private static final int SCALE_WIDTH = Space.DEFAULT_WIDTH;
-    private static final int SCALE_HEIGHT = Space.DEFAULT_HEIGHT;
+    private static final int SCALE_WIDTH = DEFAULT_WIDTH;
+    private static final int SCALE_HEIGHT = DEFAULT_HEIGHT;
     private static final int SIZE_WINDOW_WIDTH = SCALE_WIDTH * SIZE_IMAGE;
     private static final int SIZE_WINDOW_HEIGHT = SCALE_HEIGHT * SIZE_IMAGE;
     private static final int NUMBER_HUNDRED = 100;
@@ -25,9 +27,16 @@ public class GameBoard extends JFrame implements KeyListener {
     public static final int DELAY_OF_CYCLE_IN_MILISECONDS = 10;
     public static final int VELOCITY_GROUP_ALIEN = 50;
     public static final int VELOCITY_SHOOT_BULLET = 40;
-    private static boolean switchBullet = false;
-    private static Bullet bullet;
+    private static boolean switchBulletAlien = false;
+    private static Bullet bulletSpaceShip;
+    private static Bullet bulletAlien;
     public static final int TIK = 100;
+    private final GameOver gameOver = new GameOver();
+    private static final int POSITION_MESSAGE_X = 5;
+    private static final int POSITION_MESSAGE_POINTS = 12;
+    private static int points = 0;
+    private static final int FINAL_POINTS = 150;
+    private static final int POINTS_BY_ALIEN = 10;
 
     public GameBoard() {
     }
@@ -67,8 +76,11 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void spaceShip() {
         spaceship = new Spaceship(SCALE_WIDTH / 2, SCALE_HEIGHT - 2, 0, SCALE_WIDTH);
-        bullet = spaceship.shoot();
+        bulletSpaceShip = spaceship.shoot();
         refreshSpaceShip();
+        ImageIcon iconPoints = new ImageIcon("resources/points.png");
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS].setIcon(iconPoints);
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS + 1].setText(": " + points);
     }
 
     /**
@@ -85,10 +97,19 @@ public class GameBoard extends JFrame implements KeyListener {
                     tic /= NUMBER_HUNDRED;
                 }
                 if (tic % VELOCITY_SHOOT_BULLET == 0) {
-                    if (switchBullet) {
+                    if (!spaceship.getAlive()) {
+                        messageEndGame("Game Over");
+                    }
+                    if (points == FINAL_POINTS) {
+                        messageEndGame("You Win");
+                    }
+                    shootFromRamdonAlien();
+                    bulletAlienShotAnimation();
+                    if (bulletSpaceShip.getBulletExist()) {
                         bulletShotAnimation();
                         collisionBulletToAlien();
                     }
+
                 }
                 tic += 1;
             }
@@ -97,30 +118,106 @@ public class GameBoard extends JFrame implements KeyListener {
     }
 
     /**
+     * Method to show any message.
+     */
+    public void messageEndGame(final String message) {
+        if (message == "Game Over") {
+            points = 0;
+            gameOver.showGameOver(this, timer);
+            repaint();
+        }
+        if (message == "You Win") {
+            ImageIcon iconYou = new ImageIcon("resources/you.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X].setIcon(iconYou);
+            ImageIcon iconWin = new ImageIcon("resources/win.png");
+            labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_X + 1].setIcon(iconWin);
+        }
+
+    }
+
+    /**
+     * Method to choise a alien to shoot.
+     */
+    public void shootFromRamdonAlien() {
+        if (bulletAlien == null) {
+            int fromAlien = (int) (Math.random() * (alienGroup.getAliens().size() - 1));
+            while (!alienGroup.getAliens().get(fromAlien).getAlive()) {
+                fromAlien = (int) (Math.random() * (alienGroup.getAliens().size() - 1));
+            }
+            bulletAlien = alienGroup.getAliens().get(fromAlien).shoot();
+            bulletAlien.changeBulletExists(true);
+            bulletAlien.setUpperLimit(SCALE_HEIGHT - 2);
+        }
+    }
+
+    /**
+     * Method to show and move the bullet the alien.
+     */
+    public void bulletAlienShotAnimation() {
+        if (switchBulletAlien) {
+            cleanBulletAlien();
+        }
+        switchBulletAlien = true;
+        bulletAlien.shootSpaceship();
+        if (bulletAlien.getBulletExist()) {
+            refreshBulletAlien();
+            if (bulletAlien.hasHitTheSpaceship(spaceship)) {
+                labelArray[SCALE_HEIGHT - 1][spaceship.getNumbersLife()].setIcon(null);
+                labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+            }
+        }
+        if (!bulletAlien.getBulletExist()) {
+            bulletAlien = null;
+            switchBulletAlien = false;
+        }
+    }
+
+    /**
+     * Refresh the icon of a label where it is our spaceship.
+     */
+    public void refreshBulletAlien() {
+        ImageIcon iconBullet = new ImageIcon("resources/abullet.png");
+        labelArray[bulletAlien.getPositionY()][bulletAlien.getPositionX()].setIcon(iconBullet);
+    }
+
+    /**
+     * Clean the icon of a label where it was our spaceship.
+     */
+    public void cleanBulletAlien() {
+        labelArray[bulletAlien.getPositionY()][bulletAlien.getPositionX()].setIcon(null);
+    }
+
+    /**
      * Method to check colision the spaceship bullet in a alien
      */
     public void collisionBulletToAlien() {
         for (Alien alien : alienGroup.getAliens()) {
-            if (bullet.hasHitTheAlien(alien)) {
-                switchBullet = false;
+            if (bulletSpaceShip.hasHitTheAlien(alien)) {
                 alien.die();
+                points += POINTS_BY_ALIEN;
+                refresMessagePoints();
             }
         }
+    }
+
+    /**
+     * Method to show the points message.
+     */
+    public void refresMessagePoints() {
+        labelArray[spaceship.getPosY() + 1][POSITION_MESSAGE_POINTS + 1].setText(": " + points);
     }
 
     /**
      * Method to show and move the bullet.
      */
     public void bulletShotAnimation() {
-        if (bullet.getPositionY() < spaceship.getPosY()) {
+        if (bulletSpaceShip.getPositionY() < spaceship.getPosY()) {
             cleanBullet();
         }
-        bullet.shootAlien();
-        if (bullet.getPositionY() == -1) {
-            bullet.finishBull();
-            switchBullet = false;
+        bulletSpaceShip.shootAlien();
+        if (bulletSpaceShip.getBulletExist()) {
+            refreshBullet();
         }
-        refreshBullet();
     }
 
     /**
@@ -128,18 +225,15 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void refreshBullet() {
 
-        if (switchBullet) {
-            ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
-            labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(iconBullet);
-        }
-
+        ImageIcon iconBullet = new ImageIcon("resources/sbullet.png");
+        labelArray[bulletSpaceShip.getPositionY()][bulletSpaceShip.getPositionX()].setIcon(iconBullet);
     }
 
     /**
      * Clean the icon of a label where it was our spaceship.
      */
     public void cleanBullet() {
-        labelArray[bullet.getPositionY()][bullet.getPositionX()].setIcon(null);
+        labelArray[bulletSpaceShip.getPositionY()][bulletSpaceShip.getPositionX()].setIcon(null);
     }
 
     /**
@@ -162,6 +256,7 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     public void cleanSpaceShip() {
         labelArray[spaceship.getPosY()][spaceship.getPosX()].setIcon(null);
+
     }
 
     /**
@@ -176,12 +271,18 @@ public class GameBoard extends JFrame implements KeyListener {
      * Refresh the icon of a label where it is our Alien.
      */
     public void refreshAlienGroup() {
-        for (Alien alien : alienGroup.getAliens()) {
-            if (alien.getAlive()) {
-                ImageIcon iconLogo = new ImageIcon("resources/alien.png");
-                labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
+        if (!alienGroup.gotToTheSpaceship()) {
+            for (Alien alien : alienGroup.getAliens()) {
+                if (alien.getAlive()) {
+                    ImageIcon iconLogo = new ImageIcon("resources/alien.png");
+                    labelArray[alien.getPosY()][alien.getPosX()].setIcon(iconLogo);
 
+                }
             }
+        } else {
+            points = 0;
+            gameOver.showGameOver(this, timer);
+            repaint();
         }
     }
 
@@ -215,21 +316,27 @@ public class GameBoard extends JFrame implements KeyListener {
      */
     @Override
     public void keyPressed(final KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            cleanSpaceShip();
-            spaceship.moveLeft();
-            refreshSpaceShip();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+
+        executeMoveLeft(e.getKeyCode());
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT && spaceship.getAlive()) {
             cleanSpaceShip();
             spaceship.moveRight();
             refreshSpaceShip();
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (!switchBullet) {
-                bullet.setPositionX(spaceship.getPosX());
+            if (!bulletSpaceShip.getBulletExist()) {
+                bulletSpaceShip.setPositionX(spaceship.getPosX());
             }
-            switchBullet = true;
+            bulletSpaceShip.changeBulletExists(true);
+        }
+    }
+
+    /** */
+    public void executeMoveLeft(final int keyCode) {
+        if (keyCode == KeyEvent.VK_LEFT && spaceship.getAlive()) {
+            cleanSpaceShip();
+            spaceship.moveLeft();
+            refreshSpaceShip();
         }
     }
 }

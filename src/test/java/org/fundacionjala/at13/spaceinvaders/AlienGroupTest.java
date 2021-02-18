@@ -84,6 +84,7 @@ public class AlienGroupTest {
         alienGroup.moveAliens();
         assertEquals(5 ,alienGroup.getGroupRightLimit());
     }
+    @Test
     public void shouldCheckIfGroupReachTheSpaceship() {
         /**
          * SPACE_SIZE_HEIGHT = 30
@@ -92,6 +93,20 @@ public class AlienGroupTest {
         int currentDownLimit = alienGroup.getgroupDownLimit();
         alienGroup.moveAliens();
         assertEquals(currentDownLimit, alienGroup.getgroupDownLimit());
+    }
+    
+    @Test
+    public void shouldCheckIfGroupMoveDown() {
+        AlienGroup alienGroup = new AlienGroup(2, 12);
+        //boolean actualSwitchDirection = getSwitchDirection();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        alienGroup.moveAliens();
+        int currentDownLimit = alienGroup.getgroupDownLimit();
+        assertEquals(2, currentDownLimit);
+        assertEquals(false, alienGroup.getSwitchDirection()); 
+        assertEquals(14, alienGroup.getGroupRightLimit());
     }
 }
 
